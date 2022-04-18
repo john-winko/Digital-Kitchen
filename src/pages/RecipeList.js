@@ -6,7 +6,7 @@ export default function RecipeList() {
 
     return (
         <div className={"d-flex flex-column mx-auto"}>
-            {getRecipeList().map((recipe)=><RecipeCard recipe={recipe}/>)}
+            {getRecipeList().map((recipe)=><RecipeCard key={recipe.id} recipe={recipe}/>)}
         </div>
 
     )

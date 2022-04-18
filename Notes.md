@@ -17,6 +17,7 @@
 - Implement footer
 - Implement signup
 - Cleanup login page
+- Add ingredients/steps to RecipeCard
 
 # Stretch
-- 
+- Save tag preferences as well

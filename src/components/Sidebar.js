@@ -9,7 +9,7 @@ export default function Sidebar() {
         return <></>
 
     return (
-            <div style={{backgroundColor: "lightblue", width: "20vw", borderRadius:"25px", padding:"5px", margin:"5px"}}>
+            <div style={{backgroundColor: "lightblue", minWidth: "20vw", borderRadius:"2rem", padding:".5rem", margin:".5rem"}}>
                 <ul>Sett
                     <ul>Preferences
                         <li><Link to={"/keywords"}>Keyword (blacklist)</Link></li>
