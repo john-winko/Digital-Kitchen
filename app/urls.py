@@ -12,7 +12,6 @@ r.register(r'user_recipe', UserRecipeViewSet, basename="user_recipe")
 r.register(r'meal', MealViewSet, basename="meal")
 
 urlpatterns = [
-    # path('token/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('v1/', include(r.urls))

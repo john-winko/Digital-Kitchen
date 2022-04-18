@@ -25,7 +25,7 @@ function Logout() {
 
 function ShowLoginLogout(){
     let auth = useContext(AuthContext)
-    if (auth.user)
+    if (auth.token)
         return <Logout />
     else
         return <Login />

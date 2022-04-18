@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 export default function Sidebar() {
     let auth = useContext(AuthContext)
 
-    if (!auth.user)
+    if (!auth.token)
         return <></>
 
     return (

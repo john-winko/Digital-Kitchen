@@ -8,10 +8,10 @@ export default function Keywords(){
 
     useEffect(()=>{
         if (dirty){
-            console.log("dirty")
+            // console.log("dirty")
             backend.get('/api/v1/keyword')
                 .then((res)=>{
-                    console.log("not dirty")
+                    // console.log("not dirty")
                     setKeywords(res.data)
             })
 
@@ -41,7 +41,7 @@ export default function Keywords(){
             </form>
             <hr/>
             <ul>
-                {keywords.map(keyword=><li>{keyword.keyword}</li>)}
+                {keywords.map(keyword=><li key={keyword.id}>{keyword.acceptability} - {keyword.keyword}</li>)}
             </ul>
         </div>
     )

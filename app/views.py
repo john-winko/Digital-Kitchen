@@ -16,19 +16,6 @@ def send_the_homepage(request):
     return HttpResponse(react_app)
 
 
-class MyTokenObtainPairSerializer(TokenObtainPairSerializer):  # noqa (used to omit lint warnings in PyCharm)
-    @classmethod
-    def get_token(cls, user):
-        token = super().get_token(user)
-        token['username'] = user.username
-        token['id'] = user.pk
-        return token
-
-
-class MyTokenObtainPairView(TokenObtainPairView):
-    serializer_class = MyTokenObtainPairSerializer
-
-
 class UserViewSet(ModelViewSet):
     permission_classes = [IsAuthenticated]
     queryset = User.objects.all()
