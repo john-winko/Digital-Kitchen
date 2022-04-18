@@ -40,6 +40,19 @@ class KeywordViewSet(ModelViewSet):
     queryset = Keyword.objects.all()
     serializer_class = KeywordSerializer
 
+    def get_queryset(self):
+        return self.queryset.filter(user=self.request.user.pk)
+
+    def create(self, request, *args, **kwargs):
+        data = request.data
+        data._mutable = True
+        data['user'] = request.user.pk
+        serializer = KeywordSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, status=201)
+        return JsonResponse(serializer.errors, status=400)
+
 
 class RecipeViewSet(ModelViewSet):
     permission_classes = [IsAuthenticated]

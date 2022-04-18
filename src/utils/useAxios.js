@@ -50,19 +50,19 @@ const useAxios = () => {
 
     // Refresh token if it has expired before sending request
     axiosInstance.interceptors.request.use(async req => {
-
+        console.log("intercepted")
         // jwt_decode is a non-depreciated version of atob()
         const decodedJWT = jwt_decode(token.access)
 
         // dayjs has data comparison functionality based on "exp" supplied in token
         const isExpired = dayjs.unix(decodedJWT.exp).diff(dayjs()) < 1;
-
+        console.log("isexpired",isExpired)
         if (!isExpired) return req
 
         const response = await axios.post(`${baseURL}${refreshURL}`, {
             refresh: token.refresh
         });
-
+        console.log("refresh response",response)
         localStorage.setItem(tokenName, JSON.stringify(response.data))
 
         setToken(response.data)

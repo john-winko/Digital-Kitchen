@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage";
 import Layout from "./pages/Layout";
 import UserHome from "./pages/UserHome";
 import ComingSoon from "./pages/ComingSoon";
+import Keywords from "./pages/Keywords";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
                         <Route path={"/coming_soon"} element={<ComingSoon />} />
                         <Route element={<RequireAuth />}>
                             <Route path={"/home"} element={<UserHome />} />
+                            <Route path={"/keywords"} element={<Keywords/>}/>
                         </Route>
                     </Route>
                 </Routes>

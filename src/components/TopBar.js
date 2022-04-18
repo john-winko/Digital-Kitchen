@@ -8,7 +8,7 @@ function TopBar() {
 
     return (
         <div>
-            <Navbar bg="light" expand="lg">
+            <Navbar expand="lg" style={{backgroundColor:"lightgrey", borderRadius:"25px 0 25px 0", margin:"5px", padding:"5px"}}>
                 <Container fluid>
                     <Navbar.Brand><Link to={"/"} style={linkStyle}>Digital Kitchen </Link></Navbar.Brand>
                     <Nav><Link to={"/home"} style={linkStyle}>Home </Link></Nav>

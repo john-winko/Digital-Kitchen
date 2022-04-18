@@ -12,22 +12,22 @@ class UserSerializer(serializers.ModelSerializer):
 class KeywordSerializer(serializers.ModelSerializer):
     class Meta:
         model = Keyword
-        include = "__all__"
+        fields = "__all__"
 
 
 class RecipeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Recipe
-        include = "__all__"
+        fields = "__all__"
 
 
 class UserRecipeSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserRecipe
-        include = "__all__"
+        fields = "__all__"
 
 
 class MealSerializer(serializers.ModelSerializer):
     class Meta:
         model = Meal
-        include = "__all__"
+        fields = "__all__"
