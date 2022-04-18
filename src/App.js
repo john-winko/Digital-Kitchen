@@ -1,12 +1,12 @@
 import './App.css';
 import {Route, Routes} from "react-router-dom";
-import PublicPage from "./pages/PublicPage.js";
 import LoginPage from "./pages/LoginPage.js";
-import ProtectedPage from "./pages/ProtectedPage.js"
 import Signup from "./pages/Signup";
 import {AuthProvider, RequireAuth} from "./context/AuthProvider";
 import HomePage from "./pages/HomePage";
 import Layout from "./pages/Layout";
+import UserHome from "./pages/UserHome";
+import ComingSoon from "./pages/ComingSoon";
 
 
 function App() {
@@ -17,11 +17,11 @@ function App() {
                 <Routes>
                     <Route element={<Layout/>}>
                         <Route path={"/"} element={<HomePage/>}/>
-                        <Route path={"/public"} element={<PublicPage/>}/>
                         <Route path={"/login"} element={<LoginPage/>}/>
                         <Route path={"/signup"} element={<Signup />}/>
+                        <Route path={"/coming_soon"} element={<ComingSoon />} />
                         <Route element={<RequireAuth />}>
-                            <Route path={"/protected"} element={<ProtectedPage />} />
+                            <Route path={"/home"} element={<UserHome />} />
                         </Route>
                     </Route>
                 </Routes>

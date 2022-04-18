@@ -11,9 +11,8 @@ function TopBar() {
             <Navbar bg="light" expand="lg">
                 <Container fluid>
                     <Navbar.Brand><Link to={"/"} style={linkStyle}>Digital Kitchen </Link></Navbar.Brand>
-                    <Nav><Link to={"/public"} style={linkStyle}>Public </Link></Nav>
-                    <Nav><Link to={"/protected"} style={linkStyle}>Protected </Link></Nav>
-                    <Nav><Link to={"/notes"} style={linkStyle}>Notes </Link></Nav>
+                    <Nav><Link to={"/home"} style={linkStyle}>Home </Link></Nav>
+                    <Nav><Link to={"/coming_soon"} style={linkStyle}>Browse Recipes </Link></Nav>
                     <Nav className="me-auto my-2 my-lg-0" style={{maxHeight: "100px"}} navbarScroll></Nav>
                     <ShowLoginLogout/>
                 </Container>
