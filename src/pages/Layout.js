@@ -1,27 +1,18 @@
-import {Link, Outlet} from "react-router-dom";
-import {Container, Nav, Navbar} from "react-bootstrap";
-import { ShowLoginLogout} from "../components/Login";
+import {Outlet} from "react-router-dom";
+import Sidebar from "../components/Sidebar";
+import Footer from "../components/Footer";
+import TopBar from "../components/TopBar";
 
 
-function Layout() {
-    const linkStyle = {color: 'inherit', textDecoration: 'inherit', marginLeft:"1rem"}
-
+export default function Layout() {
     return (
-        <div>
-            <Navbar bg="light" expand="lg">
-                <Container fluid>
-                    <Navbar.Brand><Link to={"/"} style={linkStyle}>App Name </Link></Navbar.Brand>
-                    <Nav><Link to={"/public"} style={linkStyle}>Public </Link></Nav>
-                    <Nav><Link to={"/protected"} style={linkStyle}>Protected </Link></Nav>
-                    <Nav><Link to={"/notes"} style={linkStyle}>Notes </Link></Nav>
-                    <Nav className="me-auto my-2 my-lg-0" style={{maxHeight: "100px"}} navbarScroll></Nav>
-                    <ShowLoginLogout/>
-                </Container>
-            </Navbar>
-            {/*Outlet renders the child routes*/}
-            <Outlet/>
+        <div style={{height: "100vh"}}>
+            <TopBar/>
+            <div style={{display: "flex", flexDirection: "row", height: "90%"}}>
+                <Sidebar/>
+                <Outlet/>
+            </div>
+            <Footer/>
         </div>
-    );
+    )
 }
-
-export default Layout

@@ -1,15 +1,33 @@
-from rest_framework.serializers import ModelSerializer
+from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import Note
+from .models import Keyword, Recipe, UserRecipe, Meal
 
 
-class UserSerializer(ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         exclude = ["password"]
 
 
-class NoteSerializer(ModelSerializer):
+class KeywordSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Note
-        fields = "__all__"
+        model = Keyword
+        include = "__all__"
+
+
+class RecipeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Recipe
+        include = "__all__"
+
+
+class UserRecipeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserRecipe
+        include = "__all__"
+
+
+class MealSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Meal
+        include = "__all__"

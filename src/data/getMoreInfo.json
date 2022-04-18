@@ -1,0 +1,958 @@
+{
+    "nutrition": {
+        "calories": 326,
+        "carbohydrates": 17,
+        "fat": 23,
+        "protein": 12,
+        "sugar": 2,
+        "fiber": 3,
+        "updated_at": "2021-09-30T08:01:01+02:00"
+    },
+    "aspect_ratio": "16:9",
+    "video_id": 133101,
+    "video_url": "https://vid.tasty.co/output/217472/hls24_1632865097.m3u8",
+    "credits": [
+        {
+            "type": "brand",
+            "id": 49,
+            "name": "Pepsi",
+            "slug": "pepsi",
+            "image_url": "https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/recipes/7137c6b357dc48ceb6e1435477a5119d.jpeg"
+        }
+    ],
+    "video_ad_content": "co_branded",
+    "instructions": [
+        {
+            "display_text": "Heat the olive oil in a medium pan over medium heat. Add the onion and garlic, and sauté for 6 minutes, until slightly tender and fragrant. Add the green chiles, chipotles, and adobo sauce, and cook for 2 minutes, until fully incorporated.",
+            "position": 1,
+            "start_time": 16000,
+            "end_time": 38000,
+            "temperature": null,
+            "appliance": null,
+            "id": 68390
+        },
+        {
+            "display_text": "Add the beef chorizo, cumin, paprika, cinnamon, and salt, and cook, breaking up the chorizo with a wooden spoon, for 10–14 minutes, until the chorizo is cooked through and crispy. Remove the pan from the heat and let the chorizo mixture cool slightly.",
+            "position": 2,
+            "start_time": 43000,
+            "end_time": 61333,
+            "temperature": null,
+            "appliance": null,
+            "id": 68391
+        },
+        {
+            "id": 68392,
+            "display_text": "In a small bowl, combine the Monterey Jack and cheddar cheeses.",
+            "position": 3,
+            "start_time": 63000,
+            "end_time": 69500,
+            "temperature": null,
+            "appliance": null
+        },
+        {
+            "display_text": "Assemble the taquitos: Wrap the tortillas loosely in a damp paper towel and microwave for 45–60 seconds, until soft and pliable.",
+            "position": 4,
+            "start_time": 0,
+            "end_time": 0,
+            "temperature": null,
+            "appliance": null,
+            "id": 68393
+        },
+        {
+            "position": 5,
+            "start_time": 73000,
+            "end_time": 89333,
+            "temperature": null,
+            "appliance": null,
+            "id": 68394,
+            "display_text": "Set a tortilla on a flat surface and sprinkle with 1½–2 tablespoons of the cheese blend. Spoon 1½ tablespoons of the chorizo mixture in a line on one end of the tortilla. Roll the tortilla up to enclose the filling, securing with a toothpick. Repeat with the remaining tortillas, cheese, and chorizo filling."
+        },
+        {
+            "start_time": 91000,
+            "end_time": 100666,
+            "temperature": 325,
+            "appliance": "stovetop",
+            "id": 68395,
+            "display_text": "In a medium, high-walled pan, heat the vegetable oil over medium-low heat until it reaches 325°F (160°C). Working in batches, fry the taquitos starting seam side down for 2–3 minutes per side, or until lightly browned and crispy. Remove from the pan and let cool slightly, then remove the toothpicks.",
+            "position": 6
+        },
+        {
+            "position": 7,
+            "start_time": 0,
+            "end_time": 0,
+            "temperature": null,
+            "appliance": null,
+            "id": 68396,
+            "display_text": "Arrange the taquitos on a platter and drizzle with the crema, then top with the lettuce, tomato, avocado, and any remaining cheese. Or top with lettuce, scallions, avocado, Fresno chilies, and any remaining cheese."
+        },
+        {
+            "appliance": null,
+            "id": 68397,
+            "display_text": "Serve immediately.",
+            "position": 8,
+            "start_time": 0,
+            "end_time": 0,
+            "temperature": null
+        },
+        {
+            "position": 9,
+            "start_time": 127000,
+            "end_time": 131166,
+            "temperature": null,
+            "appliance": null,
+            "id": 68398,
+            "display_text": "Enjoy!"
+        }
+    ],
+    "sections": [
+        {
+            "components": [
+                {
+                    "extra_comment": "",
+                    "position": 1,
+                    "measurements": [
+                        {
+                            "unit": {
+                                "display_singular": "tablespoon",
+                                "display_plural": "tablespoons",
+                                "system": "imperial",
+                                "name": "tablespoon",
+                                "abbreviation": "tbsp"
+                            },
+                            "id": 662129,
+                            "quantity": "1"
+                        }
+                    ],
+                    "ingredient": {
+                        "name": "olive oil",
+                        "display_singular": "olive oil",
+                        "display_plural": "olive oils",
+                        "created_at": 1493306183,
+                        "updated_at": 1509035290,
+                        "id": 4
+                    },
+                    "id": 88498,
+                    "raw_text": "1 tablespoon olive oil"
+                },
+                {
+                    "extra_comment": "thinly sliced",
+                    "position": 2,
+                    "measurements": [
+                        {
+                            "id": 662130,
+                            "quantity": "½",
+                            "unit": {
+                                "display_plural": "",
+                                "system": "none",
+                                "name": "",
+                                "abbreviation": "",
+                                "display_singular": ""
+                            }
+                        }
+                    ],
+                    "ingredient": {
+                        "name": "large yellow onion",
+                        "display_singular": "large yellow onion",
+                        "display_plural": "large yellow onions",
+                        "created_at": 1505000725,
+                        "updated_at": 1509035097,
+                        "id": 2978
+                    },
+                    "id": 88499,
+                    "raw_text": "½ large yellow onion, thinly sliced"
+                },
+                {
+                    "measurements": [
+                        {
+                            "id": 662133,
+                            "quantity": "2",
+                            "unit": {
+                                "display_singular": "clove",
+                                "display_plural": "cloves",
+                                "system": "none",
+                                "name": "clove",
+                                "abbreviation": "clove"
+                            }
+                        }
+                    ],
+                    "ingredient": {
+                        "display_singular": "garlic",
+                        "display_plural": "garlics",
+                        "created_at": 1493744766,
+                        "updated_at": 1509035285,
+                        "id": 95,
+                        "name": "garlic"
+                    },
+                    "id": 88500,
+                    "raw_text": "2 garlic cloves, minced",
+                    "extra_comment": "minced",
+                    "position": 3
+                },
+                {
+                    "raw_text": "7 ounces canned whole green chiles, thinly sliced",
+                    "extra_comment": "thinly sliced",
+                    "position": 4,
+                    "measurements": [
+                        {
+                            "id": 662146,
+                            "quantity": "7",
+                            "unit": {
+                                "name": "ounce",
+                                "abbreviation": "oz",
+                                "display_singular": "oz",
+                                "display_plural": "oz",
+                                "system": "imperial"
+                            }
+                        },
+                        {
+                            "id": 662145,
+                            "quantity": "200",
+                            "unit": {
+                                "name": "gram",
+                                "abbreviation": "g",
+                                "display_singular": "g",
+                                "display_plural": "g",
+                                "system": "metric"
+                            }
+                        }
+                    ],
+                    "ingredient": {
+                        "id": 9128,
+                        "name": "whole green chiles",
+                        "display_singular": "whole green chile",
+                        "display_plural": "whole green chiles",
+                        "created_at": 1632865335,
+                        "updated_at": 1632865335
+                    },
+                    "id": 88501
+                },
+                {
+                    "ingredient": {
+                        "created_at": 1632865371,
+                        "updated_at": 1632865371,
+                        "id": 9129,
+                        "name": "whole chipotle chiles in adobo sauce",
+                        "display_singular": "whole chipotle chile in adobo sauce",
+                        "display_plural": "whole chipotle chiles in adobo sauce"
+                    },
+                    "id": 88502,
+                    "raw_text": "3 whole chipotle chiles in adobo sauce, finely chopped",
+                    "extra_comment": "finely chopped",
+                    "position": 5,
+                    "measurements": [
+                        {
+                            "unit": {
+                                "name": "",
+                                "abbreviation": "",
+                                "display_singular": "",
+                                "display_plural": "",
+                                "system": "none"
+                            },
+                            "id": 662134,
+                            "quantity": "3"
+                        }
+                    ]
+                },
+                {
+                    "id": 88503,
+                    "raw_text": "3 tablespoons adobo sauce",
+                    "extra_comment": "",
+                    "position": 6,
+                    "measurements": [
+                        {
+                            "id": 662138,
+                            "quantity": "3",
+                            "unit": {
+                                "display_plural": "tablespoons",
+                                "system": "imperial",
+                                "name": "tablespoon",
+                                "abbreviation": "tbsp",
+                                "display_singular": "tablespoon"
+                            }
+                        }
+                    ],
+                    "ingredient": {
+                        "created_at": 1610407155,
+                        "updated_at": 1610407155,
+                        "id": 7860,
+                        "name": "adobo sauce",
+                        "display_singular": "adobo sauce",
+                        "display_plural": "adobo sauces"
+                    }
+                },
+                {
+                    "id": 88504,
+                    "raw_text": "9 ounces ground Mexican beef chorizo",
+                    "extra_comment": "",
+                    "position": 7,
+                    "measurements": [
+                        {
+                            "id": 662140,
+                            "quantity": "9",
+                            "unit": {
+                                "name": "ounce",
+                                "abbreviation": "oz",
+                                "display_singular": "oz",
+                                "display_plural": "oz",
+                                "system": "imperial"
+                            }
+                        },
+                        {
+                            "id": 662137,
+                            "quantity": "255",
+                            "unit": {
+                                "display_plural": "g",
+                                "system": "metric",
+                                "name": "gram",
+                                "abbreviation": "g",
+                                "display_singular": "g"
+                            }
+                        }
+                    ],
+                    "ingredient": {
+                        "display_singular": "ground mexican beef chorizo",
+                        "display_plural": "ground mexican beef chorizoes",
+                        "created_at": 1632865391,
+                        "updated_at": 1632865391,
+                        "id": 9130,
+                        "name": "ground mexican beef chorizo"
+                    }
+                },
+                {
+                    "raw_text": "½ teaspoon ground cumin",
+                    "extra_comment": "",
+                    "position": 8,
+                    "measurements": [
+                        {
+                            "id": 662131,
+                            "quantity": "½",
+                            "unit": {
+                                "display_singular": "teaspoon",
+                                "display_plural": "teaspoons",
+                                "system": "imperial",
+                                "name": "teaspoon",
+                                "abbreviation": "tsp"
+                            }
+                        }
+                    ],
+                    "ingredient": {
+                        "created_at": 1494963477,
+                        "updated_at": 1509035267,
+                        "id": 357,
+                        "name": "ground cumin",
+                        "display_singular": "ground cumin",
+                        "display_plural": "ground cumins"
+                    },
+                    "id": 88505
+                },
+                {
+                    "id": 88506,
+                    "raw_text": "½ teaspoon ground paprika",
+                    "extra_comment": "",
+                    "position": 9,
+                    "measurements": [
+                        {
+                            "id": 662141,
+                            "quantity": "½",
+                            "unit": {
+                                "abbreviation": "tsp",
+                                "display_singular": "teaspoon",
+                                "display_plural": "teaspoons",
+                                "system": "imperial",
+                                "name": "teaspoon"
+                            }
+                        }
+                    ],
+                    "ingredient": {
+                        "id": 9131,
+                        "name": "ground paprika",
+                        "display_singular": "ground paprika",
+                        "display_plural": "ground paprikas",
+                        "created_at": 1632865420,
+                        "updated_at": 1632865420
+                    }
+                },
+                {
+                    "position": 10,
+                    "measurements": [
+                        {
+                            "id": 662136,
+                            "quantity": "¼",
+                            "unit": {
+                                "name": "teaspoon",
+                                "abbreviation": "tsp",
+                                "display_singular": "teaspoon",
+                                "display_plural": "teaspoons",
+                                "system": "imperial"
+                            }
+                        }
+                    ],
+                    "ingredient": {
+                        "display_singular": "ground cinnamon",
+                        "display_plural": "ground cinnamons",
+                        "created_at": 1494985113,
+                        "updated_at": 1509035263,
+                        "id": 407,
+                        "name": "ground cinnamon"
+                    },
+                    "id": 88507,
+                    "raw_text": "¼ teaspoon ground cinnamon",
+                    "extra_comment": ""
+                },
+                {
+                    "measurements": [
+                        {
+                            "id": 662132,
+                            "quantity": "¼",
+                            "unit": {
+                                "name": "teaspoon",
+                                "abbreviation": "tsp",
+                                "display_singular": "teaspoon",
+                                "display_plural": "teaspoons",
+                                "system": "imperial"
+                            }
+                        }
+                    ],
+                    "ingredient": {
+                        "id": 11,
+                        "name": "kosher salt",
+                        "display_singular": "kosher salt",
+                        "display_plural": "kosher salts",
+                        "created_at": 1493307153,
+                        "updated_at": 1509035289
+                    },
+                    "id": 88508,
+                    "raw_text": "¼ teaspoon kosher salt",
+                    "extra_comment": "",
+                    "position": 11
+                },
+                {
+                    "extra_comment": "",
+                    "position": 12,
+                    "measurements": [
+                        {
+                            "id": 662144,
+                            "quantity": "1 ½",
+                            "unit": {
+                                "display_plural": "cups",
+                                "system": "imperial",
+                                "name": "cup",
+                                "abbreviation": "c",
+                                "display_singular": "cup"
+                            }
+                        },
+                        {
+                            "unit": {
+                                "system": "metric",
+                                "name": "gram",
+                                "abbreviation": "g",
+                                "display_singular": "g",
+                                "display_plural": "g"
+                            },
+                            "id": 662142,
+                            "quantity": "250"
+                        }
+                    ],
+                    "ingredient": {
+                        "updated_at": 1509035256,
+                        "id": 495,
+                        "name": "shredded monterey jack cheese",
+                        "display_singular": "shredded monterey jack cheese",
+                        "display_plural": "shredded monterey jack cheeses",
+                        "created_at": 1495153408
+                    },
+                    "id": 88509,
+                    "raw_text": "1½ cups shredded Monterey Jack cheese"
+                },
+                {
+                    "id": 88510,
+                    "raw_text": "1 cup shredded cheddar cheese",
+                    "extra_comment": "",
+                    "position": 13,
+                    "measurements": [
+                        {
+                            "id": 662148,
+                            "quantity": "1",
+                            "unit": {
+                                "name": "cup",
+                                "abbreviation": "c",
+                                "display_singular": "cup",
+                                "display_plural": "cups",
+                                "system": "imperial"
+                            }
+                        },
+                        {
+                            "id": 662147,
+                            "quantity": "100",
+                            "unit": {
+                                "name": "gram",
+                                "abbreviation": "g",
+                                "display_singular": "g",
+                                "display_plural": "g",
+                                "system": "metric"
+                            }
+                        }
+                    ],
+                    "ingredient": {
+                        "created_at": 1493925659,
+                        "updated_at": 1509035282,
+                        "id": 168,
+                        "name": "shredded cheddar cheese",
+                        "display_singular": "shredded cheddar cheese",
+                        "display_plural": "shredded cheddar cheeses"
+                    }
+                },
+                {
+                    "position": 14,
+                    "measurements": [
+                        {
+                            "id": 662143,
+                            "quantity": "12",
+                            "unit": {
+                                "system": "none",
+                                "name": "",
+                                "abbreviation": "",
+                                "display_singular": "",
+                                "display_plural": ""
+                            }
+                        }
+                    ],
+                    "ingredient": {
+                        "display_plural": "corn tortillas",
+                        "created_at": 1496707510,
+                        "updated_at": 1509035190,
+                        "id": 1390,
+                        "name": "corn tortilla",
+                        "display_singular": "corn tortilla"
+                    },
+                    "id": 88511,
+                    "raw_text": "12–14 corn tortillas",
+                    "extra_comment": ""
+                },
+                {
+                    "measurements": [
+                        {
+                            "id": 662139,
+                            "quantity": "¼",
+                            "unit": {
+                                "name": "cup",
+                                "abbreviation": "c",
+                                "display_singular": "cup",
+                                "display_plural": "cups",
+                                "system": "imperial"
+                            }
+                        },
+                        {
+                            "id": 662135,
+                            "quantity": "60",
+                            "unit": {
+                                "name": "milliliter",
+                                "abbreviation": "mL",
+                                "display_singular": "mL",
+                                "display_plural": "mL",
+                                "system": "metric"
+                            }
+                        }
+                    ],
+                    "ingredient": {
+                        "display_singular": "vegetable oil",
+                        "display_plural": "vegetable oils",
+                        "created_at": 1493314628,
+                        "updated_at": 1509035288,
+                        "id": 20,
+                        "name": "vegetable oil"
+                    },
+                    "id": 88512,
+                    "raw_text": "¼ cup vegetable oil",
+                    "extra_comment": "",
+                    "position": 15
+                }
+            ],
+            "name": null,
+            "position": 1
+        },
+        {
+            "components": [
+                {
+                    "id": 88514,
+                    "raw_text": "4 tablespoons Mexican crema",
+                    "extra_comment": "",
+                    "position": 17,
+                    "measurements": [
+                        {
+                            "id": 662153,
+                            "quantity": "4",
+                            "unit": {
+                                "name": "tablespoon",
+                                "abbreviation": "tbsp",
+                                "display_singular": "tablespoon",
+                                "display_plural": "tablespoons",
+                                "system": "imperial"
+                            }
+                        }
+                    ],
+                    "ingredient": {
+                        "id": 4585,
+                        "name": "mexican crema",
+                        "display_singular": "mexican crema",
+                        "display_plural": "mexican cremas",
+                        "created_at": 1535000689,
+                        "updated_at": 1535000689
+                    }
+                },
+                {
+                    "id": 88515,
+                    "raw_text": "1 cup shredded iceberg lettuce",
+                    "extra_comment": "",
+                    "position": 18,
+                    "measurements": [
+                        {
+                            "unit": {
+                                "name": "cup",
+                                "abbreviation": "c",
+                                "display_singular": "cup",
+                                "display_plural": "cups",
+                                "system": "imperial"
+                            },
+                            "id": 662156,
+                            "quantity": "1"
+                        },
+                        {
+                            "id": 662155,
+                            "quantity": "100",
+                            "unit": {
+                                "name": "gram",
+                                "abbreviation": "g",
+                                "display_singular": "g",
+                                "display_plural": "g",
+                                "system": "metric"
+                            }
+                        }
+                    ],
+                    "ingredient": {
+                        "name": "shredded iceberg lettuce",
+                        "display_singular": "shredded iceberg lettuce",
+                        "display_plural": "shredded iceberg lettuces",
+                        "created_at": 1624988428,
+                        "updated_at": 1624988428,
+                        "id": 8719
+                    }
+                },
+                {
+                    "raw_text": "1 roma tomato, finely chopped",
+                    "extra_comment": "finely chopped",
+                    "position": 19,
+                    "measurements": [
+                        {
+                            "id": 662154,
+                            "quantity": "1",
+                            "unit": {
+                                "name": "",
+                                "abbreviation": "",
+                                "display_singular": "",
+                                "display_plural": "",
+                                "system": "none"
+                            }
+                        }
+                    ],
+                    "ingredient": {
+                        "id": 1350,
+                        "name": "roma tomato",
+                        "display_singular": "roma tomato",
+                        "display_plural": "roma tomatoes",
+                        "created_at": 1496689259,
+                        "updated_at": 1509035193
+                    },
+                    "id": 88516
+                },
+                {
+                    "id": 88517,
+                    "raw_text": "1 avocado, pitted, peeled, and sliced",
+                    "extra_comment": "pitted, peeled, and sliced",
+                    "position": 20,
+                    "measurements": [
+                        {
+                            "unit": {
+                                "name": "",
+                                "abbreviation": "",
+                                "display_singular": "",
+                                "display_plural": "",
+                                "system": "none"
+                            },
+                            "id": 662152,
+                            "quantity": "1"
+                        }
+                    ],
+                    "ingredient": {
+                        "updated_at": 1509035215,
+                        "id": 1005,
+                        "name": "avocado",
+                        "display_singular": "avocado",
+                        "display_plural": "avocados",
+                        "created_at": 1496185911
+                    }
+                },
+                {
+                    "ingredient": {
+                        "id": 276,
+                        "name": "scallions",
+                        "display_singular": "scallion",
+                        "display_plural": "scallions",
+                        "created_at": 1494803890,
+                        "updated_at": 1509035273
+                    },
+                    "id": 88518,
+                    "raw_text": "¼ cup thinly sliced scallions",
+                    "extra_comment": "thinly sliced",
+                    "position": 21,
+                    "measurements": [
+                        {
+                            "id": 662151,
+                            "quantity": "¼",
+                            "unit": {
+                                "name": "cup",
+                                "abbreviation": "c",
+                                "display_singular": "cup",
+                                "display_plural": "cups",
+                                "system": "imperial"
+                            }
+                        },
+                        {
+                            "id": 662149,
+                            "quantity": "10",
+                            "unit": {
+                                "name": "gram",
+                                "abbreviation": "g",
+                                "display_singular": "g",
+                                "display_plural": "g",
+                                "system": "metric"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "name": "For Garnish",
+            "position": 2
+        },
+        {
+            "components": [
+                {
+                    "position": 23,
+                    "measurements": [
+                        {
+                            "id": 662150,
+                            "quantity": "0",
+                            "unit": {
+                                "name": "",
+                                "abbreviation": "",
+                                "display_singular": "",
+                                "display_plural": "",
+                                "system": "none"
+                            }
+                        }
+                    ],
+                    "ingredient": {
+                        "updated_at": 1509035115,
+                        "id": 2716,
+                        "name": "toothpick",
+                        "display_singular": "toothpick",
+                        "display_plural": "toothpicks",
+                        "created_at": 1501458746
+                    },
+                    "id": 88520,
+                    "raw_text": "Toothpicks",
+                    "extra_comment": ""
+                }
+            ],
+            "name": "Special Equipment",
+            "position": 3
+        }
+    ],
+    "topics": [
+        {
+            "slug": "mexican",
+            "name": "Mexican"
+        }
+    ],
+    "created_at": 1632865128,
+    "draft_status": "published",
+    "num_servings": 12,
+    "promotion": "full",
+    "servings_noun_plural": "taquitos",
+    "buzz_id": null,
+    "keywords": "",
+    "language": "eng",
+    "slug": "cheesy-chorizo-taquitos",
+    "nutrition_visibility": "auto",
+    "compilations": [],
+    "total_time_tier": {
+        "tier": "under_30_minutes",
+        "display_tier": "Under 30 minutes"
+    },
+    "facebook_posts": [],
+    "is_one_top": false,
+    "is_shoppable": false,
+    "name": "Cheesy Chorizo Taquitos",
+    "seo_title": "",
+    "servings_noun_singular": "taquito",
+    "total_time_minutes": null,
+    "yields": "Makes 12–14 taquitos",
+    "canonical_id": "recipe:7839",
+    "cook_time_minutes": null,
+    "description": "",
+    "id": 7839,
+    "prep_time_minutes": null,
+    "thumbnail_url": "https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/336491.jpg",
+    "renditions": [
+        {
+            "content_type": "video/mp4",
+            "url": "https://vid.tasty.co/output/217472/square_720/1632865097",
+            "width": 720,
+            "duration": 150373,
+            "maximum_bit_rate": null,
+            "minimum_bit_rate": null,
+            "container": "mp4",
+            "poster_url": "https://img.buzzfeed.com/video-transcoder-prod/output/217472/square_720/1632865097_00001.png",
+            "name": "mp4_720x404",
+            "height": 404,
+            "file_size": 16018197,
+            "bit_rate": 853,
+            "aspect": "landscape"
+        },
+        {
+            "width": 320,
+            "file_size": 6844280,
+            "maximum_bit_rate": null,
+            "aspect": "landscape",
+            "poster_url": "https://img.buzzfeed.com/video-transcoder-prod/output/217472/square_320/1632865097_00001.png",
+            "height": 180,
+            "bit_rate": 365,
+            "minimum_bit_rate": null,
+            "content_type": "video/mp4",
+            "container": "mp4",
+            "url": "https://vid.tasty.co/output/217472/square_320/1632865097",
+            "name": "mp4_320x180",
+            "duration": 150373
+        },
+        {
+            "bit_rate": 1866,
+            "maximum_bit_rate": null,
+            "content_type": "video/mp4",
+            "container": "mp4",
+            "poster_url": "https://img.buzzfeed.com/video-transcoder-prod/output/217472/landscape_720/1632865097_00001.png",
+            "name": "mp4_1280x720",
+            "width": 1280,
+            "duration": 150373,
+            "minimum_bit_rate": null,
+            "aspect": "landscape",
+            "url": "https://vid.tasty.co/output/217472/landscape_720/1632865097",
+            "height": 720,
+            "file_size": 35074398
+        },
+        {
+            "content_type": "video/mp4",
+            "aspect": "landscape",
+            "container": "mp4",
+            "height": 360,
+            "duration": 150373,
+            "file_size": 13829896,
+            "bit_rate": 736,
+            "minimum_bit_rate": null,
+            "width": 640,
+            "maximum_bit_rate": null,
+            "url": "https://vid.tasty.co/output/217472/landscape_480/1632865097",
+            "poster_url": "https://img.buzzfeed.com/video-transcoder-prod/output/217472/landscape_480/1632865097_00001.png",
+            "name": "mp4_640x360"
+        },
+        {
+            "content_type": "application/vnd.apple.mpegurl",
+            "poster_url": "https://img.buzzfeed.com/video-transcoder-prod/output/217472/1445289064805-h2exzu/1632865097_00001.png",
+            "height": 1080,
+            "width": 1920,
+            "duration": 150378,
+            "bit_rate": null,
+            "maximum_bit_rate": 3501,
+            "name": "low",
+            "file_size": null,
+            "minimum_bit_rate": 275,
+            "aspect": "landscape",
+            "container": "ts",
+            "url": "https://vid.tasty.co/output/217472/hls24_1632865097.m3u8"
+        }
+    ],
+    "approved_at": 1632866729,
+    "country": "US",
+    "brand": {
+        "id": 49,
+        "name": "Pepsi",
+        "slug": "pepsi",
+        "image_url": "https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/recipes/7137c6b357dc48ceb6e1435477a5119d.jpeg"
+    },
+    "user_ratings": {
+        "count_positive": 13,
+        "count_negative": 0,
+        "score": 1
+    },
+    "show": {
+        "id": 38,
+        "name": "Pero Like"
+    },
+    "beauty_url": "https://img.buzzfeed.com/video-api-prod/assets/a42ea7cb52f248b8a25cb225ce010178/BFV81001_39910-289778_PEPSI_CheesyChorizoTaquitos_THUMBNAIL_Beauty_16x9.jpg",
+    "show_id": 38,
+    "thumbnail_alt_text": "",
+    "updated_at": 1632866730,
+    "brand_id": 49,
+    "inspired_by_url": null,
+    "tips_and_ratings_enabled": true,
+    "tags": [
+        {
+            "id": 65848,
+            "name": "stove_top",
+            "display_name": "Stove Top",
+            "type": "appliance"
+        },
+        {
+            "id": 64481,
+            "name": "appetizers",
+            "display_name": "Appetizers",
+            "type": "meal"
+        },
+        {
+            "display_name": "Special Occasion",
+            "type": "occasion",
+            "id": 188967,
+            "name": "special_occasion"
+        },
+        {
+            "id": 64503,
+            "name": "casual_party",
+            "display_name": "Casual Party",
+            "type": "occasion"
+        },
+        {
+            "id": 64472,
+            "name": "under_30_minutes",
+            "display_name": "Under 30 Minutes",
+            "type": "difficulty"
+        },
+        {
+            "id": 1247790,
+            "name": "tongs",
+            "display_name": "Tongs",
+            "type": "equipment"
+        },
+        {
+            "type": "equipment",
+            "id": 1280503,
+            "name": "cutting_board",
+            "display_name": "Cutting Board"
+        },
+        {
+            "id": 1280510,
+            "name": "mixing_bowl",
+            "display_name": "Mixing Bowl",
+            "type": "equipment"
+        }
+    ],
+    "original_video_url": "https://s3.amazonaws.com/video-api-prod/assets/3bb3ec199203401aa6974765e47aa0ae/BFV81001_39910-289778_PEPSI_CheesyChorizoTaquitos_AL_072721_16x9_v12.mp4"
+}

@@ -1,30 +1,14 @@
-import {Button, Form, FormControl} from "react-bootstrap";
+import {Button} from "react-bootstrap";
 import {AuthContext} from "../context/AuthProvider";
 import {useContext} from "react";
+import {Link} from "react-router-dom";
 
 function Login() {
-    let auth = useContext(AuthContext)
-
     return (
-        <Form className="d-flex" onSubmit={auth.signin}>
-            <FormControl
-                type="search"
-                placeholder="Username"
-                className="me-2"
-                aria-label="Username"
-                name={"username"}
-                autoComplete={"user"}
-            />
-            <FormControl
-                type="password"
-                placeholder="Password"
-                className="me-2"
-                aria-label="Password"
-                name={"password"}
-                autoComplete={"password"}
-            />
-            <Button variant="outline-success" type={"submit"}>Login</Button>
-        </Form>
+        <>
+            <Link to={"/signup"}>Sign up!</Link>
+            <Link to={"/login"} style={{marginInline:"2rem"}}>Login</Link>
+        </>
     )
 }
 
