@@ -1,20 +1,19 @@
 import {useEffect, useState} from "react";
 import {useAxios} from "../utils/useAxios";
+import KeywordItem from "../components/KeywordItem";
 
 export default function Keywords(){
     const [keywords, setKeywords] = useState([])
+    const [editItem, setEditItem] = useState(null)
     const [dirty, setDirty] = useState(true)
     const backend = useAxios()
 
     useEffect(()=>{
         if (dirty){
-            // console.log("dirty")
             backend.get('/api/v1/keyword')
                 .then((res)=>{
-                    // console.log("not dirty")
                     setKeywords(res.data)
             })
-
         }
         setDirty(false)
     },[dirty, backend])
@@ -34,14 +33,14 @@ export default function Keywords(){
                 <input name={"keyword"} type={"text"}/>
                 <div className={"flex-row"}>
                     -10 (Deathly Allergic)
-                    <input name={"acceptability"} type={"range"} min={-10} max={10}/>
+                    <input name={"acceptability"} type={"range"} min={-10} max={10} defaultValue={0}/>
                     +10 (Every meal please)
                 </div>
                 <button type={"submit"}>Add</button>
             </form>
             <hr/>
             <ul>
-                {keywords.map(keyword=><li key={keyword.id}>{keyword.acceptability} - {keyword.keyword}</li>)}
+                {keywords.map(keyword=><KeywordItem key={keyword.id} {...{keyword, setDirty, editItem, setEditItem}}/>)}
             </ul>
         </div>
     )
