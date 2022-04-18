@@ -8,6 +8,7 @@ import Layout from "./pages/Layout";
 import UserHome from "./pages/UserHome";
 import ComingSoon from "./pages/ComingSoon";
 import Keywords from "./pages/Keywords";
+import RecipeList from "./pages/RecipeList";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
                         <Route path={"/login"} element={<LoginPage/>}/>
                         <Route path={"/signup"} element={<Signup />}/>
                         <Route path={"/coming_soon"} element={<ComingSoon />} />
+                        <Route path={"/recipe_list"} element={<RecipeList />}/>
                         <Route element={<RequireAuth />}>
                             <Route path={"/home"} element={<UserHome />} />
                             <Route path={"/keywords"} element={<Keywords/>}/>

@@ -1,11 +1,13 @@
 # Complete
 - 
 
-# QA
-- 
+# QA / UI polish
+- Keywords
+- Wireframe
 
 # In progress
-- Wireframing
+- Meal Browsing
+- Add meals to personal catalog
 
 # Backlog
 - Create logo and use in navbar
