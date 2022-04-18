@@ -8,7 +8,7 @@ export default function Sidebar() {
         return <></>
 
     return (
-            <div style={{backgroundColor: "lightblue", top:0, bottom:0, width: "20vw"}}>
+            <div style={{backgroundColor: "lightblue", width: "20vw"}}>
                 <ul>Sett
                     <ul>Preferences
                         <li>Keyword (blacklist)</li>

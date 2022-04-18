@@ -6,11 +6,14 @@ import TopBar from "../components/TopBar";
 
 export default function Layout() {
     return (
-        <div style={{height: "100vh"}}>
+        <div className={"d-flex flex-column vh-100"}>
             <TopBar/>
-            <div style={{display: "flex", flexDirection: "row", height: "90%"}}>
-                <Sidebar/>
-                <Outlet/>
+            <div className={"flex-grow-1"}>
+                <div className={"d-flex flex-row"} style={{height:"100%"}}>
+                    <Sidebar/>
+                    <Outlet/>
+                </div>
+
             </div>
             <Footer/>
         </div>
