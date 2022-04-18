@@ -1,23 +1,13 @@
-import {Card} from "@mui/material";
-import getRecipeList from "../utils/useTasty";
+import RecipeCard from "../components/RecipeCard/RecipeCard";
+import {getRecipeList} from "../utils/useTasty";
 
 
-export default function RecipeList(){
+export default function RecipeList() {
 
-    const RecipeItem = () => {
-        return(
-            <Card>
-
-            </Card>
-        )
-    }
-    return(
-        <div>
-            <ul>
-            {getRecipeList().map((item)=>{
-                return (<li key={item.id}>{item.name}</li>)
-            })}
-            </ul>
+    return (
+        <div className={"d-flex flex-column mx-auto"}>
+            {getRecipeList().map((recipe)=><RecipeCard recipe={recipe}/>)}
         </div>
+
     )
 }
