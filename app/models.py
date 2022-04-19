@@ -16,6 +16,13 @@ class Recipe(models.Model):
 
 
 class UserRecipe(models.Model):
+    # TODO modify to allow difference sources of recipes
+    # class RecipeSource(models.IntegerChoices):
+    #     CUSTOM = 1
+    #     TASTY = 2
+    #     URLPARSE = 3
+    # source = models.IntegerField(choices=RecipeSource.choices)
+
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="users")
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="recipes")
     rating = models.IntegerField(default=0, validators=[MaxValueValidator(5), MinValueValidator(0)])
@@ -27,6 +34,7 @@ class Meal(models.Model):
         LUNCH = 2
         DINNER = 3
         SNACK = 4
+        BRUNCH = 5
     user_recipe = models.ForeignKey(UserRecipe, on_delete=models.CASCADE, related_name="meals")
     # Breakfast, lunch, dinner, snack etc
     meal_type = models.IntegerField(choices=MealType.choices)

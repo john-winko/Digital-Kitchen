@@ -9,27 +9,30 @@ import UserHome from "./pages/UserHome";
 import ComingSoon from "./pages/ComingSoon";
 import Keywords from "./pages/Keywords";
 import RecipeList from "./pages/RecipeList";
+import {MyCollectionProvider} from "./context/MyCollection";
 
 
 function App() {
 
     return (
         <div className="App">
-            <AuthProvider>
+            <AuthProvider><MyCollectionProvider>
                 <Routes>
                     <Route element={<Layout/>}>
                         <Route path={"/"} element={<HomePage/>}/>
                         <Route path={"/login"} element={<LoginPage/>}/>
                         <Route path={"/signup"} element={<Signup />}/>
                         <Route path={"/coming_soon"} element={<ComingSoon />} />
-                        <Route path={"/recipe_list"} element={<RecipeList />}/>
                         <Route element={<RequireAuth />}>
                             <Route path={"/home"} element={<UserHome />} />
-                            <Route path={"/keywords"} element={<Keywords/>}/>
+
+                                <Route path={"/recipe_list"} element={<RecipeList />}/>
+                                <Route path={"/keywords"} element={<Keywords/>}/>
+
                         </Route>
                     </Route>
                 </Routes>
-            </AuthProvider>
+            </MyCollectionProvider></AuthProvider>
         </div>
     );
 }

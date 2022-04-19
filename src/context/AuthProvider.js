@@ -13,7 +13,6 @@ function AuthProvider({children}) {
         e.preventDefault()
         const loginToken = await getLoginToken(new FormData(e.target))
         if (loginToken) {
-            console.log("setting token", loginToken)
             setToken(loginToken)
             navigate("/")
         }else{
@@ -40,7 +39,6 @@ function AuthProvider({children}) {
 function RequireAuth() {
     let auth = useContext(AuthContext);
     let location = useLocation()
-    console.log("auth",auth)
     if (!auth.token) {
         return <Navigate to="/login" state={{from:location}} replace />;
     }

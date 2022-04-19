@@ -25,6 +25,8 @@ class UserRecipeSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserRecipe
         fields = "__all__"
+    user = UserSerializer()
+    recipe = RecipeSerializer()
 
 
 class MealSerializer(serializers.ModelSerializer):

@@ -3,14 +3,14 @@ import * as React from "react";
 
 export default function RecipeCardMedia({thumbnailUrl, videoUrl, altText}) {
     // TODO add the thumbnail over the video with a play button, then load video after click
-    const VideoMedia = () => {
-        return <CardMedia
-            component="video"
-            height="250"
-            controls
-            src={videoUrl}
-        />
-    }
+    // const VideoMedia = () => {
+    //     return <CardMedia
+    //         component="video"
+    //         height="250"
+    //         controls
+    //         src={videoUrl}
+    //     />
+    // }
     const ImageMedia = () => {
         return <CardMedia
             component="img"
@@ -19,5 +19,7 @@ export default function RecipeCardMedia({thumbnailUrl, videoUrl, altText}) {
             alt={altText}
         />
     }
-    return videoUrl ? <VideoMedia/> : <ImageMedia/>
+    return  <ImageMedia/>
+        // return videoUrl ? <VideoMedia/> : <ImageMedia/>
+
 }

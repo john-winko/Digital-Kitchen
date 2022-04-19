@@ -6,6 +6,7 @@ import ArrowDownwardOutlinedIcon from "@mui/icons-material/ArrowDownwardOutlined
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import * as React from "react";
 import {styled} from "@mui/material/styles";
+import {Typography} from "@mui/material";
 
 const ExpandMore = styled((props) => {
     const {expand, ...other} = props;
@@ -18,15 +19,17 @@ const ExpandMore = styled((props) => {
     }),
 }));
 
-export default function RecipeCardAction({expanded, setExpanded}) {
+export default function RecipeCardAction({expanded, setExpanded, isFavorite, toggleFavorite, recipeID}) {
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
+
     return (
         <CardActions disableSpacing>
-            <IconButton aria-label="add to favorites">
-                <FavoriteIcon/>
+            <IconButton aria-label="add to favorites" onClick={()=>toggleFavorite(recipeID)}>
+                <FavoriteIcon sx={isFavorite ? {color:"red"} : null}/>
             </IconButton>
+            {isFavorite ? <Typography>Added to my collection</Typography>:null}
             <IconButton>
                 <ArrowUpwardOutlinedIcon/>4
             </IconButton>

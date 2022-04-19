@@ -8,7 +8,7 @@ import RecipeCardAction from "./RecipeCardActions";
 import RecipeCardDetails from "./RecipeCardDetails";
 
 
-export default function RecipeCard({recipe}) {
+export default function RecipeCard({recipe, isFavorite, toggleFavorite}) {
     const [expanded, setExpanded] = React.useState(false);
 
     return (
@@ -16,7 +16,7 @@ export default function RecipeCard({recipe}) {
             <RecipeCardHeader author={""} name={recipe.name} addDate={recipe.created_at}/>
             <RecipeCardMedia thumbnailUrl={recipe.thumbnail_url} videoUrl={recipe.original_video_url} altText={recipe.name}/>
             <RecipeCardBody nutrition={recipe.nutrition} description={recipe.description} tags={recipe.tags}/>
-            <RecipeCardAction expanded={expanded} setExpanded={setExpanded}/>
+            <RecipeCardAction {...{expanded, setExpanded, isFavorite, toggleFavorite}} recipeID={recipe.id} />
             <Collapse in={expanded} timeout="auto" unmountOnExit>
                 <RecipeCardDetails/>
             </Collapse>

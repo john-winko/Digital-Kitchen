@@ -8,6 +8,7 @@
 # In progress
 - Meal Browsing
 - Add meals to personal catalog
+- Save id and name for list of favorites, sync with user profile w/ backend calls
 
 # Backlog
 - Create logo and use in navbar
@@ -21,3 +22,4 @@
 
 # Stretch
 - Save tag preferences as well
+- Security, retrieve keys from backend (don't store in React->.env instead use django to pull .env and serve to react app in useContext)
