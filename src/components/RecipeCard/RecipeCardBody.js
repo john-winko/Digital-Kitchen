@@ -17,7 +17,7 @@ export default function RecipeCardBody({nutrition, description, tags}) {
             <Typography variant={"body1"} mb={2}>
                 {description}
             </Typography>
-
+{/*TODO make a limit on number of tags and have an expander to show more*/}
             {tags.map((tag)=>
                 <Chip key={tag.id} label={tag.display_name} variant={"outlined"} sx={{marginLeft: ".5rem"}}/>
             )}

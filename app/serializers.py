@@ -27,6 +27,7 @@ class UserRecipeSerializer(serializers.ModelSerializer):
         fields = "__all__"
     user = UserSerializer()
     recipe = RecipeSerializer()
+# TODO create another serializer to just send the name/id to use with a context in app
 
 
 class MealSerializer(serializers.ModelSerializer):

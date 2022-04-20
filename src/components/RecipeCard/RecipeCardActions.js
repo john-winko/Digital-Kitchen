@@ -19,14 +19,14 @@ const ExpandMore = styled((props) => {
     }),
 }));
 
-export default function RecipeCardAction({expanded, setExpanded, isFavorite, toggleFavorite, recipeID}) {
+export default function RecipeCardAction({expanded, setExpanded, isFavorite, toggleFavorite, recipe}) {
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
 
     return (
         <CardActions disableSpacing>
-            <IconButton aria-label="add to favorites" onClick={()=>toggleFavorite(recipeID)}>
+            <IconButton aria-label="add to favorites" onClick={()=>toggleFavorite(recipe)}>
                 <FavoriteIcon sx={isFavorite ? {color:"red"} : null}/>
             </IconButton>
             {isFavorite ? <Typography>Added to my collection</Typography>:null}

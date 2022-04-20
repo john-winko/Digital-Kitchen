@@ -56,19 +56,17 @@ class UserRecipeViewSet(ModelViewSet):
         return self.queryset.filter(user=self.request.user.pk)
 
     def create(self, request, *args, **kwargs):
-        data = request.data
-        data._mutable = True
-        data['user'] = request.user.pk
-        # TODO implement recipe... first make sure front end sends name and recipe,
-        # Refactor model to use the tasty ID and specify which api was used (so we can grab from more than one)
-        recipe = Recipe(name=request.data["name"], recipe=request.data["recipe"])
-        recipe.save()
-        data['recipe'] = recipe.pk
-        serializer = KeywordSerializer(data=data)
-        if serializer.is_valid():
-            serializer.save()
+        try:
+            data = request.data
+            recipe = Recipe(name=data["name"], details=data["recipe"])
+            recipe.save()
+            user_recipe = UserRecipe(user=request.user, recipe=recipe)
+            user_recipe.save()
+            serializer = UserRecipeSerializer(user_recipe)
             return JsonResponse(serializer.data, status=201)
-        return JsonResponse(serializer.errors, status=400)
+        except:
+            # TODO add cleanup / delete / rollback
+            return JsonResponse(serializer.errors, status=400)
 
 
 class MealViewSet(ModelViewSet):

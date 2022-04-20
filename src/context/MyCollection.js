@@ -5,44 +5,49 @@ let MyCollectionContext = createContext({})
 
 function MyCollectionProvider({children}) {
     const backend = useAxios()
-
+    const [dirty, setDirty] = useState(true)
     const [myRecipes, setMyRecipes] = useState([])
 
 
-    const toggleFavorite = (recipeID) => {
-        // TODO push to backend
-        if (isFavorite(recipeID)) {
-            let filtered = myRecipes.filter(x => x !== recipeID)
-            setMyRecipes(filtered)
-            console.log(`removed ${recipeID}`, filtered)
+    const toggleFavorite = (recipe) => {
+        let favorite = isFavorite(recipe)
+        if (favorite) {
+            backend.delete(`/api/v1/user_recipe/${favorite.id}/`)
+                .then(() => {// TODO add a toast w/ undo
+                    setDirty(true)
+                })
+
         } else {
-            let newFav = [...myRecipes]
-            newFav.push(recipeID)
-            setMyRecipes(newFav)
-            console.log(`added ${recipeID}`, newFav)
+            let params = {"name": recipe.name, "recipe": recipe}
+            backend.post('/api/v1/user_recipe/', params)
+                .then((newRecipe) => {// TODO add a toast w/ undo
+                    setDirty(true)
+                })
         }
     }
 
     const isFavorite = (recipeID) => {
+        // TODO funky naming after refactor... comparing the recipe json from tasty by id to the database recipes which has a json field that contains an id
         for (let recipe of myRecipes) {
-            if (recipe === recipeID) {
-                return true
+            if (recipe.recipe.details.id === recipeID.id) {
+                return recipe
             }
         }
-        return false
+        return null
     }
 
     useEffect(() => {
-        const getFavorites = async () => {
-            const response = backend.get('/api/v1/user_recipe/')
-            console.log("resp fav", response)
-            if (response.status === 200) {
-                return response.data
-            }
-            return []
+        if (dirty) {
+            backend.get('/api/v1/user_recipe/')
+                .then((response) => {
+                    if (response.status === 200) {
+                        setMyRecipes(response.data)
+                    }
+                })
         }
-        getFavorites().then()
-    }, [toggleFavorite])
+        setDirty(false)
+// adding toggleFavorite dependency is infinite loop
+    }, [dirty])
 
 
     let contextData = {myRecipes, setMyRecipes, toggleFavorite, isFavorite}
