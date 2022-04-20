@@ -3,6 +3,7 @@ import {useAxios} from "../utils/useAxios";
 import KeywordItem from "../components/KeywordItem";
 
 export default function Keywords(){
+    // TODO wire up to myCollections
     const [keywords, setKeywords] = useState([])
     const [editItem, setEditItem] = useState(null)
     const [dirty, setDirty] = useState(true)
@@ -10,7 +11,7 @@ export default function Keywords(){
 
     useEffect(()=>{
         if (dirty){
-            backend.get('/api/v1/keyword')
+            backend.get('/api/v1/keyword/')
                 .then((res)=>{
                     setKeywords(res.data)
             })

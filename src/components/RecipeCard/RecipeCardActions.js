@@ -6,7 +6,9 @@ import ArrowDownwardOutlinedIcon from "@mui/icons-material/ArrowDownwardOutlined
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import * as React from "react";
 import {styled} from "@mui/material/styles";
-import {Typography} from "@mui/material";
+import {Chip, Typography} from "@mui/material";
+import {useContext} from "react";
+import {MyCollectionContext} from "../../context/MyCollection";
 
 const ExpandMore = styled((props) => {
     const {expand, ...other} = props;
@@ -19,7 +21,8 @@ const ExpandMore = styled((props) => {
     }),
 }));
 
-export default function RecipeCardAction({expanded, setExpanded, isFavorite, toggleFavorite, recipe}) {
+export default function RecipeCardAction({expanded, setExpanded, recipe}) {
+    const {toggleFavorite, isFavorite} = useContext(MyCollectionContext)
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
@@ -27,15 +30,17 @@ export default function RecipeCardAction({expanded, setExpanded, isFavorite, tog
     return (
         <CardActions disableSpacing>
             <IconButton aria-label="add to favorites" onClick={()=>toggleFavorite(recipe)}>
-                <FavoriteIcon sx={isFavorite ? {color:"red"} : null}/>
+                <FavoriteIcon sx={isFavorite(recipe) ? {color:"red"} : null}/>
             </IconButton>
-            {isFavorite ? <Typography>Added to my collection</Typography>:null}
+            {isFavorite(recipe) ? <Typography>Added to my collection</Typography>:null}
             <IconButton>
                 <ArrowUpwardOutlinedIcon/>4
             </IconButton>
             <IconButton>
                 <ArrowDownwardOutlinedIcon/>0
             </IconButton>
+            <Chip label="Label" color="success"/>
+            <Chip label="Label" color="error"/>
             <ExpandMore
                 expand={expanded}
                 onClick={handleExpandClick}

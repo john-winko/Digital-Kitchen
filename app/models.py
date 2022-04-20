@@ -39,3 +39,4 @@ class Meal(models.Model):
     # Breakfast, lunch, dinner, snack etc
     meal_type = models.IntegerField(choices=MealType.choices)
     meal_date = models.DateField(null=True, blank=True)
+    #TODO add recipe FK
