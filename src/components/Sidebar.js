@@ -9,14 +9,16 @@ import AnchorIcon from '@mui/icons-material/Anchor';
 
 
 export default function Sidebar() {
+    const {token} = useContext(AuthContext)
+
     let barStyle = {
         maxHeight:"100vh",
         minHeight:"100vh",
         position:"fixed",
         width:"200px",
-        // visibility:"hidden"
+        visibility: token? "visible": "hidden"
     }
-    // TODO add functionality for showing/hiding
+
     return (
         <ProSidebar style={barStyle}
                     image={'https://images.unsplash.com/photo-1433704579980-63267d3ed68d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80'}
