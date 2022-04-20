@@ -6,19 +6,30 @@ import {ProSidebar, Menu, MenuItem, SubMenu, SidebarHeader, SidebarContent, Side
 import 'react-pro-sidebar/dist/css/styles.css';
 import './Sidebar.css'
 import AnchorIcon from '@mui/icons-material/Anchor';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 
 export default function Sidebar() {
     const {token} = useContext(AuthContext)
+    let {myRecipes} = useContext(MyCollectionContext)
 
     let barStyle = {
-        maxHeight:"100vh",
-        minHeight:"100vh",
-        position:"fixed",
-        width:"200px",
-        visibility: token? "visible": "hidden"
+        maxHeight: "100vh",
+        minHeight: "100vh",
+        position: "fixed",
+        width: "200px",
+        visibility: token ? "visible" : "hidden"
     }
-
+    let sidebarHeaderStyle = {
+        padding: "24px",
+        textTransform: "uppercase",
+        fontWeight: "bold",
+        fontSize: 14,
+        letterSpacing: "1px",
+        overflow: "hidden",
+        textOverflow: "ellipsis",
+        whiteSpace: "nowrap"
+    }
     return (
         <ProSidebar style={barStyle}
                     image={'https://images.unsplash.com/photo-1433704579980-63267d3ed68d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80'}
@@ -28,27 +39,16 @@ export default function Sidebar() {
             // breakPoint="md"
             // onToggle={handleToggleSidebar}
         >
-            <SidebarHeader >
-                <div
-                    style={{
-                        padding: "24px",
-                        textTransform: "uppercase",
-                        fontWeight: "bold",
-                        fontSize: 14,
-                        letterSpacing: "1px",
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                        whiteSpace: "nowrap"
-                    }}
-                >
-                    'sidebarTitle'
+            <SidebarHeader>
+                <div style={sidebarHeaderStyle}>
+                    My Dashboard
                 </div>
             </SidebarHeader>
 
             <SidebarContent>
                 <Menu iconShape="circle">
                     <MenuItem
-                        icon={<AnchorIcon/>}
+                        icon={<SettingsIcon/>}
                         suffix={<span className="badge red">'new'</span>}
                     >
                         'dashboard'
@@ -93,9 +93,7 @@ export default function Sidebar() {
             <SidebarFooter style={{textAlign: "center"}}>
                 <div
                     className="sidebar-btn-wrapper"
-                    style={{
-                        padding: "20px 24px"
-                    }}
+                    style={{padding: "20px 24px"}}
                 >
                     <a
                         href="https://github.com/azouaoui-med/react-pro-sidebar"
@@ -104,34 +102,14 @@ export default function Sidebar() {
                         rel="noopener noreferrer"
                     >
                         <AnchorIcon/>
-                        <span> 'viewSource'</span>
+                        <span> 'Support Us'</span>
                     </a>
                 </div>
             </SidebarFooter>
         </ProSidebar>
     )
 }
-// export default function Sidebar() {
-//     let auth = useContext(AuthContext)
-//     let {myRecipes} = useContext(MyCollectionContext)
-//     const [expanded, setExpanded] = useState(true)
-//
-//     let barStyle = {
-//         backgroundColor: "lightblue",
-//         borderRadius: "2rem",
-//         padding: ".5rem",
-//         margin: ".5rem"
-//     }
-//     if (expanded){
-//         barStyle = {...barStyle, minWidth: "20vw"}
-//     }else{
-//         barStyle = {...barStyle, maxWidth: "2vw"}
-//     }
-//
-//     if (!auth.token)
-//         return <></>
-//
-//     return (
+
 //         <div style={barStyle}>
 //             <button onClick={()=>setExpanded((isExpanded)=>!isExpanded)}>...</button>
 //             <ul>Sett

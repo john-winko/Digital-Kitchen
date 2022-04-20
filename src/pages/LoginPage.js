@@ -1,13 +1,13 @@
 import {Link} from "react-router-dom";
-import {Button, Form, FormControl} from "react-bootstrap";
 import {useContext} from "react";
 import {AuthContext} from "../context/AuthProvider";
+import {Button, FormControl} from "@mui/material";
 
 function LoginPage() {
     let auth = useContext(AuthContext)
   return (
     <div>
-                <Form className="d-flex" onSubmit={auth.signin}>
+                <form className="d-flex" onSubmit={auth.signin}>
             <FormControl
                 type="search"
                 placeholder="Username"
@@ -25,7 +25,7 @@ function LoginPage() {
                 autoComplete={"password"}
             />
             <Button variant="outline-success" type={"submit"}>Login</Button>
-        </Form>
+        </form>
       <hr/>
         <p><Link to={"/signup"}>Sign up</Link></p>
 

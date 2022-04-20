@@ -1,7 +1,7 @@
-import {Button} from "react-bootstrap";
 import {AuthContext} from "../context/AuthProvider";
 import {useContext} from "react";
 import {Link} from "react-router-dom";
+import {Button} from "@mui/material";
 
 function Login() {
     return (
