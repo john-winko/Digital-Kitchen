@@ -1,14 +1,20 @@
 import {Link} from "react-router-dom";
-import {useContext} from "react";
+import {useContext, useState} from "react";
 import {AuthContext} from "../context/AuthProvider";
-import {Button, FormControl} from "@mui/material";
+import {Button, FormControl, TextField} from "@mui/material";
 
 function LoginPage() {
     let auth = useContext(AuthContext)
-  return (
-    <div>
-                <form className="d-flex" onSubmit={auth.signin}>
-            <FormControl
+
+    return (
+        <form onSubmit={auth.signin} style={{
+            marginTop: "2rem",
+            display: "flex",
+            flexDirection: "column",
+            maxWidth: "50%",
+            marginInline: "auto"
+        }}>
+            <TextField
                 type="search"
                 placeholder="Username"
                 className="me-2"
@@ -16,7 +22,7 @@ function LoginPage() {
                 name={"username"}
                 autoComplete={"user"}
             />
-            <FormControl
+            <TextField
                 type="password"
                 placeholder="Password"
                 className="me-2"
@@ -24,13 +30,11 @@ function LoginPage() {
                 name={"password"}
                 autoComplete={"password"}
             />
-            <Button variant="outline-success" type={"submit"}>Login</Button>
+            <Button variant="contained" type={"submit"} style={{width: "25%", marginInline: "auto"}}>Login</Button>
+            <hr/>
+            <p style={{width: "25%", marginInline: "auto"}}><Link to={"/signup"}>Sign up</Link></p>
         </form>
-      <hr/>
-        <p><Link to={"/signup"}>Sign up</Link></p>
-
-    </div>
-  );
+    );
 }
 
 export default LoginPage

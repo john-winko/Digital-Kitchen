@@ -1,5 +1,5 @@
 import {Outlet} from "react-router-dom";
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../components/Sidebar/Sidebar";
 import Footer from "../components/Footer";
 import TopBar from "../components/TopBar";
 import {useContext} from "react";

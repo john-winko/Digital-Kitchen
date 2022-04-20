@@ -24,3 +24,4 @@
 - Save tag preferences as well
 - Security, retrieve keys from backend (don't store in React->.env instead use django to pull .env and serve to react app in useContext)
 - Try to wrap a context inside of the Routes (how to?)
+- Back to top button after scrolling
