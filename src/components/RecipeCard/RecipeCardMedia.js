@@ -15,6 +15,7 @@ export default function RecipeCardMedia({thumbnailUrl, videoUrl, altText}) {
         return <CardMedia
             component="img"
             height="250"
+            // TODO add responsive height to images
             image={thumbnailUrl}
             alt={altText}
         />

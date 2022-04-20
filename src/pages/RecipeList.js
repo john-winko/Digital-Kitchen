@@ -8,7 +8,7 @@ export default function RecipeList() {
     const {toggleFavorite, myRecipes, isFavorite} = useContext(MyCollectionContext)
 
     return (
-        <div className={"d-flex flex-column mx-auto"}>
+        <div className={"d-flex flex-column "}>
             {getRecipeList().map((recipe) =>
                 <RecipeCard key={recipe.id} {...{recipe, toggleFavorite}} isFavorite={isFavorite(recipe)} />
             )}

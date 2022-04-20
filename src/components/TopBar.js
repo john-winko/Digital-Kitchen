@@ -1,23 +1,36 @@
 import {Link} from "react-router-dom";
-import {Container, Nav, Navbar} from "react-bootstrap";
 import {ShowLoginLogout} from "../components/Login";
+import {AppBar, Box, Toolbar} from "@mui/material";
+import Typography from "@mui/material/Typography";
 
 
 function TopBar() {
-    const linkStyle = {color: 'inherit', textDecoration: 'inherit', marginLeft:"1rem"}
+    // override the default blue link TODO move this into css
+    const linkStyle = {color: 'inherit', textDecoration: 'inherit'}
+    const barStyle = {
+        backgroundColor: "#555555",
+        borderRadius: "0 0 3rem 3rem",
+        paddingInline: "2rem",
+        zIndex: "1000",
+    }
 
     return (
-        <div>
-            <Navbar expand="lg" style={{backgroundColor:"lightgrey", borderRadius:"25px 0 25px 0", margin:"5px", padding:"5px"}}>
-                <Container fluid>
-                    <Navbar.Brand><Link to={"/"} style={linkStyle}>Digital Kitchen </Link></Navbar.Brand>
-                    <Nav><Link to={"/home"} style={linkStyle}>Home </Link></Nav>
-                    <Nav><Link to={"/recipe_list"} style={linkStyle}>Browse Recipes </Link></Nav>
-                    <Nav className="me-auto my-2 my-lg-0" style={{maxHeight: "100px"}} navbarScroll></Nav>
+        <AppBar position={"static"} sx={barStyle}>
+            <Toolbar>
+                <Typography variant={"h4"} mx={2}>
+                    <Link to={"/"} style={linkStyle}>Digital Kitchen </Link>
+                </Typography>
+                <Typography variant={"body1"} mx={2}>
+                    <Link to={"/home"} style={linkStyle}>Home </Link>
+                </Typography>
+                <Typography variant={"body1"} mx={2}>
+                    <Link to={"/recipe_list"} style={linkStyle}>Browse Recipes </Link>
+                </Typography>
+                <Box sx={{marginLeft:"auto"}} mx={2}>
                     <ShowLoginLogout/>
-                </Container>
-            </Navbar>
-        </div>
+                </Box>
+            </Toolbar>
+        </AppBar>
     );
 }
 

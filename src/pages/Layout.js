@@ -2,19 +2,22 @@ import {Outlet} from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
 import TopBar from "../components/TopBar";
+import {Grid} from "@mui/material";
 
 
 export default function Layout() {
     return (
-        <div className={"d-flex flex-column vh-100"}>
-            <TopBar/>
-            <div className={"flex-grow-1"}>
-                <div className={"d-flex flex-row"} style={{height:"100%"}}>
-                    <Sidebar/>
+        // TODO add some useState for varying width
+        <div>
+            <Sidebar/>
+            <div style={{marginLeft:"300px"}}>
+                <div style={{height:"100vh"}}>
+                    <TopBar/>
                     <Outlet/>
                 </div>
+                <Footer/>
             </div>
-            <Footer/>
         </div>
+
     )
 }

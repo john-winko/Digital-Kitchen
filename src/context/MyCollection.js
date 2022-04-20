@@ -47,7 +47,7 @@ function MyCollectionProvider({children}) {
         }
         setDirty(false)
 // adding toggleFavorite dependency is infinite loop
-    }, [dirty])
+    }, [dirty, backend])
 
 
     let contextData = {myRecipes, setMyRecipes, toggleFavorite, isFavorite}
