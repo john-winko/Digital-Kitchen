@@ -1,4 +1,4 @@
-import {useContext, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {AuthContext} from "../../context/AuthProvider";
 import {Link} from "react-router-dom";
 import {MyCollectionContext} from "../../context/MyCollection";
@@ -18,6 +18,12 @@ export default function Sidebar() {
     let {myRecipes} = useContext(MyCollectionContext)
     let backgroundImg = "https://images.unsplash.com/photo-1433704579980-63267d3ed68d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80"
 
+    const [top5, setTop5] = useState([])
+
+    useEffect(() => {
+        setTop5(myRecipes.slice(0, 5))
+
+    }, [myRecipes])
     return (
         <ProSidebar style={{visibility: token ? "visible" : "hidden"}} image={backgroundImg}>
 
@@ -27,7 +33,7 @@ export default function Sidebar() {
 
             <SidebarContent>
                 <Menu iconShape="circle">
-                    <SubMenu title="Preferences" icon={<SettingsIcon/>} >
+                    <SubMenu title="Preferences" icon={<SettingsIcon/>}>
                         <MenuItem icon={<CollectionsIcon/>}>
                             <Link to={"/keywords"}>Keyword settings</Link>
                         </MenuItem>
@@ -47,11 +53,14 @@ export default function Sidebar() {
                     </SubMenu>
                 </Menu>
                 <Menu iconShape="circle">
-                    <SubMenu suffix={<span>(34)</span>}  title="My Favorites"  icon={<AnchorIcon/>}>
-                        {/*TODO add in a map to the recipes in usecontext for top ~5*/}
-                        <MenuItem>'submenu' 1</MenuItem>
-                        <MenuItem>'submenu' 2</MenuItem>
-                        <MenuItem>'submenu' 3</MenuItem>
+                    <SubMenu suffix={<span>({myRecipes.length})</span>} title="My Favorites" icon={<AnchorIcon/>}>
+                        {top5.map((element) => {
+                            return (
+                                <MenuItem key={element.id}>
+                                    {element.recipe.details.name}
+                                </MenuItem>
+                            )
+                        })}
                     </SubMenu>
 
                 </Menu>
