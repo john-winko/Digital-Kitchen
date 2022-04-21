@@ -9,6 +9,7 @@ import {styled} from "@mui/material/styles";
 import {Chip, Typography} from "@mui/material";
 import {useContext} from "react";
 import {MyCollectionContext} from "../../context/MyCollection";
+import KeywordChip from "./KeywordChip";
 
 const ExpandMore = styled((props) => {
     const {expand, ...other} = props;
@@ -25,28 +26,11 @@ const ExpandMore = styled((props) => {
 
 export default function RecipeCardAction({expanded, setExpanded, recipe}) {
     const {toggleFavorite, keywords, isFavorite} = useContext(MyCollectionContext)
+
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
     const recipeJSON = JSON.stringify(recipe)
-
-    const renderChip = (keyword) =>{
-        let instances =  (recipeJSON.match(new RegExp(keyword.keyword, 'ig')) || []).length
-        // TODO refactor out for reusability / themeing
-        let color = "#2f6e70"
-        if (keyword.acceptability >= 0){
-           color = "#45b405"
-        } if (keyword.acceptability <= 0){
-            color = "#b9b200"
-        }  if (keyword.acceptability < -5){
-            color = "#c01a1a"
-        }
-        if (instances){
-            return <Chip key={keyword.id} label={keyword.keyword} color={"primary"}
-                         style={{backgroundColor:color, marginInline:".5rem"}}/>
-        }
-        return null
-    }
 
     return (
         <CardActions disableSpacing>
@@ -60,9 +44,9 @@ export default function RecipeCardAction({expanded, setExpanded, recipe}) {
             <IconButton>
                 <ArrowDownwardOutlinedIcon/>0
             </IconButton>
-            {keywords.map((keyword)=>renderChip(keyword))}
-            {/*<Chip label="Label" color="success"/>*/}
-            {/*<Chip label="Label" color="error"/>*/}
+            {keywords.map((keyword)=>
+                <KeywordChip key={keyword.id} keyword={keyword} recipeJSON={recipeJSON}/>
+            )}
             <ExpandMore
                 expand={expanded}
                 onClick={handleExpandClick}

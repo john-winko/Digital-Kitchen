@@ -18,9 +18,9 @@ export default function Layout() {
                         <Outlet/>
                     </div>
 {/*TODO footer isn't sticky at bottom*/}
-                    <Footer/>
-                </div>
 
+                </div>
+<Footer/>
             </div>
 
         </div>
