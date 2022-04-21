@@ -1,8 +1,9 @@
 .AppBar {
     background-color: #555555 !important;
-    box-shadow: -10px 10px 10px gray !important;
+    box-shadow: -10px 10px 10px #603b43 !important;
     border-radius: 0 0 3rem 3rem;
     padding-inline: 2rem;
+    margin-bottom: 2rem;
 }
 
 .sLink {

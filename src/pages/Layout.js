@@ -9,10 +9,10 @@ import {AuthContext} from "../context/AuthProvider";
 export default function Layout() {
     const {token} = useContext(AuthContext)
     return (
-        <div>
+        <div >
             <Sidebar/>
-            <div style={{marginLeft: token? "300px":"0px"}}>
-                <div style={{height:"100vh", marginRight:"20px"}}>
+            <div style={{marginLeft: token? "300px":"0px"}} >
+                <div style={{height:"100vh", marginRight:"20px"}} >
                     <TopBar/>
                     <div style={{height:"100%"}}>
                         <Outlet/>
@@ -20,9 +20,9 @@ export default function Layout() {
 {/*TODO footer isn't sticky at bottom*/}
 
                 </div>
-<Footer/>
-            </div>
 
+            </div>
+<Footer/>
         </div>
 
     )

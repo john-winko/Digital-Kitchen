@@ -50,7 +50,7 @@ function MyCollectionProvider({children}) {
 
     useEffect(() => {
         if (dirty) {
-            console.log("dirty")
+            // console.log("dirty")
             backend.get('/api/v1/user_recipe/')
                 .then((response) => {
                     if (response.status === 200) {

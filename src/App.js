@@ -14,7 +14,7 @@ import {MyCollectionProvider} from "./context/MyCollection";
 function App() {
 
     return (
-        <div className="App">
+        <div className="App" >
             <AuthProvider><MyCollectionProvider>
                 <Routes>
                     <Route element={<Layout/>}>

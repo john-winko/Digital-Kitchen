@@ -6,7 +6,7 @@ import ArrowDownwardOutlinedIcon from "@mui/icons-material/ArrowDownwardOutlined
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import * as React from "react";
 import {styled} from "@mui/material/styles";
-import {Chip, Typography} from "@mui/material";
+import {Typography} from "@mui/material";
 import {useContext} from "react";
 import {MyCollectionContext} from "../../context/MyCollection";
 import KeywordChip from "./KeywordChip";

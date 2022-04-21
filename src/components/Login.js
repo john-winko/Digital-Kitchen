@@ -22,7 +22,7 @@ function Logout() {
     useEffect(() => {
         if (loading){
         backend.get('/api/v1/user/whoami/').then((response) => {
-            console.log("whoami", response)
+            // console.log("whoami", response)
             setUsername(response.data.username)
         })}
         setLoading(false)

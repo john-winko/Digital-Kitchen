@@ -15,11 +15,7 @@ function TopBar() {
                         Digital Kitchen
                     </Link>
                 </Typography>
-                <Typography variant={"body1"} mx={2}>
-                    <Link to={"/recipe_list"} className={"sLink"}>
-                        Browse Recipes
-                    </Link>
-                </Typography>
+
                 {/*TODO add search bar*/}
                 <Box sx={{marginLeft:"auto"}} mx={2}>
                     <ShowLoginLogout/>

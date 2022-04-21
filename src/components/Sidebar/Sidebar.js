@@ -32,6 +32,22 @@ export default function Sidebar() {
             </SidebarHeader>
 
             <SidebarContent>
+
+                <Menu iconShape="circle">
+                    <SubMenu suffix={<span>({myRecipes.length})</span>} title="Meals" icon={<AnchorIcon/>}>
+                        <MenuItem icon={<AnchorIcon/>}><Link to={"/recipe_list"}>Browse Recipes</Link></MenuItem>
+
+                        <SubMenu title="Recent Favorites" icon={<AnchorIcon/>}>
+                            {top5.map((element) => {
+                                return (
+                                    <MenuItem key={element.id}>
+                                        {element.recipe.details.name}
+                                    </MenuItem>
+                                )
+                            })}
+                        </SubMenu>
+                    </SubMenu>
+                </Menu>
                 <Menu iconShape="circle">
                     <SubMenu title="Preferences" icon={<SettingsIcon/>}>
                         <MenuItem icon={<CollectionsIcon/>}>
@@ -40,28 +56,17 @@ export default function Sidebar() {
                     </SubMenu>
                 </Menu>
                 <Menu iconShape="circle">
-                    <MenuItem icon={<ShopIcon/>}>
-                        <Link to={"/"}>Shopping List</Link>
-                    </MenuItem>
-
-                </Menu>
-                <Menu iconShape="circle">
                     <SubMenu title="Meal Planning" icon={<AnchorIcon/>}>
                         <MenuItem>Daily</MenuItem>
                         <MenuItem>Weekly</MenuItem>
                         <MenuItem>Monthly</MenuItem>
                     </SubMenu>
                 </Menu>
+
                 <Menu iconShape="circle">
-                    <SubMenu suffix={<span>({myRecipes.length})</span>} title="My Favorites" icon={<AnchorIcon/>}>
-                        {top5.map((element) => {
-                            return (
-                                <MenuItem key={element.id}>
-                                    {element.recipe.details.name}
-                                </MenuItem>
-                            )
-                        })}
-                    </SubMenu>
+                    <MenuItem icon={<ShopIcon/>}>
+                        <Link to={"/"}>Shopping List</Link>
+                    </MenuItem>
 
                 </Menu>
             </SidebarContent>
