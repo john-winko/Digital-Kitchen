@@ -1,16 +1,11 @@
 import RecipeCard from "../components/RecipeCard/RecipeCard";
 import {getRecipeList} from "../utils/useTasty";
-import {useContext} from "react";
-import {MyCollectionContext} from "../context/MyCollection";
-
+import {logDOM} from "@testing-library/react";
 
 export default function RecipeList() {
-    // TODO getting called multiple times... need to fix to not kill api request limit
-
-
     return (
         <div className={"d-flex flex-column "} style={{marginRight:"2rem"}}>
-            {console.log("keywords")}
+            {console.log("render recipe list")}
             {getRecipeList().map((recipe) =>
                 <RecipeCard key={recipe.id} {...{recipe}} />
             )}

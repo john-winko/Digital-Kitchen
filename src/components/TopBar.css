@@ -1,0 +1,11 @@
+.MuiAppBar-root {
+    background-color: #555555;
+    box-shadow: -10px 10px 10px gray;
+    border-radius: 0 0 3rem 3rem;
+    padding-inline: 2rem;
+    z-index: 1000;
+}
+.sLink {
+    color: #fafafa;
+ text-decoration: inherit;
+}

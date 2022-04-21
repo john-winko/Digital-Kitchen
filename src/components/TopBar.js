@@ -2,29 +2,28 @@ import {Link} from "react-router-dom";
 import {ShowLoginLogout} from "../components/Login";
 import {AppBar, Box, Toolbar} from "@mui/material";
 import Typography from "@mui/material/Typography";
+import './TopBar.css';
 
 
 function TopBar() {
-    // override the default blue link TODO move this into css
-    const linkStyle = {color: 'inherit', textDecoration: 'inherit'}
-    const barStyle = {
-        backgroundColor: "#555555",
-        borderRadius: "0 0 3rem 3rem",
-        paddingInline: "2rem",
-        zIndex: "1000",
-    }
 
     return (
-        <AppBar position={"static"} sx={barStyle}>
+        <AppBar position={"static"} >
             <Toolbar>
                 <Typography variant={"h4"} mx={2}>
-                    <Link to={"/"} style={linkStyle}>Digital Kitchen </Link>
+                    <Link to={"/"} className={"sLink"}>
+                        Digital Kitchen
+                    </Link>
                 </Typography>
                 <Typography variant={"body1"} mx={2}>
-                    <Link to={"/home"} style={linkStyle}>Home </Link>
+                    <Link to={"/home"} className={"sLink"}>
+                        Home
+                    </Link>
                 </Typography>
                 <Typography variant={"body1"} mx={2}>
-                    <Link to={"/recipe_list"} style={linkStyle}>Browse Recipes </Link>
+                    <Link to={"/recipe_list"} className={"sLink"}>
+                        Browse Recipes
+                    </Link>
                 </Typography>
                 <Box sx={{marginLeft:"auto"}} mx={2}>
                     <ShowLoginLogout/>
