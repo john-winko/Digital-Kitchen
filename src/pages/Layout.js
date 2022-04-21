@@ -12,12 +12,17 @@ export default function Layout() {
         <div>
             <Sidebar/>
             <div style={{marginLeft: token? "300px":"0px"}}>
-                <div style={{height:"100vh"}}>
+                <div style={{height:"100vh", marginRight:"20px"}}>
                     <TopBar/>
-                    <Outlet/>
+                    <div style={{height:"100%"}}>
+                        <Outlet/>
+                    </div>
+{/*TODO footer isn't sticky at bottom*/}
+                    <Footer/>
                 </div>
-                <Footer/>
+
             </div>
+
         </div>
 
     )

@@ -8,11 +8,11 @@
 - Refactor Layout to use bootstrap <Container>
 - Meal Browsing
 - Add meals to personal catalog
+- Add tags to recipes based on keyword prefs
+- /whoami to grab user info after login
 
 # In progress
 - Save id and name for list of favorites, sync with user profile w/ backend calls
-- /whoami to grab user info after login
-- Add tags to recipes based on keyword prefs
 
 # Backlog
 - Create logo and use in navbar
@@ -28,3 +28,4 @@
 - Security, retrieve keys from backend (don't store in React->.env instead use django to pull .env and serve to react app in useContext)
 - Try to wrap a context inside the Routes (how to?)
 - Back to top button after scrolling
+- Is there a more elegant way of doing logic on component load without using state variables loading/dirty (to prevent multiple callbacks)

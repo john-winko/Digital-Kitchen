@@ -8,7 +8,7 @@ import './TopBar.css';
 function TopBar() {
 
     return (
-        <AppBar position={"static"} >
+        <AppBar position={"static"} className={"AppBar"}>
             <Toolbar>
                 <Typography variant={"h4"} mx={2}>
                     <Link to={"/"} className={"sLink"}>
@@ -16,15 +16,11 @@ function TopBar() {
                     </Link>
                 </Typography>
                 <Typography variant={"body1"} mx={2}>
-                    <Link to={"/home"} className={"sLink"}>
-                        Home
-                    </Link>
-                </Typography>
-                <Typography variant={"body1"} mx={2}>
                     <Link to={"/recipe_list"} className={"sLink"}>
                         Browse Recipes
                     </Link>
                 </Typography>
+                {/*TODO add search bar*/}
                 <Box sx={{marginLeft:"auto"}} mx={2}>
                     <ShowLoginLogout/>
                 </Box>

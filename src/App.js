@@ -5,7 +5,6 @@ import Signup from "./pages/Signup";
 import {AuthProvider, RequireAuth} from "./context/AuthProvider";
 import HomePage from "./pages/HomePage";
 import Layout from "./pages/Layout";
-import UserHome from "./pages/UserHome";
 import ComingSoon from "./pages/ComingSoon";
 import Keywords from "./pages/Keywords";
 import RecipeList from "./pages/RecipeList";
@@ -24,7 +23,6 @@ function App() {
                         <Route path={"/signup"} element={<Signup />}/>
                         <Route path={"/coming_soon"} element={<ComingSoon />} />
                         <Route element={<RequireAuth />}>
-                            <Route path={"/home"} element={<UserHome />} />
 
                                 <Route path={"/recipe_list"} element={<RecipeList />}/>
                                 <Route path={"/keywords"} element={<Keywords/>}/>

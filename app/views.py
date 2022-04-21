@@ -21,6 +21,12 @@ class UserViewSet(ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
+    @action(methods=['GET'], detail=False)
+    def whoami(self, request, pk=None):
+        # print("whoami")
+        # print(request.user)
+        return JsonResponse(UserSerializer(request.user).data, status=200)
+
 
 class KeywordViewSet(ModelViewSet):
     permission_classes = [IsAuthenticated]

@@ -5,11 +5,11 @@ import {getLoginToken, getLocalToken, clearToken} from "../utils/useAxios";
 let AuthContext = createContext(null);
 
 function AuthProvider({children}) {
-    let navigate = useNavigate()
-    let [loading, setLoading] = useState(true)
-    let [token, setToken] = useState(()=>getLocalToken())
+    const navigate = useNavigate()
+    const [loading, setLoading] = useState(true)
+    const [token, setToken] = useState(()=>getLocalToken())
 
-    let signin = async (e) => {
+    const signin = async (e) => {
         e.preventDefault()
         const loginToken = await getLoginToken(new FormData(e.target))
         if (loginToken) {
@@ -20,7 +20,7 @@ function AuthProvider({children}) {
         }
     };
 
-    let signout = async () => {
+    const signout = async () => {
         clearToken()
         setToken(null);
         navigate("/")
@@ -29,7 +29,7 @@ function AuthProvider({children}) {
     // hack to prefetch token before renders
     useEffect(()=>{loading && setLoading(false)}, [loading])
 
-    let contextData = {signin, signout, /*user,*/ token, setToken, /*getUserObj*/};
+    const contextData = {signin, signout, token, setToken, /*getUserObj*/};
 
     // only render after initial load (persist token through page refresh)
     return <AuthContext.Provider value={contextData}>{loading?null:children}</AuthContext.Provider>;
