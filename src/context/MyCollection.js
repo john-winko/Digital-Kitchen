@@ -72,7 +72,7 @@ function MyCollectionProvider({children}) {
 
     let contextData = {myRecipes, setMyRecipes, toggleFavorite, isFavorite, keywords, setKeywords}
 
-    return <MyCollectionContext.Provider value={contextData}>{dirty ? null : children}</MyCollectionContext.Provider>
+    return <MyCollectionContext.Provider value={contextData}>{ children}</MyCollectionContext.Provider>
 }
 
 export {MyCollectionProvider, MyCollectionContext}
