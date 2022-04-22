@@ -1,6 +1,8 @@
 import datetime
 import json
+import os
 
+import requests
 from rest_framework.viewsets import ModelViewSet
 from django.http import HttpResponse, JsonResponse
 from rest_framework.decorators import api_view, permission_classes
@@ -12,7 +14,8 @@ from .serializers import *
 from .models import *
 from django.contrib.auth.models import User
 from rest_framework.decorators import action
-
+from dotenv import load_dotenv
+load_dotenv()
 
 def send_the_homepage(request):
     react_app = open('build/index.html').read()
@@ -104,8 +107,31 @@ class MealViewSet(ModelViewSet):
         meal.save()
         return JsonResponse(MealSerializer(meal).data, status=200)
 
-    @action(methods=['GET'], detail=False)
-    def week(self, request, pk=None):
-        # print("whoami")
-        # print(request.user)
-        return JsonResponse(UserSerializer(request.user).data, status=200)
+    # @action(methods=['GET'], detail=False)
+    # def week(self, request, pk=None):
+    #     # print("whoami")
+    #     # print(request.user)
+    #     return JsonResponse(UserSerializer(request.user).data, status=200)
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def parse_url(request):
+    try:
+        url = "https://mycookbook-io1.p.rapidapi.com/recipes/rapidapi"
+
+        payload = request.data["url"]
+        headers = {
+            "content-type": "text/plain",
+            "X-RapidAPI-Host": "mycookbook-io1.p.rapidapi.com",
+            "X-RapidAPI-Key": os.getenv('COOKBOOK_API_KEY')
+        }
+
+        response = requests.request("POST", url, data=payload, headers=headers)
+
+        # print(response.text)
+        json_text = json.loads(response.text)
+        return JsonResponse(json_text, safe=False, status=200)
+    except Exception as e:
+        print(e)
+        return JsonResponse({"error": "error"}, status=555)

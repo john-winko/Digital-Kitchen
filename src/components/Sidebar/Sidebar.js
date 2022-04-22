@@ -62,7 +62,7 @@ export default function Sidebar() {
                 <Menu iconShape={"circle"}>
                     <SubMenu title="Add Recipe" icon={<SettingsIcon/>}>
                         <MenuItem icon={<AnchorIcon/>}><Link to={"/"}>Manual</Link></MenuItem>
-<MenuItem icon={<AnchorIcon/>}><Link to={"/"}>From blog/website</Link></MenuItem>
+<MenuItem icon={<AnchorIcon/>}><Link to={"/add_blog_recipe"}>From blog/website</Link></MenuItem>
                     </SubMenu>
 
                 </Menu>

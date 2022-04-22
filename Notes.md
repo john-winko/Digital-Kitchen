@@ -13,10 +13,11 @@
 - Save id and name for list of favorites, sync with user profile w/ backend calls
 - Create calendaring for recipes
 - Remove up/down votes
+- Create My Recipes list of what has been saved to favorites
 
 # In progress
-- Create My Recipes list of what has been saved to favorites
 - Start working api calls from backend (send cached json for first result, api calls if there are parameters)
+- Add 2nd Api
 
 # Backlog
 - Create logo for navbar

@@ -14,5 +14,6 @@ r.register(r'meal', MealViewSet, basename="meal")
 urlpatterns = [
     path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('v1/', include(r.urls))
+    path('v1/', include(r.urls)),
+    path('parseUrl/', parse_url, name='parse_url')
 ]
