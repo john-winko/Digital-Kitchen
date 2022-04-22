@@ -37,6 +37,7 @@
 
 # Stretch
 - Save tag preferences as well
+- Custom serialization of different recipe apis into one model on our backend
 - Implement signup
 - Implement footer
 - Make search areas smaller (in sidebar)
