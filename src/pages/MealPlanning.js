@@ -58,7 +58,7 @@ export default function MealPlanning() {
                 </div>
                 <div style={{marginInline: "auto"}}>
                     <h3 style={{textAlign: "center"}}>Meal List</h3>
-                    <List style={{maxHeight: "70vh", overflow: "auto", backgroundColor:"#dddddd", borderRadius:"2rem 0 0 2rem", paddingRight:"2rem"}}>
+                    <List style={{maxHeight: "70vh", overflow: "auto", backgroundColor:"#dddddd", borderRadius:"2rem", paddingRight:"2rem"}}>
                         {myRecipes.map((recipe) => <MealListItem key={recipe.id} recipe={recipe} selDate={selDate}
                                                                  addMeal={addMeal}/>)}
                     </List>

@@ -1,4 +1,5 @@
 import datetime
+import json
 
 from rest_framework.viewsets import ModelViewSet
 from django.http import HttpResponse, JsonResponse
@@ -53,6 +54,13 @@ class RecipeViewSet(ModelViewSet):
     permission_classes = [IsAuthenticated]
     queryset = Recipe.objects.all()
     serializer_class = RecipeSerializer
+
+    @action(methods=['GET'], detail=False)
+    def browse(self, request, pk=None):
+        # TODO add api calls to tasty here
+        file = open("app/fixtures/recipeList.json").read()
+        output = json.loads(file)
+        return JsonResponse(output, safe=False, status=200)
 
 
 class UserRecipeViewSet(ModelViewSet):

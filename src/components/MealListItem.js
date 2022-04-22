@@ -4,12 +4,15 @@ import {
     DialogActions,
     DialogContent,
     DialogContentText,
-    DialogTitle,
+    DialogTitle, IconButton,
     ListItem,
     ListItemButton,
     ListItemText
 } from "@mui/material";
 import {useState} from "react";
+import {AddBox, Delete} from "@mui/icons-material";
+import SearchIcon from '@mui/icons-material/Search';
+import {Link} from "react-router-dom";
 
 export default function MealListItem({recipe, selDate, addMeal}) {
     const [open, setOpen] = useState(false);
@@ -54,9 +57,18 @@ export default function MealListItem({recipe, selDate, addMeal}) {
                     <Button onClick={() => addMealClick(4)}>Snack</Button>
                 </DialogActions>
             </Dialog>
-            <ListItemButton onClick={handleClickOpen}>
-                <ListItemText primary={recipe.recipe.name}/>
-            </ListItemButton>
+            <IconButton onClick={handleClickOpen}>
+                <AddBox/>
+            </IconButton>
+            <IconButton>
+                <Link to={`/recipe/${recipe.id}`}>
+                    <SearchIcon/>
+                </Link>
+            </IconButton>
+            <ListItemText primary={recipe.recipe.name}/>
+            {/*<ListItemButton onClick={handleClickOpen}>*/}
+            {/*    <ListItemText primary={recipe.recipe.name}/>*/}
+            {/*</ListItemButton>*/}
         </ListItem>
 
 

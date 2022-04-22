@@ -16,6 +16,7 @@
 
 # In progress
 - Create My Recipes list of what has been saved to favorites
+- Start working api calls from backend (send cached json for first result, api calls if there are parameters)
 
 # Backlog
 - Create logo for navbar
@@ -30,6 +31,7 @@
 - Add pagination to recipe list
 - refresh token is making 3 calls
 - Move favoriting to top right
+- recipe list, option at top to hide current favorites
 - Split recipe card show image left, chips right (limit to 10/15?), move keyword chips to top
 
 # Stretch

@@ -44,12 +44,12 @@ export default function Sidebar() {
 
                 <Menu iconShape="circle">
                     <SubMenu suffix={<span>({myRecipes.length})</span>} title="My Collection" icon={<AnchorIcon/>}>
-                        <MenuItem icon={<AnchorIcon/>}><Link to={"/recipe_list"}>View Recipes</Link></MenuItem>
+                        <MenuItem icon={<AnchorIcon/>}><Link to={"/recipe_list/favorites"}>View Recipes</Link></MenuItem>
                         <SubMenu title="Recent Favorites" icon={<AnchorIcon/>}>
                             {top5.map((element) => {
                                 return (
                                     <MenuItem key={element.id}>
-                                        {element.recipe.details.name}
+                                        <Link to={`/recipe/${element.id}`}>{element.recipe.details.name}</Link>
                                     </MenuItem>
                                 )
                             })}

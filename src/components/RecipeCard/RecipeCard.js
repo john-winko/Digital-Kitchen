@@ -6,10 +6,17 @@ import RecipeCardMedia from "./RecipeCardMedia";
 import RecipeCardBody from "./RecipeCardBody";
 import RecipeCardAction from "./RecipeCardActions";
 import RecipeCardDetails from "./RecipeCardDetails";
+import {useEffect} from "react";
 
 
-export default function RecipeCard({recipe}) {
+export default function RecipeCard({recipe, initialExpand= false}) {
     const [expanded, setExpanded] = React.useState(false);
+
+    useEffect(()=>{
+        if (initialExpand){
+            setExpanded(true)
+        }
+    },[initialExpand])
 
     return (
         <Card mx={"auto"} sx={{ my: "1rem", bgcolor: "#bee8ba", borderRadius:5, boxShadow: 20}}>
