@@ -38,12 +38,12 @@ export default function RecipeCardAction({expanded, setExpanded, recipe}) {
                 <FavoriteIcon sx={isFavorite(recipe) ? {color:"red"} : null}/>
             </IconButton>
             {isFavorite(recipe) ? <Typography>Added to my collection</Typography>:null}
-            <IconButton>
-                <ArrowUpwardOutlinedIcon/>4
-            </IconButton>
-            <IconButton>
-                <ArrowDownwardOutlinedIcon/>0
-            </IconButton>
+            {/*<IconButton>*/}
+            {/*    <ArrowUpwardOutlinedIcon/>4*/}
+            {/*</IconButton>*/}
+            {/*<IconButton>*/}
+            {/*    <ArrowDownwardOutlinedIcon/>0*/}
+            {/*</IconButton>*/}
             {keywords.map((keyword)=>
                 <KeywordChip key={keyword.id} keyword={keyword} recipeJSON={recipeJSON}/>
             )}

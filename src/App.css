@@ -8,3 +8,6 @@ body{
     margin-inline: auto;
     max-width: 1600px;
 }
+.react-calendar {
+    border-radius: 1rem;
+}

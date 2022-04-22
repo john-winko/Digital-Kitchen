@@ -9,6 +9,10 @@ import AnchorIcon from '@mui/icons-material/Anchor';
 import SettingsIcon from '@mui/icons-material/Settings';
 import CollectionsIcon from '@mui/icons-material/Collections';
 import ShopIcon from '@mui/icons-material/Shop';
+import {Form} from "react-bootstrap";
+import {IconButton, InputBase, TextField} from "@mui/material";
+import SearchIcon from '@mui/icons-material/Search';
+
 
 ///////////////////////////
 // https://codesandbox.io/s/9bbm9?file=/src/Aside.js
@@ -19,6 +23,11 @@ export default function Sidebar() {
     let backgroundImg = "https://images.unsplash.com/photo-1433704579980-63267d3ed68d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80"
 
     const [top5, setTop5] = useState([])
+
+    const search = (e) => {
+        e.preventDefault()
+        console.log("searched", e)
+    }
 
     useEffect(() => {
         setTop5(myRecipes.slice(0, 5))
@@ -34,9 +43,8 @@ export default function Sidebar() {
             <SidebarContent>
 
                 <Menu iconShape="circle">
-                    <SubMenu suffix={<span>({myRecipes.length})</span>} title="Meals" icon={<AnchorIcon/>}>
-                        <MenuItem icon={<AnchorIcon/>}><Link to={"/recipe_list"}>Browse Recipes</Link></MenuItem>
-
+                    <SubMenu suffix={<span>({myRecipes.length})</span>} title="My Collection" icon={<AnchorIcon/>}>
+                        <MenuItem icon={<AnchorIcon/>}><Link to={"/recipe_list"}>View Recipes</Link></MenuItem>
                         <SubMenu title="Recent Favorites" icon={<AnchorIcon/>}>
                             {top5.map((element) => {
                                 return (
@@ -47,6 +55,16 @@ export default function Sidebar() {
                             })}
                         </SubMenu>
                     </SubMenu>
+                </Menu>
+                <Menu iconShape={"circle"}>
+                    <MenuItem icon={<AnchorIcon/>}><Link to={"/recipe_list"}>Browse Recipes</Link></MenuItem>
+                </Menu>
+                <Menu iconShape={"circle"}>
+                    <SubMenu title="Add Recipe" icon={<SettingsIcon/>}>
+                        <MenuItem icon={<AnchorIcon/>}><Link to={"/"}>Manual</Link></MenuItem>
+<MenuItem icon={<AnchorIcon/>}><Link to={"/"}>From blog/website</Link></MenuItem>
+                    </SubMenu>
+
                 </Menu>
                 <Menu iconShape="circle">
                     <SubMenu title="Preferences" icon={<SettingsIcon/>}>
