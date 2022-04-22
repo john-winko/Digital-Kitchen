@@ -13,15 +13,21 @@
 
 # In progress
 - Save id and name for list of favorites, sync with user profile w/ backend calls
+- Create calendaring for recipes
+- Create My Recipes list of what has been saved to favorites
 
 # Backlog
 - Create logo and use in navbar
 - Add Search bar to TopNav for recipes
 - Implement footer
 - Implement signup
+- Make data models/serializers for the JSON recipes from Tasty API
 - Add ingredients/steps to RecipeCard
+- Grab/parse meal types and replace int with strings in todo's
+- Rearrange format of meal planning so meal list takes up long view of page
 - Create single recipe card route/page
-- Create calendaring for recipes
+- use overflow auto for recipes to make pagination easier
+- refresh token is making 3 calls
 
 # Stretch
 - Save tag preferences as well

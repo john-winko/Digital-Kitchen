@@ -13,9 +13,6 @@ class Keyword(models.Model):
 class Recipe(models.Model):
     name = models.CharField(max_length=255)
     details = models.JSONField(null=True, blank=True)
-
-
-class UserRecipe(models.Model):
     # TODO modify to allow difference sources of recipes
     # class RecipeSource(models.IntegerChoices):
     #     CUSTOM = 1
@@ -23,6 +20,8 @@ class UserRecipe(models.Model):
     #     URLPARSE = 3
     # source = models.IntegerField(choices=RecipeSource.choices)
 
+
+class UserRecipe(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="users")
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="recipes")
     rating = models.IntegerField(default=0, validators=[MaxValueValidator(5), MinValueValidator(0)])
@@ -39,4 +38,3 @@ class Meal(models.Model):
     # Breakfast, lunch, dinner, snack etc
     meal_type = models.IntegerField(choices=MealType.choices)
     meal_date = models.DateField(null=True, blank=True)
-    #TODO add recipe FK

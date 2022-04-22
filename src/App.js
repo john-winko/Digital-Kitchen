@@ -9,6 +9,7 @@ import ComingSoon from "./pages/ComingSoon";
 import Keywords from "./pages/Keywords";
 import RecipeList from "./pages/RecipeList";
 import {MyCollectionProvider} from "./context/MyCollection";
+import MealPlanning from "./pages/MealPlanning";
 
 
 function App() {
@@ -23,10 +24,9 @@ function App() {
                         <Route path={"/signup"} element={<Signup />}/>
                         <Route path={"/coming_soon"} element={<ComingSoon />} />
                         <Route element={<RequireAuth />}>
-
-                                <Route path={"/recipe_list"} element={<RecipeList />}/>
-                                <Route path={"/keywords"} element={<Keywords/>}/>
-
+                            <Route path={"/meal_planning"} element={<MealPlanning />}/>
+                            <Route path={"/recipe_list"} element={<RecipeList />}/>
+                            <Route path={"/keywords"} element={<Keywords/>}/>
                         </Route>
                     </Route>
                 </Routes>

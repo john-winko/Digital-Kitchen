@@ -1,3 +1,5 @@
+import datetime
+
 from rest_framework.viewsets import ModelViewSet
 from django.http import HttpResponse, JsonResponse
 from rest_framework.decorators import api_view, permission_classes
@@ -79,3 +81,23 @@ class MealViewSet(ModelViewSet):
     permission_classes = [IsAuthenticated]
     queryset = Meal.objects.all()
     serializer_class = MealSerializer
+
+    def get_queryset(self):
+        user_recipes = UserRecipe.objects.filter(user=self.request.user)
+        # limit to 50 for now to help with bandwidth on long term users
+        meal_filter = Meal.objects.filter(user_recipe__in=user_recipes).order_by("-meal_date")
+        return meal_filter
+
+    def create(self, request, *args, **kwargs):
+        user_recipe = UserRecipe.objects.get(pk=request.data["user_recipe"])
+        meal_date = request.data['meal_date']
+        meal_type = request.data['meal_type']
+        meal = Meal(user_recipe=user_recipe, meal_date=meal_date, meal_type=meal_type)
+        meal.save()
+        return JsonResponse(MealSerializer(meal).data, status=200)
+
+    @action(methods=['GET'], detail=False)
+    def week(self, request, pk=None):
+        # print("whoami")
+        # print(request.user)
+        return JsonResponse(UserSerializer(request.user).data, status=200)

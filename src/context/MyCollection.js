@@ -37,17 +37,6 @@ function MyCollectionProvider({children}) {
         return null
     }
 
-    const refreshData = async ()=>{
-        let recipes = backend.get('/api/v1/user_recipe/')
-        if (recipes.status === 200){
-            setMyRecipes(recipes.data)
-        }
-        let keywords = backend.get('/api/v1/keyword/')
-        if (keywords.status === 200){
-            setKeywords(keywords.data)
-        }
-    }
-
     useEffect(() => {
         if (dirty) {
             // console.log("dirty")

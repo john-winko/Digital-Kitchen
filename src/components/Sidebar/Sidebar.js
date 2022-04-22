@@ -56,11 +56,9 @@ export default function Sidebar() {
                     </SubMenu>
                 </Menu>
                 <Menu iconShape="circle">
-                    <SubMenu title="Meal Planning" icon={<AnchorIcon/>}>
-                        <MenuItem>Daily</MenuItem>
-                        <MenuItem>Weekly</MenuItem>
-                        <MenuItem>Monthly</MenuItem>
-                    </SubMenu>
+                    <MenuItem icon={<AnchorIcon/>}>
+                        <Link to={"/meal_planning"}>Meal Planning</Link>
+                    </MenuItem>
                 </Menu>
 
                 <Menu iconShape="circle">
