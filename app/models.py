@@ -13,12 +13,12 @@ class Keyword(models.Model):
 class Recipe(models.Model):
     name = models.CharField(max_length=255)
     details = models.JSONField(null=True, blank=True)
-    # TODO modify to allow difference sources of recipes
-    # class RecipeSource(models.IntegerChoices):
-    #     CUSTOM = 1
-    #     TASTY = 2
-    #     URLPARSE = 3
-    # source = models.IntegerField(choices=RecipeSource.choices)
+
+    class RecipeSource(models.IntegerChoices):
+        CUSTOM = 1
+        TASTY = 2
+        URLPARSE = 3
+    source = models.IntegerField(choices=RecipeSource.choices)
 
 
 class UserRecipe(models.Model):

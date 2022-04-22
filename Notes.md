@@ -18,6 +18,7 @@
 # In progress
 - Start working api calls from backend (send cached json for first result, api calls if there are parameters)
 - Add 2nd Api
+- Add serializer for Url and Tasty apis
 
 # Backlog
 - Create logo for navbar
