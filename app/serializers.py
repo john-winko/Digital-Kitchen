@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import Keyword, Recipe, UserRecipe, Meal
+# TODO explicit imports
+from .models import *
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -15,10 +16,24 @@ class KeywordSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class RecipeIngredientSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Keyword
+        fields = "__all__"
+
+
+class RecipeStepSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Keyword
+        fields = "__all__"
+
+
 class RecipeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Recipe
         fields = "__all__"
+    recipe_steps = RecipeStepSerializer(many=True)
+    ingredients = RecipeIngredientSerializer(many=True)
 
 
 class UserRecipeSerializer(serializers.ModelSerializer):

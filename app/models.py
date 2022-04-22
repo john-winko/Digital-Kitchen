@@ -12,13 +12,24 @@ class Keyword(models.Model):
 
 class Recipe(models.Model):
     name = models.CharField(max_length=255)
-    details = models.JSONField(null=True, blank=True)
+    raw = models.JSONField(null=True, blank=True)
+    image_url = models.CharField(max_length=255, null=True, blank=True)
 
     class RecipeSource(models.IntegerChoices):
         CUSTOM = 1
         TASTY = 2
         URLPARSE = 3
     source = models.IntegerField(choices=RecipeSource.choices)
+
+
+class RecipeIngredient(models.Model):
+    ingredient = models.CharField(max_length=255)
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="ingredients")
+
+
+class RecipeStep(models.Model):
+    step = models.TextField()
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="recipe_steps")
 
 
 class UserRecipe(models.Model):
