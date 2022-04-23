@@ -23,7 +23,7 @@ export default function RecipeCard({recipe, initialExpand= false}) {
 
     return (
         <Card mx={"auto"} sx={{ my: "1rem", bgcolor: "#bee8ba", borderRadius:5, boxShadow: 20}}>
-            <RecipeCardHeader name={recipe.name} isFavorite={isFavorite(recipe)} toggleFavorite={()=>toggleFavorite(recipe)}/>
+            <RecipeCardHeader name={recipe.name} isFavorite={isFavorite(recipe.id)} toggleFavorite={()=>toggleFavorite(recipe.id)}/>
             {/*<RecipeCardMedia thumbnailUrl={recipe.thumbnail_url} videoUrl={recipe.original_video_url} altText={recipe.name}/>*/}
             {/*<RecipeCardBody nutrition={recipe.nutrition} description={recipe.description} tags={recipe.tags}/>*/}
             {/*<RecipeCardAction {...{expanded, setExpanded, recipe}} />*/}

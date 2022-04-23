@@ -24,8 +24,8 @@ export default function RecipeList({favoritesOnly = false}) {
     return (
         <div className={"d-flex flex-column "} style={{marginInline:"auto", maxWidth:"1100px"}}>
             {console.log("recipe list", recipeList)}
-            {recipeList.map((recipe, index) =>
-                <RecipeCard key={`${index}`} {...{recipe}} />
+            {recipeList.map((recipe) =>
+                <RecipeCard key={recipe.id} {...{recipe}} />
             )}
         </div>
 

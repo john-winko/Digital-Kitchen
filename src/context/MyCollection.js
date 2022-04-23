@@ -10,8 +10,8 @@ function MyCollectionProvider({children}) {
     const [myRecipes, setMyRecipes] = useState([])
     const [keywords, setKeywords] = useState([])
 
-    const toggleFavorite = (recipe) => {
-        let favorite = isFavorite(recipe)
+    const toggleFavorite = (recipeID) => {
+        let favorite = isFavorite(recipeID)
         if (favorite) {
             backend.delete(`/api/v1/user_recipe/${favorite.id}/`)
                 .then(() => {// TODO add a toast w/ undo
@@ -19,8 +19,8 @@ function MyCollectionProvider({children}) {
                 })
 
         } else {
-            let params = {"name": recipe.name, "recipe": recipe}
-            backend.post('/api/v1/user_recipe/', params)
+            // let params = {"name": recipe.name, "recipe": recipe}
+            backend.post('/api/v1/user_recipe/', {"recipeID":recipeID})
                 .then((newRecipe) => {// TODO add a toast w/ undo
                     setDirty(true)
                 })
@@ -29,9 +29,9 @@ function MyCollectionProvider({children}) {
 
     const isFavorite = (recipeID) => {
         // TODO funky naming after refactor... comparing the recipe json from tasty by id to the database recipes which has a json field that contains an id
-        for (let recipe of myRecipes) {
-            if (recipe.recipe.details.id === recipeID.id) {
-                return recipe
+        for (let myRecipe of myRecipes) {
+            if (myRecipe.recipe.id === recipeID) {
+                return myRecipe
             }
         }
         return null

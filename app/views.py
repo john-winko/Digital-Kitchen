@@ -62,8 +62,9 @@ class RecipeViewSet(ModelViewSet):
 
     @action(methods=['GET'], detail=False)
     def browse(self, request, pk=None):
-        output = app.apis.tasty.tasty_browse()
-        return JsonResponse(output, safe=False, status=200)
+        pks = app.apis.tasty.tasty_browse()
+        recipes = Recipe.objects.filter(pk__in=pks)
+        return JsonResponse(RecipeSerializer(recipes, many=True).data, safe=False, status=200)
 
 
 class UserRecipeViewSet(ModelViewSet):
@@ -76,16 +77,12 @@ class UserRecipeViewSet(ModelViewSet):
 
     def create(self, request, *args, **kwargs):
         try:
-            data = request.data
-            recipe = Recipe(name=data["name"], details=data["recipe"])
-            recipe.save()
-            user_recipe = UserRecipe(user=request.user, recipe=recipe)
+            user_recipe = UserRecipe(user=request.user, recipe=Recipe.objects.get(pk=request.data["recipeID"]))
             user_recipe.save()
-            serializer = UserRecipeSerializer(user_recipe)
-            return JsonResponse(serializer.data, status=201)
-        except:
-            # TODO add cleanup / delete / rollback
-            return JsonResponse(serializer.errors, status=400)
+            return JsonResponse(UserRecipeSerializer(user_recipe).data, status=201)
+        except Exception as e:
+            print(e)
+            return JsonResponse({"error", "error"}, status=400)
 
 
 class MealViewSet(ModelViewSet):

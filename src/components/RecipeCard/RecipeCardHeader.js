@@ -18,9 +18,12 @@ export default function RecipeCardHeader({name, isFavorite, toggleFavorite}) {
                 </Avatar>
             }
             action={
-                <IconButton aria-label={"settings"} onClick={toggleFavorite}>
-                    <FavoriteIcon sx={isFavorite ? {color:"red"} : null}/>
-                </IconButton>
+                <div>
+                    {isFavorite ? "Saved to collection " : null}
+                    <IconButton aria-label={"settings"} onClick={toggleFavorite}>
+                        <FavoriteIcon sx={isFavorite ? {color: "red"} : null}/>
+                    </IconButton>
+                </div>
             }
             title={name}
             // TODO add subheader credits to author or date added
