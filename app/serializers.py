@@ -20,15 +20,21 @@ class KeywordSerializer(serializers.ModelSerializer):
 class RecipeIngredientSerializer(serializers.ModelSerializer):
     class Meta:
         model = RecipeIngredient
-        # fields = ['ingredient', 'recipe(_id)']
-        fields = "__all__"
+        fields = [
+            'ingredient',
+            # 'recipe(_id)'
+        ]
+        # fields = "__all__"
 
 
 class RecipeStepSerializer(serializers.ModelSerializer):
     class Meta:
         model = RecipeStep
-        # fields = ['step', 'recipe(_id)']
-        fields = "__all__"
+        fields = [
+            'step',
+            # 'recipe(_id)'
+        ]
+        # fields = "__all__"
 
 
 class RecipeSerializer(serializers.ModelSerializer):
@@ -51,43 +57,51 @@ class RecipeSerializer(serializers.ModelSerializer):
     ingredients = RecipeIngredientSerializer(many=True)
 
 
-def create_recipe_tasty(json_data):
-    pass
+def parse_url_api_to_json(json_data):
+    recipe = {
+        'source': Recipe.RecipeSource.URLPARSE,
+        'name': json_data['name'],
+        'description': json_data['description'],
+        'raw': json_data,
+        'image_url': json_data['images'][0] if len(json_data['images']) else "",
+        'source_url': json_data['url'],
+        'video_url': "",
+    }
+
+    instructions = []
+    for instruction in json_data['instructions']:
+        for step in instruction['steps']:
+            instructions.append(step)
+    recipe['recipe_steps'] = instructions
+
+    ingredients = []
+    for ingredient in json_data['ingredients']:
+        ingredients.append(ingredient)
+    recipe['ingredients'] = ingredients
+    return recipe
 
 
-class TestSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Recipe
-        fields = "__all__"
-    recipe_steps = RecipeStepSerializer(many=True)
-    ingredients = RecipeIngredientSerializer(many=True)
-
-
-def create_recipe_url(json_data):
+def create_recipe(json_data):
     recipe = Recipe()
-    recipe.source = Recipe.RecipeSource.URLPARSE
-    try:
-        recipe.name = json_data['name']
-        recipe.raw = json_data
-        recipe.image_url = json_data['images'][0] if len(json_data['images']) else ""
-        recipe.source_url = json_data['url']
-        recipe.save()
+    recipe.name = json_data['name']
+    recipe.raw = json_data['raw']
+    recipe.image_url = json_data['image_url']
+    recipe.video_url = json_data['video_url']
+    recipe.description = json_data['description']
+    recipe.source_url = json_data['source_url']
+    recipe.raw = json_data['raw']
+    recipe.source = json_data['source']
+    recipe.save()
+    for step in json_data['recipe_steps']:
+        recipe_step = RecipeStep(step=step, recipe=recipe)
+        # TODO look at bulk add again
+        recipe_step.save()
 
-        for instruction in json_data['instructions']:
-            for step in instruction['steps']:
-                recipe_step = RecipeStep(step=step, recipe=recipe)
-                recipe_step.save()
+    for ingredient in json_data['ingredients']:
+        recipe_ingredient = RecipeIngredient(ingredient=ingredient, recipe=recipe)
+        recipe_ingredient.save()
 
-        for ingredient in json_data['ingredients']:
-            recipe_ingredient = RecipeIngredient(ingredient=ingredient, recipe=recipe)
-            recipe_ingredient.save()
-
-        recipe.save()
-        return recipe
-    except Exception as e:
-        print(e)
-        recipe.delete()
-        return None
+    return recipe
 
 
 class UserRecipeSerializer(serializers.ModelSerializer):

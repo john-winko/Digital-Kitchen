@@ -143,5 +143,10 @@ def parse_url(request):
 def test(request):
     file = open("app/fixtures/cookbook.json").read()
     output = json.loads(file)[0]
-    temp = create_recipe_url(output)
-    return JsonResponse(RecipeSerializer(temp).data, status=200)
+    new_json = parse_url_api_to_json(output)
+
+    recipe = create_recipe(new_json)
+    user_recipe = UserRecipe(user=request.user, recipe=recipe)
+    user_recipe.save()
+
+    return JsonResponse(UserRecipeSerializer(user_recipe).data, status=200)
