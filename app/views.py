@@ -17,6 +17,7 @@ from rest_framework.decorators import action
 from dotenv import load_dotenv
 load_dotenv()
 
+
 def send_the_homepage(request):
     react_app = open('build/index.html').read()
     return HttpResponse(react_app)
@@ -135,3 +136,12 @@ def parse_url(request):
     except Exception as e:
         print(e)
         return JsonResponse({"error": "error"}, status=555)
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def test(request):
+    file = open("app/fixtures/cookbook.json").read()
+    output = json.loads(file)[0]
+    temp = create_recipe_url(output)
+    return JsonResponse(RecipeSerializer(temp).data, status=200)

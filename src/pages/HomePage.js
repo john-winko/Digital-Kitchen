@@ -4,14 +4,16 @@ import cookbook from '../data/cookbook.json'
 
 function HomePage(){
     const backend = useAxios()
-    const [recipe, setRecipe] = useState(null)
+    const [recipe, setRecipe] = useState({})
 
     useEffect(()=>{
         setRecipe(cookbook[0])
     },[])
 
     const clicked = () => {
-
+        backend.post('/api/test/').then((res)=>{
+            console.log("resp", res.data)
+        })
     }
 
     return (
