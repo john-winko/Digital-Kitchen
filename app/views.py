@@ -10,6 +10,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 # TODO: explicit imports
+import app.apis.tasty
 from .serializers import *
 from .models import *
 from django.contrib.auth.models import User
@@ -61,9 +62,7 @@ class RecipeViewSet(ModelViewSet):
 
     @action(methods=['GET'], detail=False)
     def browse(self, request, pk=None):
-        # TODO add api calls to tasty here
-        file = open("app/fixtures/recipeList.json").read()
-        output = json.loads(file)
+        output = app.apis.tasty.tasty_browse()
         return JsonResponse(output, safe=False, status=200)
 
 
@@ -141,13 +140,14 @@ def parse_url(request):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def test(request):
-    file = open("app/fixtures/recipeList.json").read()
-    output = json.loads(file)['results'][6]
-    new_json = parse_tasty_api_to_json(output)
-
-    recipe = create_recipe(new_json)
-    user_recipe = UserRecipe(user=request.user, recipe=recipe)
-    user_recipe.save()
+    pass
+    # file = open("app/fixtures/recipeList.json").read()
+    # output = json.loads(file)['results'][6]
+    # new_json = parse_tasty_api_to_json(output)
+    #
+    # recipe = create_recipe(new_json)
+    # user_recipe = UserRecipe(user=request.user, recipe=recipe)
+    # user_recipe.save()
 
     # file = open("app/fixtures/cookbook.json").read()
     # output = json.loads(file)[0]
@@ -157,4 +157,4 @@ def test(request):
     # user_recipe = UserRecipe(user=request.user, recipe=recipe)
     # user_recipe.save()
 
-    return JsonResponse(UserRecipeSerializer(user_recipe).data, status=200)
+    # return JsonResponse(UserRecipeSerializer(user_recipe).data, status=200)
