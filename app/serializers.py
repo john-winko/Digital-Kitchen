@@ -37,6 +37,12 @@ class RecipeStepSerializer(serializers.ModelSerializer):
         # fields = "__all__"
 
 
+class NutritionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Nutrition
+        fields = "__all__"
+
+
 class RecipeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Recipe
@@ -55,6 +61,7 @@ class RecipeSerializer(serializers.ModelSerializer):
         fields = "__all__"
     recipe_steps = RecipeStepSerializer(many=True)
     ingredients = RecipeIngredientSerializer(many=True)
+    nutrition = NutritionSerializer()
 
 
 class UserRecipeSerializer(serializers.ModelSerializer):
