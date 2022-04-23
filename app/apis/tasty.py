@@ -24,6 +24,7 @@ def create_or_find(data):
     try:
         recipe = Recipe()
         recipe.name = data['name']
+        recipe.description = data['description']
         recipe.source = Recipe.RecipeSource.TASTY
         recipe.raw = data
         recipe.image_url = data['thumbnail_url']
