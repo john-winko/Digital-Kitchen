@@ -141,12 +141,20 @@ def parse_url(request):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def test(request):
-    file = open("app/fixtures/cookbook.json").read()
-    output = json.loads(file)[0]
-    new_json = parse_url_api_to_json(output)
+    file = open("app/fixtures/recipeList.json").read()
+    output = json.loads(file)['results'][6]
+    new_json = parse_tasty_api_to_json(output)
 
     recipe = create_recipe(new_json)
     user_recipe = UserRecipe(user=request.user, recipe=recipe)
     user_recipe.save()
+
+    # file = open("app/fixtures/cookbook.json").read()
+    # output = json.loads(file)[0]
+    # new_json = parse_url_api_to_json(output)
+    #
+    # recipe = create_recipe(new_json)
+    # user_recipe = UserRecipe(user=request.user, recipe=recipe)
+    # user_recipe.save()
 
     return JsonResponse(UserRecipeSerializer(user_recipe).data, status=200)
