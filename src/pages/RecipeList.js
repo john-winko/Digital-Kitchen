@@ -15,16 +15,17 @@ export default function RecipeList({favoritesOnly = false}) {
             })
         }else{
             backend.get('/api/v1/recipe/browse/').then((res)=>{
-                console.log("browse", res)
-                setRecipeList(res.data.results)
+                // console.log("browse", res)
+                setRecipeList(res.data)
             })
         }
     },[favoritesOnly])
 
     return (
         <div className={"d-flex flex-column "} style={{marginInline:"auto", maxWidth:"1100px"}}>
-            {recipeList.map((recipe) =>
-                <RecipeCard key={recipe.id} {...{recipe}} />
+            {console.log("recipe list", recipeList)}
+            {recipeList.map((recipe, index) =>
+                <RecipeCard key={`${index}`} {...{recipe}} />
             )}
         </div>
 

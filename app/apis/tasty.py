@@ -6,7 +6,7 @@ def tasty_browse(index=0):
     if index == 0:
         file = open("app/fixtures/recipeList.json").read()
         output = json.loads(file)
-        return parse_tasty_api_to_json(output)
+        return [parse_tasty_api_to_json(x) for x in output['results']]
     else:
         pass
     # TODO add in API call to tasty for paginated results
