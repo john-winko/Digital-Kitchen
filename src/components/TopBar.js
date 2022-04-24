@@ -1,10 +1,7 @@
 import {Link} from "react-router-dom";
 import {ShowLoginLogout} from "../components/Login";
-import {Grid, Input, InputAdornment} from "@mui/material";
-import IconButton from "@mui/material/IconButton";
-import {Search} from "@mui/icons-material";
+import {Grid} from "@mui/material";
 import RecipeSearch from "./RecipeSearch";
-
 
 export default function TopBar() {
     return (

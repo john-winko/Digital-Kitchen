@@ -67,7 +67,23 @@ background: linear-gradient(90deg, rgba(29,122,40,0.8533788515406162) 0%, rgba(1
 }
 
 h1,h2,h3,h4 {
-    color: #0051ff;
-    background-color: white;
+    color: #14316e;
+    background: rgba(123, 156, 236, 0.75);
     border-radius: 2rem;
+    text-align: center;
+    letter-spacing: 4px;
+    border-bottom: 3px solid black;
+    /*font-weight: bolder;*/
+}
+
+.react-calendar {
+    margin:auto;
+}
+
+.MuiList-root {
+    max-height: 70vh;
+    overflow: auto;
+    border-radius: 1rem;
+    padding: 2rem;
+    background: rgba(225, 193, 202, 0.89);
 }

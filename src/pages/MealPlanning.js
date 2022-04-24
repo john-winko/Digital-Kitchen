@@ -1,6 +1,6 @@
 import Calendar from "react-calendar";
 import 'react-calendar/dist/Calendar.css';
-import {List} from "@mui/material";
+import {Grid, List} from "@mui/material";
 import {useContext, useEffect, useState} from "react";
 import {MyCollectionContext} from "../context/MyCollection";
 import MealListItem from "../components/MealListItem";
@@ -50,34 +50,35 @@ export default function MealPlanning() {
     }, [isDirty])
 
     return (
-        <div>
-            <div style={{display: "flex", flexDirection: "row", width: "100%"}}>
-                <div style={{marginInline: "auto"}}>
-                    <h3 style={{textAlign: "center"}}>Meal Date {selDate.toLocaleDateString()}</h3>
-                    <Calendar onChange={setSelDate} value={selDate}/>
-                </div>
-                <div style={{marginInline: "auto"}}>
-                    <h3 style={{textAlign: "center"}}>Meal List</h3>
-                    <List style={{
-                        maxHeight: "70vh",
-                        overflow: "auto",
-                        backgroundColor: "#dddddd",
-                        borderRadius: "2rem",
-                        paddingRight: "2rem"
-                    }}>
-                        {myRecipes.map((recipe) => <MealListItem key={recipe.id} recipe={recipe} selDate={selDate}
-                                                                 addMeal={addMeal}/>)}
-                    </List>
-                </div>
-            </div>
-            <hr style={{marginBlock: "2rem"}}/>
-            <div>
-                <h2 style={{textAlign: "center"}}>Meal Plan</h2>
-                <List dense>
-                    {meals.map((meal) => <MealPlanItem key={meal.id} mealPlan={meal} deleteMeal={deleteMeal}/>)}
+        <Grid container spacing={2}>
+            <Grid item sm={12} md={6}>
+                <Grid container direction={"column"} spacing={2}>
+                    <Grid item>
+                        <h2>Meal Date {selDate.toLocaleDateString()}</h2>
+                        <Calendar onChange={setSelDate} value={selDate}/>
+                    </Grid>
+                    <Grid item>
+                        <h2>Meal Plan</h2>
+                        <List dense>
+                            {meals.map((meal) =>
+                                <MealPlanItem key={meal.id} mealPlan={meal} deleteMeal={deleteMeal}/>)
+                            }
+                        </List>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid item sm={12} md={6}>
+                <h2>Meal List</h2>
+                <List>
+                    {myRecipes.map((recipe) =>
+                        <MealListItem key={recipe.id}
+                                      recipe={recipe}
+                                      selDate={selDate}
+                                      addMeal={addMeal}
+                        />)
+                    }
                 </List>
-
-            </div>
-        </div>
+            </Grid>
+        </Grid>
     )
 }

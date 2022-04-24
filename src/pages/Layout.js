@@ -20,7 +20,7 @@ export default function Layout() {
                     <Grid item>
                         <TopBar/>
                     </Grid>
-                    <Grid item>
+                    <Grid item className={"content"}>
                         <Outlet/>
                     </Grid>
                     <Grid item>
