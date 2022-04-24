@@ -1,6 +1,5 @@
 import {Outlet} from "react-router-dom";
 import Sidebar from "../components/Sidebar/Sidebar";
-import Footer from "../components/Footer";
 import TopBar from "../components/TopBar";
 import {useContext} from "react";
 import {AuthContext} from "../context/AuthProvider";
@@ -22,9 +21,6 @@ export default function Layout() {
                     </Grid>
                     <Grid item className={"content"}>
                         <Outlet/>
-                    </Grid>
-                    <Grid item>
-                        <Footer/>
                     </Grid>
                 </Grid>
             </Grid>

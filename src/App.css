@@ -41,6 +41,7 @@ background: linear-gradient(90deg, rgba(29,122,40,0.8533788515406162) 0%, rgba(1
     padding-inline: 2rem;
     margin-bottom: 2rem;
     min-height: 6rem;
+    z-index: 1000;
 }
 
 .sLink {
@@ -122,4 +123,18 @@ rgba(169,94,176,0.95) 100%)!important;
     border-radius: 2rem;
     margin: 2rem;
     text-align: center;
+}
+
+.homePage p {
+    min-height: 100px;
+    border-radius: 2rem;
+    padding: 2rem;
+    font-size: xx-large;
+    background-color: rgba(93, 231, 116, 0.9)
+}
+
+.homePage img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 3rem;
 }
