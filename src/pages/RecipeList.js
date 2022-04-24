@@ -9,7 +9,7 @@ export default function RecipeList({favoritesOnly = false}) {
     useEffect(()=>{
         if (favoritesOnly){
             backend.get('/api/v1/user_recipe/').then((res)=>{
-                const newRecipes = res.data.map((x)=>x.recipe.details)
+                const newRecipes = res.data.map((x)=>x.recipe)
                 console.log("favs", newRecipes)
                 setRecipeList(newRecipes)
             })

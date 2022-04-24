@@ -60,7 +60,7 @@ export default function Sidebar() {
                 </Menu>
                 <Menu iconShape={"circle"}>
                     <SubMenu title="Add Recipe" icon={<SettingsIcon/>}>
-                        <MenuItem icon={<AnchorIcon/>}><Link to={"/"}>Manual</Link></MenuItem>
+                        <MenuItem icon={<AnchorIcon/>}><Link to={"/coming_soon"}>Manual</Link></MenuItem>
 <MenuItem icon={<AnchorIcon/>}><Link to={"/add_blog_recipe"}>From blog/website</Link></MenuItem>
                     </SubMenu>
 
@@ -80,7 +80,7 @@ export default function Sidebar() {
 
                 <Menu iconShape="circle">
                     <MenuItem icon={<ShopIcon/>}>
-                        <Link to={"/"}>Shopping List</Link>
+                        <Link to={"/coming_soon"}>Shopping List</Link>
                     </MenuItem>
 
                 </Menu>

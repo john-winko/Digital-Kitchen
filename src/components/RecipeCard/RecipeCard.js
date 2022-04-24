@@ -58,7 +58,7 @@ export default function RecipeCard({recipe, initialExpand = false}) {
                 </ExpandMore>
             </CardActions>
             <Collapse in={expanded} timeout="auto" unmountOnExit>
-                <RecipeCardDetails/>
+                <RecipeCardDetails ingredients={recipe.ingredients} steps={recipe.recipe_steps}/>
             </Collapse>
         </Card>
     )

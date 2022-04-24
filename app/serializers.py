@@ -20,21 +20,21 @@ class KeywordSerializer(serializers.ModelSerializer):
 class RecipeIngredientSerializer(serializers.ModelSerializer):
     class Meta:
         model = RecipeIngredient
-        fields = [
-            'ingredient',
-            # 'recipe(_id)'
-        ]
-        # fields = "__all__"
+        # fields = [
+        #     'ingredient',
+        #     'recipe(_id)'
+        # ]
+        fields = "__all__"
 
 
 class RecipeStepSerializer(serializers.ModelSerializer):
     class Meta:
         model = RecipeStep
-        fields = [
-            'step',
-            # 'recipe(_id)'
-        ]
-        # fields = "__all__"
+        # fields = [
+        #     'step',
+        #     'recipe(_id)'
+        # ]
+        fields = "__all__"
 
 
 class NutritionSerializer(serializers.ModelSerializer):

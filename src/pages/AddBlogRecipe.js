@@ -23,7 +23,6 @@ export default function AddBlogRecipe() {
 
     return (
         <div style={{marginInline: "auto"}}>
-            {/*<h1 style={{textAlign: "center"}}>Adding a blog recipe</h1>*/}
                 <form onSubmit={parseWebsite} >
                     <TextField
                         sx={{width:"80%", backgroundColor:"white"}}
@@ -33,7 +32,6 @@ export default function AddBlogRecipe() {
                     />
                     <IconButton type="submit" aria-label="search">
                         <SearchIcon/>
-
                     </IconButton>
                 </form>
             <hr/>

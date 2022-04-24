@@ -127,8 +127,6 @@ def parse_url(request):
         }
 
         response = requests.request("POST", url, data=payload, headers=headers)
-
-        # print(response.text)
         json_text = json.loads(response.text)
 
         recipe = app.apis.cookbook.parse_url_api(json_text[0])
