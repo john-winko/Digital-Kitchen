@@ -62,6 +62,5 @@ class Meal(models.Model):
         BRUNCH = 5
 
     user_recipe = models.ForeignKey(UserRecipe, on_delete=models.CASCADE, related_name="meals")
-    # Breakfast, lunch, dinner, snack etc
     meal_type = models.IntegerField(choices=MealType.choices)
     meal_date = models.DateField(null=True, blank=True)

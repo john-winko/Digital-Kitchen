@@ -51,9 +51,13 @@ class RecipeViewSet(ModelViewSet):
     def browse(self, request, pk=None):
         page = int(request.query_params['page']) if 'page' in request.query_params else 1
         query = request.query_params['query'] if 'query' in request.query_params else None
-        pks = app.apis.tasty.tasty_browse(page, query)
+        pks, count = app.apis.tasty.tasty_browse(page, query)
         recipes = Recipe.objects.filter(pk__in=pks)
-        return JsonResponse(RecipeSerializer(recipes, many=True).data, safe=False, status=200)
+        output = {
+            "results": RecipeSerializer(recipes, many=True).data,
+            "count": count
+        }
+        return JsonResponse(output, safe=False, status=200)
 
 
 class UserRecipeViewSet(ModelViewSet):

@@ -14,7 +14,7 @@ def tasty_browse(index=1, query=None):
         pks = []
         for result in output['results']:
             pks.append(create_or_find(result))
-        return pks
+        return pks, output['count'] if 'count' in output else 0
     else:
         url = "https://tasty.p.rapidapi.com/recipes/list"
         querystring = {"from": (index-1)*20, "size": "20"}
@@ -29,7 +29,7 @@ def tasty_browse(index=1, query=None):
         pks = []
         for result in output['results']:
             pks.append(create_or_find(result))
-        return pks
+        return pks, output['count'] if 'count' in output else 0
 
 
 def create_or_find(data):

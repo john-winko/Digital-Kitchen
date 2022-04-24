@@ -35,7 +35,6 @@ export default function AddBlogRecipe() {
                                 placeholder="Enter website url"
                                 endAdornment={
                                 <InputAdornment position={"end"}>
-
                             <IconButton type="submit" aria-label="search">
                                 <SearchIcon/>
                             </IconButton>

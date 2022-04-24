@@ -38,6 +38,7 @@
 
 # Stretch
 - Save tag preferences as well
+- Fix the underline in search boxes
 - recipe list, option at top to hide current favorites
 - Custom serialization of different recipe apis into one model on our backend
 - Implement signup

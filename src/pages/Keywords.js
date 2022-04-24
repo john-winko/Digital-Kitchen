@@ -1,14 +1,10 @@
 import {useEffect, useState} from "react";
 import {useAxios} from "../utils/useAxios";
 import KeywordItem from "../components/KeywordItem";
-import {Button, Grid, Input, List, ListItem, ListItemText, Slider} from "@mui/material";
-import IconButton from "@mui/material/IconButton";
-import {Delete, Edit} from "@mui/icons-material";
+import {Button, Grid, Input, List, Slider} from "@mui/material";
 
 export default function Keywords() {
-    // TODO wire up to myCollections
     const [keywords, setKeywords] = useState([])
-    const [editItem, setEditItem] = useState(null)
     const [dirty, setDirty] = useState(true)
     const backend = useAxios()
     const marks = [
@@ -88,26 +84,13 @@ export default function Keywords() {
                     </Grid>
                     <Grid item>
                         <List>
-                            {keywords.map((keyword)=>
-                                <KeywordItem key={keyword.id} keyword={keyword} setDirty={setDirty} marks={marks}/>)}
-                            {/*{keywords.map(keyword =>*/}
-                            {/*    <KeywordItem key={keyword.id}*/}
-                            {/*                 {...{*/}
-                            {/*                     keyword,*/}
-                            {/*                     setDirty,*/}
-                            {/*                     editItem,*/}
-                            {/*                     setEditItem*/}
-                            {/*                 }}*/}
-                            {/*    />)}*/}
+                            {keywords.map((keyword) =>
+                                <KeywordItem key={keyword.id} {...{keyword, setDirty, marks}}/>)}
                         </List>
                     </Grid>
-
-
                 </Grid>
             </Grid>
             <Grid item xs={0} md={2} xl={3}/>
         </Grid>
-
-
     )
 }
