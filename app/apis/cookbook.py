@@ -1,26 +1,30 @@
-from app.models import Recipe
+from app.models import Recipe, RecipeStep, RecipeIngredient
 
 
-def parse_url_api_to_json(json_data):
-    recipe = {
-        'source': Recipe.RecipeSource.URLPARSE,
-        'name': json_data['name'],
-        'description': json_data['description'],
-        'raw': json_data,
-        'image_url': json_data['images'][0] if len(json_data['images']) else "",
-        'source_url': json_data['url'],
-        'video_url': "",
-    }
+def parse_url_api(data):
+    try:
+        recipe = Recipe(
+            source=Recipe.RecipeSource.URLPARSE,
+            name=data['name'],
+            description=data['description'],
+            raw=data,
+            image_url=data['images'][0] if len(data['images']) else "",
+            source_url=data['url'],
+            video_url="",
+        )
+        recipe.save()
 
-    instructions = []
-    for instruction in json_data['instructions']:
-        for step in instruction['steps']:
-            instructions.append(step)
-    recipe['recipe_steps'] = instructions
+        for instruction in data['instructions']:
+            instructions = [RecipeStep(step=x, recipe=recipe) for x in instruction['steps']]
+            RecipeStep.objects.bulk_create(instructions)
 
-    ingredients = []
-    for ingredient in json_data['ingredients']:
-        ingredients.append(ingredient)
-    recipe['ingredients'] = ingredients
-    return recipe
+        ingredients = [RecipeIngredient(ingredient=x, recipe=recipe) for x in data['ingredients']]
+        RecipeIngredient.objects.bulk_create(ingredients)
+
+        return recipe
+
+    except Exception as e:
+        print(e)
+        recipe.delete()
+        return None
 

@@ -11,11 +11,13 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 # TODO: explicit imports
 import app.apis.tasty
+import app.apis.cookbook
 from .serializers import *
 from .models import *
 from django.contrib.auth.models import User
 from rest_framework.decorators import action
 from dotenv import load_dotenv
+
 load_dotenv()
 
 
@@ -128,7 +130,11 @@ def parse_url(request):
 
         # print(response.text)
         json_text = json.loads(response.text)
-        return JsonResponse(json_text, safe=False, status=200)
+
+        recipe = app.apis.cookbook.parse_url_api(json_text[0])
+        if recipe:
+            return JsonResponse(RecipeSerializer(recipe).data, status=200)
+        return JsonResponse({"error": "error"}, status=554)
     except Exception as e:
         print(e)
         return JsonResponse({"error": "error"}, status=555)

@@ -25,7 +25,7 @@ const ExpandMore = styled((props) => {
 export default function RecipeCard({recipe, initialExpand = false}) {
     const [expanded, setExpanded] = React.useState(false);
 
-    const {toggleFavorite, keywords, isFavorite} = useContext(MyCollectionContext)
+    const {toggleFavorite, isFavorite} = useContext(MyCollectionContext)
 
     const recipeJSON = JSON.stringify(recipe.raw)
 
