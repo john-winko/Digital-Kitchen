@@ -1,6 +1,7 @@
 .pro-sidebar {
-    width: 200px;
-    position: fixed;
+    width: 300px;
+    /*position: fixed;*/
+
     max-height: 100vh;
     min-height: 100vh;
 }

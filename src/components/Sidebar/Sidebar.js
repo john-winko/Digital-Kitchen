@@ -30,7 +30,7 @@ export default function Sidebar() {
         setTop5(myRecipes.slice(0, 5))
     }, [myRecipes])
     return (
-        <ProSidebar style={{visibility: token ? "visible" : "hidden"}} image={backgroundImg}>
+        <ProSidebar  image={backgroundImg}>
 
             <SidebarHeader>
                 <div>My Dashboard</div>

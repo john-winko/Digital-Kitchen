@@ -4,24 +4,31 @@ import Footer from "../components/Footer";
 import TopBar from "../components/TopBar";
 import {useContext} from "react";
 import {AuthContext} from "../context/AuthProvider";
+import {Grid} from "@mui/material";
 
 
 export default function Layout() {
     const {token} = useContext(AuthContext)
     return (
-        <div>
-            <Sidebar/>
-            <div style={{marginLeft: token ? "300px" : "0px"}}>
-                <div style={{height: "100vh", marginRight: "20px"}}>
-                    <TopBar/>
-                    <div style={{height: "100%"}}>
+        <Grid container direction={"row"} justifyContent={"space-between"} alignItems={"stretch"} spacing={2}>
+            {token &&
+                <Grid item xs={0} elevation={3}>
+                    <Sidebar/>
+                </Grid>
+            }
+            <Grid item xs marginRight={2}>
+                <Grid container direction={"column"} alignItems={"stretch"}>
+                    <Grid item>
+                        <TopBar/>
+                    </Grid>
+                    <Grid item>
                         <Outlet/>
-                    </div>
-                    {/*TODO footer isn't sticky at bottom*/}
-                </div>
-            </div>
-            <Footer/>
-        </div>
-
+                    </Grid>
+                    <Grid item>
+                        <Footer/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
     )
 }
