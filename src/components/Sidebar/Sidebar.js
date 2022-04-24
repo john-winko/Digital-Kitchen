@@ -1,10 +1,8 @@
 import {useContext, useEffect, useState} from "react";
-import {AuthContext} from "../../context/AuthProvider";
 import {Link} from "react-router-dom";
 import {MyCollectionContext} from "../../context/MyCollection";
 import {Menu, MenuItem, ProSidebar, SidebarContent, SidebarFooter, SidebarHeader, SubMenu} from 'react-pro-sidebar';
 import 'react-pro-sidebar/dist/css/styles.css';
-import './Sidebar.css'
 import AnchorIcon from '@mui/icons-material/Anchor';
 import SettingsIcon from '@mui/icons-material/Settings';
 import CollectionsIcon from '@mui/icons-material/Collections';
@@ -15,20 +13,15 @@ import ShopIcon from '@mui/icons-material/Shop';
 // https://codesandbox.io/s/9bbm9?file=/src/Aside.js
 //////////////////////////
 export default function Sidebar() {
-    const {token} = useContext(AuthContext)
     let {myRecipes} = useContext(MyCollectionContext)
     let backgroundImg = "https://images.unsplash.com/photo-1433704579980-63267d3ed68d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80"
 
     const [top5, setTop5] = useState([])
 
-    const search = (e) => {
-        e.preventDefault()
-        console.log("searched", e)
-    }
-
     useEffect(() => {
         setTop5(myRecipes.slice(0, 5))
     }, [myRecipes])
+
     return (
         <ProSidebar  image={backgroundImg}>
 

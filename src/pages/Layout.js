@@ -11,11 +11,10 @@ export default function Layout() {
     const {token} = useContext(AuthContext)
     return (
         <Grid container direction={"row"} justifyContent={"space-between"} alignItems={"stretch"} spacing={2}>
-            {token &&
-                <Grid item xs={0} elevation={3}>
-                    <Sidebar/>
-                </Grid>
-            }
+            <Grid item xs={0}>
+                {/*Only show sidebar when they are logged in*/}
+                {token && <Sidebar/>}
+            </Grid>
             <Grid item xs marginRight={2}>
                 <Grid container direction={"column"} alignItems={"stretch"}>
                     <Grid item>

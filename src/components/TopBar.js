@@ -2,7 +2,6 @@ import {Link} from "react-router-dom";
 import {ShowLoginLogout} from "../components/Login";
 import {AppBar, Box, Toolbar} from "@mui/material";
 import Typography from "@mui/material/Typography";
-import './TopBar.css';
 
 
 function TopBar() {

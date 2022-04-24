@@ -14,3 +14,34 @@ body {
 .react-calendar {
     border-radius: 1rem;
 }
+
+.pro-sidebar {
+    width: 300px;
+    /*position: fixed;*/
+    /*Making it fixed screws up grid for rest of page*/
+    max-height: 100vh;
+    min-height: 100vh;
+}
+
+.pro-sidebar-header {
+    padding: 24px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.AppBar {
+    background-color: #555555 !important;
+    box-shadow: -10px 10px 10px #603b43 !important;
+    border-radius: 0 0 3rem 3rem;
+    padding-inline: 2rem;
+    margin-bottom: 2rem;
+}
+
+.sLink {
+    color: #fafafa;
+    text-decoration: inherit;
+}
