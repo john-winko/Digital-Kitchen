@@ -34,14 +34,31 @@ body {
 }
 
 .AppBar {
-    background-color: #555555 !important;
-    box-shadow: -10px 10px 10px #603b43 !important;
+    /*background-color: #51bdab;*/
+    /*background-image: url("https://images.unsplash.com/photo-1594620092176-7fb7e7abdd0f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2128&q=80");*/
+    /*background-size: 300px;*/
+background: rgb(34,29,122);
+background: linear-gradient(90deg, rgba(34,29,122,0.6699054621848739) 0%, rgba(136,144,68,0.6082808123249299) 50%, rgba(110,101,116,0.6418942577030813) 100%);
+    /*background-position: center;*/
+    box-shadow: 10px 15px 10px #603b43;
     border-radius: 0 0 3rem 3rem;
     padding-inline: 2rem;
     margin-bottom: 2rem;
+    min-height: 6rem;
 }
 
 .sLink {
     color: #fafafa;
     text-decoration: inherit;
+    font-size: 28px;
+    font-style: italic;
+    letter-spacing: 9px;
+}
+
+.textLight {
+    /*background-color: white;*/
+    border-radius: 2rem;
+    /*border-color: inherit;*/
+    /*color: white;*/
+    /*background-color: white;*/
 }
