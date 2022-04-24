@@ -1,6 +1,6 @@
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
-import {TextField} from "@mui/material";
+import {Grid, Input, InputAdornment, TextField} from "@mui/material";
 import {useAxios} from "../utils/useAxios";
 import {useState} from "react";
 import RecipeCard from "../components/RecipeCard/RecipeCard";
@@ -22,20 +22,35 @@ export default function AddBlogRecipe() {
     }
 
     return (
-        <div style={{marginInline: "auto"}}>
-            <form onSubmit={parseWebsite}>
-                <TextField
-                    sx={{width: "80%", backgroundColor: "white"}}
-                    type="search"
-                    name="url"
-                    placeholder="Enter website url"
-                />
-                <IconButton type="submit" aria-label="search">
-                    <SearchIcon/>
-                </IconButton>
-            </form>
-            <hr/>
-            {recipe && <RecipeCard recipe={recipe} initialExpand={true}/>}
-        </div>
+        <Grid container direction={"column"} className={"addBlogRecip"}>
+            <Grid item>
+                <Grid container direction={"row"} justifyContent={"center"}>
+                    <Grid item xs={1} md={3}/>
+                    <Grid item xs>
+                        <form onSubmit={parseWebsite}>
+                            <Input
+                                fullWidth
+                                type="search"
+                                name="url"
+                                placeholder="Enter website url"
+                                endAdornment={
+                                <InputAdornment position={"end"}>
+
+                            <IconButton type="submit" aria-label="search">
+                                <SearchIcon/>
+                            </IconButton>
+                                </InputAdornment>
+                                }
+                            />
+                        </form>
+                    </Grid>
+                    <Grid item xs={1} md={3}/>
+                </Grid>
+            </Grid>
+            <Grid item>
+                {recipe && <RecipeCard recipe={recipe} initialExpand={true}/>}
+            </Grid>
+        </Grid>
+
     )
 }
