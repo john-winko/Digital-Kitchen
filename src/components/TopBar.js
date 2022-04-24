@@ -17,7 +17,7 @@ function TopBar() {
                 </Typography>
 
                 {/*TODO add search bar*/}
-                <Box sx={{marginLeft:"auto"}} mx={2}>
+                <Box sx={{marginLeft: "auto"}} mx={2}>
                     <ShowLoginLogout/>
                 </Box>
             </Toolbar>

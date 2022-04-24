@@ -4,13 +4,13 @@ import {
     DialogActions,
     DialogContent,
     DialogContentText,
-    DialogTitle, IconButton,
+    DialogTitle,
+    IconButton,
     ListItem,
-    ListItemButton,
     ListItemText
 } from "@mui/material";
 import {useState} from "react";
-import {AddBox, Delete} from "@mui/icons-material";
+import {AddBox} from "@mui/icons-material";
 import SearchIcon from '@mui/icons-material/Search';
 import {Link} from "react-router-dom";
 
@@ -33,7 +33,7 @@ export default function MealListItem({recipe, selDate, addMeal}) {
     }
 
     return (
-        <ListItem disablePadding >
+        <ListItem disablePadding>
             <Dialog
                 open={open}
                 onClose={handleClose}

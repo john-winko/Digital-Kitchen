@@ -2,16 +2,13 @@ import {useContext, useEffect, useState} from "react";
 import {AuthContext} from "../../context/AuthProvider";
 import {Link} from "react-router-dom";
 import {MyCollectionContext} from "../../context/MyCollection";
-import {ProSidebar, Menu, MenuItem, SubMenu, SidebarHeader, SidebarContent, SidebarFooter} from 'react-pro-sidebar';
+import {Menu, MenuItem, ProSidebar, SidebarContent, SidebarFooter, SidebarHeader, SubMenu} from 'react-pro-sidebar';
 import 'react-pro-sidebar/dist/css/styles.css';
 import './Sidebar.css'
 import AnchorIcon from '@mui/icons-material/Anchor';
 import SettingsIcon from '@mui/icons-material/Settings';
 import CollectionsIcon from '@mui/icons-material/Collections';
 import ShopIcon from '@mui/icons-material/Shop';
-import {Form} from "react-bootstrap";
-import {IconButton, InputBase, TextField} from "@mui/material";
-import SearchIcon from '@mui/icons-material/Search';
 
 
 ///////////////////////////
@@ -43,7 +40,8 @@ export default function Sidebar() {
 
                 <Menu iconShape="circle">
                     <SubMenu suffix={<span>({myRecipes.length})</span>} title="My Collection" icon={<AnchorIcon/>}>
-                        <MenuItem icon={<AnchorIcon/>}><Link to={"/recipe_list/favorites"}>View Recipes</Link></MenuItem>
+                        <MenuItem icon={<AnchorIcon/>}><Link to={"/recipe_list/favorites"}>View
+                            Recipes</Link></MenuItem>
                         <SubMenu title="Recent Favorites" icon={<AnchorIcon/>}>
                             {top5.map((element) => {
                                 return (
@@ -61,7 +59,7 @@ export default function Sidebar() {
                 <Menu iconShape={"circle"}>
                     <SubMenu title="Add Recipe" icon={<SettingsIcon/>}>
                         <MenuItem icon={<AnchorIcon/>}><Link to={"/coming_soon"}>Manual</Link></MenuItem>
-<MenuItem icon={<AnchorIcon/>}><Link to={"/add_blog_recipe"}>From blog/website</Link></MenuItem>
+                        <MenuItem icon={<AnchorIcon/>}><Link to={"/add_blog_recipe"}>From blog/website</Link></MenuItem>
                     </SubMenu>
 
                 </Menu>

@@ -2,7 +2,7 @@ import axios from 'axios'
 // grab info in supplied token (npm install jwt-decode)
 import jwt_decode from "jwt-decode";
 import dayjs from 'dayjs'
-import { useContext } from 'react'
+import {useContext} from 'react'
 import {AuthContext} from '../context/AuthProvider'
 
 // TODO: parse into .env
@@ -24,15 +24,15 @@ const getLocalToken = () => {
 }
 
 const getLoginToken = async (formData) => {
-    try{
+    try {
         const axiosInstance = axios.create({baseURL});
         const response = await axiosInstance.post(tokenLoginURL, formData)
-        if (response.data){
+        if (response.data) {
             localStorage.setItem(tokenName, response.data.access)
             localStorage.setItem(refreshName, response.data.refresh)
         }
         return response.data.access
-    }catch(err){
+    } catch (err) {
         console.log("login error", err)
         return null
     }
@@ -46,11 +46,11 @@ const clearToken = () => {
 
 // custom hook
 const useAxios = () => {
-    const { token, setToken } = useContext(AuthContext)
+    const {token, setToken} = useContext(AuthContext)
 
     const axiosInstance = axios.create({
         baseURL,
-        headers: { Authorization: `${headerName} ${token}` }
+        headers: {Authorization: `${headerName} ${token}`}
     });
 
     // Refresh token if it has expired before sending request
@@ -78,4 +78,4 @@ const useAxios = () => {
     return axiosInstance
 }
 
-export { useAxios, getLocalToken, getLoginToken, clearToken };
+export {useAxios, getLocalToken, getLoginToken, clearToken};

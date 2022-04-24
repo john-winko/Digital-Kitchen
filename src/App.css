@@ -1,13 +1,16 @@
-html{
+html {
     background-color: darkgray;
 }
-body{
+
+body {
     background-color: darkgray;
 }
+
 .App {
     margin-inline: auto;
     max-width: 1600px;
 }
+
 .react-calendar {
     border-radius: 1rem;
 }

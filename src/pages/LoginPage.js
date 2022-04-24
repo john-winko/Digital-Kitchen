@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom";
-import {useContext, useState} from "react";
+import {useContext} from "react";
 import {AuthContext} from "../context/AuthProvider";
-import {Button, FormControl, TextField} from "@mui/material";
+import {Button, TextField} from "@mui/material";
 
 function LoginPage() {
     let auth = useContext(AuthContext)

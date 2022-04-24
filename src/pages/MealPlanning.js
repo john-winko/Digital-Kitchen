@@ -1,6 +1,6 @@
 import Calendar from "react-calendar";
 import 'react-calendar/dist/Calendar.css';
-import {List, ListItem} from "@mui/material";
+import {List} from "@mui/material";
 import {useContext, useEffect, useState} from "react";
 import {MyCollectionContext} from "../context/MyCollection";
 import MealListItem from "../components/MealListItem";
@@ -31,7 +31,7 @@ export default function MealPlanning() {
     }
 
     const deleteMeal = (mealID) => {
-        backend.delete(`/api/v1/meal/${mealID}/`).then((res)=>{
+        backend.delete(`/api/v1/meal/${mealID}/`).then((res) => {
             console.log("deleted", res)
             setIsDirty(true)
         })
@@ -58,14 +58,20 @@ export default function MealPlanning() {
                 </div>
                 <div style={{marginInline: "auto"}}>
                     <h3 style={{textAlign: "center"}}>Meal List</h3>
-                    <List style={{maxHeight: "70vh", overflow: "auto", backgroundColor:"#dddddd", borderRadius:"2rem", paddingRight:"2rem"}}>
+                    <List style={{
+                        maxHeight: "70vh",
+                        overflow: "auto",
+                        backgroundColor: "#dddddd",
+                        borderRadius: "2rem",
+                        paddingRight: "2rem"
+                    }}>
                         {myRecipes.map((recipe) => <MealListItem key={recipe.id} recipe={recipe} selDate={selDate}
                                                                  addMeal={addMeal}/>)}
                     </List>
                 </div>
             </div>
-            <hr style={{marginBlock:"2rem"}}/>
-            <div >
+            <hr style={{marginBlock: "2rem"}}/>
+            <div>
                 <h2 style={{textAlign: "center"}}>Meal Plan</h2>
                 <List dense>
                     {meals.map((meal) => <MealPlanItem key={meal.id} mealPlan={meal} deleteMeal={deleteMeal}/>)}

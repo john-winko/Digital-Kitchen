@@ -17,20 +17,20 @@ import AddBlogRecipe from "./pages/AddBlogRecipe";
 function App() {
 
     return (
-        <div className="App" >
+        <div className="App">
             <AuthProvider><MyCollectionProvider>
                 <Routes>
                     <Route element={<Layout/>}>
                         <Route path={"/"} element={<HomePage/>}/>
                         <Route path={"/login"} element={<LoginPage/>}/>
-                        <Route path={"/signup"} element={<Signup />}/>
-                        <Route path={"/coming_soon"} element={<ComingSoon />} />
-                        <Route element={<RequireAuth />}>
-                            <Route path={"/add_blog_recipe"} element={<AddBlogRecipe />}/>
-                            <Route path={"/recipe/:id"} element={<SingleRecipe />}/>
-                            <Route path={"/recipe_list/favorites"} element={<RecipeList favoritesOnly />}/>
-                            <Route path={"/meal_planning"} element={<MealPlanning />}/>
-                            <Route path={"/recipe_list"} element={<RecipeList />}/>
+                        <Route path={"/signup"} element={<Signup/>}/>
+                        <Route path={"/coming_soon"} element={<ComingSoon/>}/>
+                        <Route element={<RequireAuth/>}>
+                            <Route path={"/add_blog_recipe"} element={<AddBlogRecipe/>}/>
+                            <Route path={"/recipe/:id"} element={<SingleRecipe/>}/>
+                            <Route path={"/recipe_list/favorites"} element={<RecipeList favoritesOnly/>}/>
+                            <Route path={"/meal_planning"} element={<MealPlanning/>}/>
+                            <Route path={"/recipe_list"} element={<RecipeList/>}/>
                             <Route path={"/keywords"} element={<Keywords/>}/>
                         </Route>
                     </Route>

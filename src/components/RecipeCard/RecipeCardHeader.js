@@ -1,7 +1,6 @@
 import CardHeader from "@mui/material/CardHeader";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import * as React from "react";

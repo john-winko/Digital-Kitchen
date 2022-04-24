@@ -20,7 +20,7 @@ function MyCollectionProvider({children}) {
 
         } else {
             // let params = {"name": recipe.name, "recipe": recipe}
-            backend.post('/api/v1/user_recipe/', {"recipeID":recipeID})
+            backend.post('/api/v1/user_recipe/', {"recipeID": recipeID})
                 .then((newRecipe) => {// TODO add a toast w/ undo
                     setDirty(true)
                 })
@@ -47,8 +47,8 @@ function MyCollectionProvider({children}) {
                     }
                 })
             backend.get('/api/v1/keyword/')
-                .then((response)=>{
-                    if (response.status === 200){
+                .then((response) => {
+                    if (response.status === 200) {
                         setKeywords(response.data)
                     }
                 })
@@ -61,7 +61,7 @@ function MyCollectionProvider({children}) {
 
     let contextData = {myRecipes, setMyRecipes, toggleFavorite, isFavorite, keywords, setKeywords}
 
-    return <MyCollectionContext.Provider value={contextData}>{ children}</MyCollectionContext.Provider>
+    return <MyCollectionContext.Provider value={contextData}>{children}</MyCollectionContext.Provider>
 }
 
 export {MyCollectionProvider, MyCollectionContext}

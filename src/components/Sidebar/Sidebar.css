@@ -1,10 +1,11 @@
-.pro-sidebar{
-    width:200px;
+.pro-sidebar {
+    width: 200px;
     position: fixed;
     max-height: 100vh;
     min-height: 100vh;
 }
-.pro-sidebar-header{
+
+.pro-sidebar-header {
     padding: 24px;
     text-transform: uppercase;
     font-weight: bold;

@@ -1,14 +1,11 @@
-import datetime
 import json
 import os
 
 import requests
 from rest_framework.viewsets import ModelViewSet
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
-from rest_framework_simplejwt.views import TokenObtainPairView
-from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 # TODO: explicit imports
 import app.apis.tasty
 import app.apis.cookbook
@@ -19,11 +16,6 @@ from rest_framework.decorators import action
 from dotenv import load_dotenv
 
 load_dotenv()
-
-
-# def send_the_homepage(request):
-#     react_app = open('build/index.html').read()
-#     return HttpResponse(react_app)
 
 
 class UserViewSet(ModelViewSet):
@@ -106,12 +98,6 @@ class MealViewSet(ModelViewSet):
         meal.save()
         return JsonResponse(MealSerializer(meal).data, status=200)
 
-    # @action(methods=['GET'], detail=False)
-    # def week(self, request, pk=None):
-    #     # print("whoami")
-    #     # print(request.user)
-    #     return JsonResponse(UserSerializer(request.user).data, status=200)
-
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
@@ -142,20 +128,4 @@ def parse_url(request):
 @permission_classes([IsAuthenticated])
 def test(request):
     pass
-    # file = open("app/fixtures/recipeList.json").read()
-    # output = json.loads(file)['results'][6]
-    # new_json = parse_tasty_api_to_json(output)
-    #
-    # recipe = create_recipe(new_json)
-    # user_recipe = UserRecipe(user=request.user, recipe=recipe)
-    # user_recipe.save()
 
-    # file = open("app/fixtures/cookbook.json").read()
-    # output = json.loads(file)[0]
-    # new_json = parse_url_api_to_json(output)
-    #
-    # recipe = create_recipe(new_json)
-    # user_recipe = UserRecipe(user=request.user, recipe=recipe)
-    # user_recipe.save()
-
-    # return JsonResponse(UserRecipeSerializer(user_recipe).data, status=200)

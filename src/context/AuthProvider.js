@@ -7,7 +7,7 @@ let AuthContext = createContext(null);
 function AuthProvider({children}) {
     const navigate = useNavigate()
     const [loading, setLoading] = useState(true)
-    const [token, setToken] = useState(()=>getLocalToken())
+    const [token, setToken] = useState(() => getLocalToken())
 
     const signin = async (e) => {
         e.preventDefault()
@@ -15,7 +15,7 @@ function AuthProvider({children}) {
         if (loginToken) {
             setToken(loginToken)
             navigate("/")
-        }else{
+        } else {
             navigate("/signup")
         }
     };
@@ -27,12 +27,14 @@ function AuthProvider({children}) {
     };
 
     // hack to prefetch token before renders
-    useEffect(()=>{loading && setLoading(false)}, [loading])
+    useEffect(() => {
+        loading && setLoading(false)
+    }, [loading])
 
     const contextData = {signin, signout, token, setToken, /*getUserObj*/};
 
     // only render after initial load (persist token through page refresh)
-    return <AuthContext.Provider value={contextData}>{loading?null:children}</AuthContext.Provider>;
+    return <AuthContext.Provider value={contextData}>{loading ? null : children}</AuthContext.Provider>;
 }
 
 
@@ -40,10 +42,10 @@ function RequireAuth() {
     let auth = useContext(AuthContext);
     let location = useLocation()
     if (!auth.token) {
-        return <Navigate to="/login" state={{from:location}} replace />;
+        return <Navigate to="/login" state={{from: location}} replace/>;
     }
 
-    return <Outlet />;
+    return <Outlet/>;
 }
 
 

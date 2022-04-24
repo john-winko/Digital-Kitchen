@@ -20,11 +20,12 @@ function Logout() {
     let backend = useAxios()
 
     useEffect(() => {
-        if (loading){
-        backend.get('/api/v1/user/whoami/').then((response) => {
-            // console.log("whoami", response)
-            setUsername(response.data.username)
-        })}
+        if (loading) {
+            backend.get('/api/v1/user/whoami/').then((response) => {
+                // console.log("whoami", response)
+                setUsername(response.data.username)
+            })
+        }
         setLoading(false)
     }, [loading, backend])
 

@@ -2,16 +2,16 @@ import {useAxios} from "../utils/useAxios";
 import {useEffect, useState} from "react";
 import cookbook from '../data/cookbook.json'
 
-function HomePage(){
+function HomePage() {
     const backend = useAxios()
     const [recipe, setRecipe] = useState({})
 
-    useEffect(()=>{
+    useEffect(() => {
         setRecipe(cookbook[0])
-    },[])
+    }, [])
 
     const clicked = () => {
-        backend.post('/api/test/').then((res)=>{
+        backend.post('/api/test/').then((res) => {
             console.log("resp", res.data)
         })
     }

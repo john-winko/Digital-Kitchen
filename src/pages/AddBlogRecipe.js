@@ -11,29 +11,29 @@ export default function AddBlogRecipe() {
 
     const parseWebsite = (e) => {
         e.preventDefault()
-        backend.post('/api/parseUrl/', {"url":e.target.url.value})
-            .then((res)=>{
-                if (res.status === 200){
+        backend.post('/api/parseUrl/', {"url": e.target.url.value})
+            .then((res) => {
+                if (res.status === 200) {
                     setRecipe(res.data)
-                }else{
+                } else {
                     console.log("api error", res)
                 }
-        })
+            })
     }
 
     return (
         <div style={{marginInline: "auto"}}>
-                <form onSubmit={parseWebsite} >
-                    <TextField
-                        sx={{width:"80%", backgroundColor:"white"}}
-                        type="search"
-                        name="url"
-                        placeholder="Enter website url"
-                    />
-                    <IconButton type="submit" aria-label="search">
-                        <SearchIcon/>
-                    </IconButton>
-                </form>
+            <form onSubmit={parseWebsite}>
+                <TextField
+                    sx={{width: "80%", backgroundColor: "white"}}
+                    type="search"
+                    name="url"
+                    placeholder="Enter website url"
+                />
+                <IconButton type="submit" aria-label="search">
+                    <SearchIcon/>
+                </IconButton>
+            </form>
             <hr/>
             {recipe && <RecipeCard recipe={recipe} initialExpand={true}/>}
         </div>

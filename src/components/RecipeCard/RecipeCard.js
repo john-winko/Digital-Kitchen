@@ -1,10 +1,9 @@
-import * as React from 'react';
 import Card from '@mui/material/Card';
 import Collapse from '@mui/material/Collapse';
 import RecipeCardHeader from "./RecipeCardHeader";
 import RecipeCardBody from "./RecipeCardBody";
 import RecipeCardDetails from "./RecipeCardDetails";
-import {useContext, useEffect} from "react";
+import {useContext, useEffect, useState} from "react";
 import {MyCollectionContext} from "../../context/MyCollection";
 import CardActions from "@mui/material/CardActions";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -23,7 +22,7 @@ const ExpandMore = styled((props) => {
 }));
 
 export default function RecipeCard({recipe, initialExpand = false}) {
-    const [expanded, setExpanded] = React.useState(false);
+    const [expanded, setExpanded] = useState(false);
 
     const {toggleFavorite, isFavorite} = useContext(MyCollectionContext)
 

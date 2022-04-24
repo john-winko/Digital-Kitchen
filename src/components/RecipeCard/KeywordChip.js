@@ -1,5 +1,4 @@
 import {Chip} from "@mui/material";
-import * as React from "react";
 
 export default function KeywordChip({recipeJSON, keyword}) {
     let instances = (recipeJSON.match(new RegExp(keyword.keyword, 'ig')) || []).length

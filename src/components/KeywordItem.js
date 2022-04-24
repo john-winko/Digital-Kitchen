@@ -2,36 +2,36 @@ import {useAxios} from "../utils/useAxios";
 import EditIcon from '@mui/icons-material/Edit';
 import CloseIcon from '@mui/icons-material/Close';
 import {Form} from "react-bootstrap";
-import {Button, IconButton} from "@mui/material";
+import {IconButton} from "@mui/material";
 import SaveIcon from '@mui/icons-material/Save';
 
-export default function KeywordItem({keyword, setDirty, editItem, setEditItem}){
+export default function KeywordItem({keyword, setDirty, editItem, setEditItem}) {
     const backend = useAxios()
 
     const deleteItem = (id) => {
         backend.delete(`/api/v1/keyword/${id}/`)
-            .then(()=>setDirty(true))
+            .then(() => setDirty(true))
     }
 
     const ViewItem = () => {
-        return(
+        return (
             <li>
-                <button onClick={()=>deleteItem(keyword.id)}>
+                <button onClick={() => deleteItem(keyword.id)}>
                     <CloseIcon/>
                 </button>
-                <button onClick={()=>setEditItem(keyword.id)}>
+                <button onClick={() => setEditItem(keyword.id)}>
                     <EditIcon/>
                 </button>
                 {/*TODO add some better visibility styling */}
-                <span style={{marginLeft:"1rem"}}>({keyword.acceptability}) {keyword.keyword}</span>
+                <span style={{marginLeft: "1rem"}}>({keyword.acceptability}) {keyword.keyword}</span>
             </li>
         )
     }
 
-    const saveItem = (e)=>{
+    const saveItem = (e) => {
         e.preventDefault()
         backend.put(`/api/v1/keyword/${keyword.id}/`, new FormData(e.target))
-            .then((res)=>{
+            .then((res) => {
                 setEditItem(null)
                 setDirty(true)
             })
@@ -44,7 +44,8 @@ export default function KeywordItem({keyword, setDirty, editItem, setEditItem}){
                     <IconButton type={"submit"}>
                         <SaveIcon/>
                     </IconButton>
-                    <input name={"acceptability"} type={"range"} min={-10} max={10} defaultValue={keyword.acceptability}/>
+                    <input name={"acceptability"} type={"range"} min={-10} max={10}
+                           defaultValue={keyword.acceptability}/>
                     <input name={"keyword"} type={"text"} defaultValue={keyword.keyword}/>
                     <input name={"id"} type={"hidden"} defaultValue={keyword.id}/>
                     <input name={"user"} type={"hidden"} defaultValue={keyword.user}/>
@@ -53,5 +54,5 @@ export default function KeywordItem({keyword, setDirty, editItem, setEditItem}){
         )
     }
 
-    return(editItem === keyword.id ? <EditItem/> : <ViewItem/>)
+    return (editItem === keyword.id ? <EditItem/> : <ViewItem/>)
 }
