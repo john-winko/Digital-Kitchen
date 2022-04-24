@@ -5,7 +5,7 @@ import dayjs from 'dayjs'
 import {useContext} from 'react'
 import {AuthContext} from '../context/AuthProvider'
 
-const baseURL = process.env.REACT_APP_URL_PREFIX // 'http://127.0.0.1:8000'
+const baseURL = process.env.REACT_APP_URL_PREFIX || "" // 'http://127.0.0.1:8000'
 
 // where the token will be "saved as" in local storage
 const tokenName = 'authToken'
