@@ -30,7 +30,10 @@ function App() {
                             <Route path={"/recipe/:id"} element={<SingleRecipe/>}/>
                             <Route path={"/recipe_list/favorites"} element={<RecipeList favoritesOnly/>}/>
                             <Route path={"/meal_planning"} element={<MealPlanning/>}/>
-                            <Route path={"/recipe_list"} element={<RecipeList/>}/>
+                            <Route path={"/recipe_list"}>
+                                <Route path={":query"} element={<RecipeList />} />
+                                <Route index element={<RecipeList />} />
+                            </Route>
                             <Route path={"/keywords"} element={<Keywords/>}/>
                         </Route>
                     </Route>

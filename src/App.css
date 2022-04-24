@@ -1,14 +1,15 @@
-html {
-    background-color: darkgray;
-}
-
-body {
-    background-color: darkgray;
+html,body {
+    background: rgb(52, 136, 34)
 }
 
 .App {
     margin-inline: auto;
     max-width: 1920px;
+    background-image: url(
+    "https://images.unsplash.com/photo-1595246861210-76a2e0076039?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2187&q=80"
+    );
+/*strawberries*/
+/*    https://images.unsplash.com/photo-1624160719183-b3b9010a77c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80*/
 }
 
 .react-calendar {
@@ -17,8 +18,7 @@ body {
 
 .pro-sidebar {
     width: 300px;
-    /*position: fixed;*/
-    /*Making it fixed screws up grid for rest of page*/
+    /*position: fixed;*//*Making it fixed screws up grid for rest of page*/
     max-height: 100vh;
     min-height: 100vh;
 }
@@ -34,13 +34,9 @@ body {
 }
 
 .AppBar {
-    /*background-color: #51bdab;*/
-    /*background-image: url("https://images.unsplash.com/photo-1594620092176-7fb7e7abdd0f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2128&q=80");*/
-    /*background-size: 300px;*/
-background: rgb(34,29,122);
-background: linear-gradient(90deg, rgba(34,29,122,0.6699054621848739) 0%, rgba(136,144,68,0.6082808123249299) 50%, rgba(110,101,116,0.6418942577030813) 100%);
-    /*background-position: center;*/
-    box-shadow: 10px 15px 10px #603b43;
+background: rgb(29,122,40);
+background: linear-gradient(90deg, rgba(29,122,40,0.8533788515406162) 0%, rgba(161,165,231,0.8981967787114846) 63%, rgba(143,94,176,0.8757878151260504) 100%);
+    box-shadow: 10px 10px 10px #15c20b;
     border-radius: 0 0 3rem 3rem;
     padding-inline: 2rem;
     margin-bottom: 2rem;
@@ -55,10 +51,23 @@ background: linear-gradient(90deg, rgba(34,29,122,0.6699054621848739) 0%, rgba(1
     letter-spacing: 9px;
 }
 
-.textLight {
-    /*background-color: white;*/
+.rightGrid{
+    text-align: right;
+}
+
+.MuiInput-root {
+    background-color: #cbcbcb;
+    border-radius: 1rem;
+    padding: 5px;
+}
+
+.content {
+    /*so we can keep footer at bottom w/o making it sticky*/
+    min-height: 90vh;
+}
+
+h1,h2,h3,h4 {
+    color: #0051ff;
+    background-color: white;
     border-radius: 2rem;
-    /*border-color: inherit;*/
-    /*color: white;*/
-    /*background-color: white;*/
 }
