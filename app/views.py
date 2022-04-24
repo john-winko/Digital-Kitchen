@@ -10,12 +10,16 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 # TODO: explicit imports
+import app.apis.tasty
+import app.apis.cookbook
 from .serializers import *
 from .models import *
 from django.contrib.auth.models import User
 from rest_framework.decorators import action
 from dotenv import load_dotenv
+
 load_dotenv()
+
 
 def send_the_homepage(request):
     react_app = open('build/index.html').read()
@@ -60,10 +64,9 @@ class RecipeViewSet(ModelViewSet):
 
     @action(methods=['GET'], detail=False)
     def browse(self, request, pk=None):
-        # TODO add api calls to tasty here
-        file = open("app/fixtures/recipeList.json").read()
-        output = json.loads(file)
-        return JsonResponse(output, safe=False, status=200)
+        pks = app.apis.tasty.tasty_browse()
+        recipes = Recipe.objects.filter(pk__in=pks)
+        return JsonResponse(RecipeSerializer(recipes, many=True).data, safe=False, status=200)
 
 
 class UserRecipeViewSet(ModelViewSet):
@@ -76,16 +79,12 @@ class UserRecipeViewSet(ModelViewSet):
 
     def create(self, request, *args, **kwargs):
         try:
-            data = request.data
-            recipe = Recipe(name=data["name"], details=data["recipe"])
-            recipe.save()
-            user_recipe = UserRecipe(user=request.user, recipe=recipe)
+            user_recipe = UserRecipe(user=request.user, recipe=Recipe.objects.get(pk=request.data["recipeID"]))
             user_recipe.save()
-            serializer = UserRecipeSerializer(user_recipe)
-            return JsonResponse(serializer.data, status=201)
-        except:
-            # TODO add cleanup / delete / rollback
-            return JsonResponse(serializer.errors, status=400)
+            return JsonResponse(UserRecipeSerializer(user_recipe).data, status=201)
+        except Exception as e:
+            print(e)
+            return JsonResponse({"error", "error"}, status=400)
 
 
 class MealViewSet(ModelViewSet):
@@ -128,10 +127,35 @@ def parse_url(request):
         }
 
         response = requests.request("POST", url, data=payload, headers=headers)
-
-        # print(response.text)
         json_text = json.loads(response.text)
-        return JsonResponse(json_text, safe=False, status=200)
+
+        recipe = app.apis.cookbook.parse_url_api(json_text[0])
+        if recipe:
+            return JsonResponse(RecipeSerializer(recipe).data, status=200)
+        return JsonResponse({"error": "error"}, status=554)
     except Exception as e:
         print(e)
         return JsonResponse({"error": "error"}, status=555)
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def test(request):
+    pass
+    # file = open("app/fixtures/recipeList.json").read()
+    # output = json.loads(file)['results'][6]
+    # new_json = parse_tasty_api_to_json(output)
+    #
+    # recipe = create_recipe(new_json)
+    # user_recipe = UserRecipe(user=request.user, recipe=recipe)
+    # user_recipe.save()
+
+    # file = open("app/fixtures/cookbook.json").read()
+    # output = json.loads(file)[0]
+    # new_json = parse_url_api_to_json(output)
+    #
+    # recipe = create_recipe(new_json)
+    # user_recipe = UserRecipe(user=request.user, recipe=recipe)
+    # user_recipe.save()
+
+    # return JsonResponse(UserRecipeSerializer(user_recipe).data, status=200)

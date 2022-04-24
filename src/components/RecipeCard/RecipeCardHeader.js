@@ -2,11 +2,14 @@ import CardHeader from "@mui/material/CardHeader";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import * as React from "react";
-import dayjs from "dayjs";
 
-export default function RecipeCardHeader({name, addDate, author}) {
-    const dd = new Date(1634234436 * 1000)
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import * as React from "react";
+// import dayjs from "dayjs";
+
+export default function RecipeCardHeader({name, isFavorite, toggleFavorite}) {
+    // const dd = new Date(1634234436 * 1000)
+
     return (
         <CardHeader
             avatar={
@@ -15,13 +18,16 @@ export default function RecipeCardHeader({name, addDate, author}) {
                 </Avatar>
             }
             action={
-                <IconButton aria-label={"settings"}>
-                    <MoreVertIcon/>
-                </IconButton>
+                <div>
+                    {isFavorite ? "Saved to collection " : null}
+                    <IconButton aria-label={"settings"} onClick={toggleFavorite}>
+                        <FavoriteIcon sx={isFavorite ? {color: "red"} : null}/>
+                    </IconButton>
+                </div>
             }
             title={name}
-            // TODO add credits to author
-            subheader={dayjs(addDate * 1000).format("MMMM D, YYYY")}
+            // TODO add subheader credits to author or date added
+            // subheader={dayjs(addDate * 1000).format("MMMM D, YYYY")}
         />
     )
 }

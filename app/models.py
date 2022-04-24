@@ -10,15 +10,41 @@ class Keyword(models.Model):
     acceptability = models.IntegerField(default=0, validators=[MaxValueValidator(10), MinValueValidator(-10)])
 
 
+class Nutrition(models.Model):
+    fat = models.IntegerField(default=0)
+    calories = models.IntegerField(default=0)
+    sugar = models.IntegerField(default=0)
+    carbohydrates = models.IntegerField(default=0)
+    fiber = models.IntegerField(default=0)
+    protein = models.IntegerField(default=0)
+
+
 class Recipe(models.Model):
     name = models.CharField(max_length=255)
-    details = models.JSONField(null=True, blank=True)
+    raw = models.JSONField(null=True, blank=True)
+    image_url = models.CharField(max_length=255, null=True, blank=True)
+    video_url = models.CharField(max_length=255, null=True, blank=True)
+    description = models.TextField(default="")
+
+    source_url = models.CharField(max_length=255, null=True, blank=True)
+    nutrition = models.ForeignKey(Nutrition, on_delete=models.CASCADE, blank=True, null=True)
 
     class RecipeSource(models.IntegerChoices):
         CUSTOM = 1
         TASTY = 2
         URLPARSE = 3
+
     source = models.IntegerField(choices=RecipeSource.choices)
+
+
+class RecipeIngredient(models.Model):
+    ingredient = models.CharField(max_length=255)
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="ingredients")
+
+
+class RecipeStep(models.Model):
+    step = models.TextField()
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="recipe_steps")
 
 
 class UserRecipe(models.Model):
@@ -34,6 +60,7 @@ class Meal(models.Model):
         DINNER = 3
         SNACK = 4
         BRUNCH = 5
+
     user_recipe = models.ForeignKey(UserRecipe, on_delete=models.CASCADE, related_name="meals")
     # Breakfast, lunch, dinner, snack etc
     meal_type = models.IntegerField(choices=MealType.choices)

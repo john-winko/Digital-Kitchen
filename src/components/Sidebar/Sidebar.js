@@ -31,7 +31,6 @@ export default function Sidebar() {
 
     useEffect(() => {
         setTop5(myRecipes.slice(0, 5))
-
     }, [myRecipes])
     return (
         <ProSidebar style={{visibility: token ? "visible" : "hidden"}} image={backgroundImg}>
@@ -49,7 +48,7 @@ export default function Sidebar() {
                             {top5.map((element) => {
                                 return (
                                     <MenuItem key={element.id}>
-                                        <Link to={`/recipe/${element.id}`}>{element.recipe.details.name}</Link>
+                                        <Link to={`/recipe/${element.id}`}>{element.recipe.name}</Link>
                                     </MenuItem>
                                 )
                             })}
@@ -61,7 +60,7 @@ export default function Sidebar() {
                 </Menu>
                 <Menu iconShape={"circle"}>
                     <SubMenu title="Add Recipe" icon={<SettingsIcon/>}>
-                        <MenuItem icon={<AnchorIcon/>}><Link to={"/"}>Manual</Link></MenuItem>
+                        <MenuItem icon={<AnchorIcon/>}><Link to={"/coming_soon"}>Manual</Link></MenuItem>
 <MenuItem icon={<AnchorIcon/>}><Link to={"/add_blog_recipe"}>From blog/website</Link></MenuItem>
                     </SubMenu>
 
@@ -81,7 +80,7 @@ export default function Sidebar() {
 
                 <Menu iconShape="circle">
                     <MenuItem icon={<ShopIcon/>}>
-                        <Link to={"/"}>Shopping List</Link>
+                        <Link to={"/coming_soon"}>Shopping List</Link>
                     </MenuItem>
 
                 </Menu>
