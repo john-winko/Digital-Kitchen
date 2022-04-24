@@ -1,6 +1,6 @@
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
-import {Grid, Input, InputAdornment, TextField} from "@mui/material";
+import {Grid, Input, InputAdornment, LinearProgress} from "@mui/material";
 import {useAxios} from "../utils/useAxios";
 import {useState} from "react";
 import RecipeCard from "../components/RecipeCard/RecipeCard";
@@ -8,8 +8,10 @@ import RecipeCard from "../components/RecipeCard/RecipeCard";
 export default function AddBlogRecipe() {
     const backend = useAxios()
     const [recipe, setRecipe] = useState(null)
+    const [isLoading, setIsLoading] = useState(false)
 
     const parseWebsite = (e) => {
+        setIsLoading(true)
         e.preventDefault()
         backend.post('/api/parseUrl/', {"url": e.target.url.value})
             .then((res) => {
@@ -18,6 +20,7 @@ export default function AddBlogRecipe() {
                 } else {
                     console.log("api error", res)
                 }
+                setIsLoading(false)
             })
     }
 
@@ -34,11 +37,11 @@ export default function AddBlogRecipe() {
                                 name="url"
                                 placeholder="Enter website url"
                                 endAdornment={
-                                <InputAdornment position={"end"}>
-                            <IconButton type="submit" aria-label="search">
-                                <SearchIcon/>
-                            </IconButton>
-                                </InputAdornment>
+                                    <InputAdornment position={"end"}>
+                                        <IconButton type="submit" aria-label="search">
+                                            <SearchIcon/>
+                                        </IconButton>
+                                    </InputAdornment>
                                 }
                             />
                         </form>
@@ -46,9 +49,11 @@ export default function AddBlogRecipe() {
                     <Grid item xs={1} md={3}/>
                 </Grid>
             </Grid>
-            <Grid item>
-                {recipe && <RecipeCard recipe={recipe} initialExpand={true}/>}
-            </Grid>
+            {isLoading ? <LinearProgress /> :
+                <Grid item>
+                    {recipe && <RecipeCard recipe={recipe} initialExpand={true}/>}
+                </Grid>
+            }
         </Grid>
 
     )

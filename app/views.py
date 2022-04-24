@@ -55,7 +55,8 @@ class RecipeViewSet(ModelViewSet):
         recipes = Recipe.objects.filter(pk__in=pks)
         output = {
             "results": RecipeSerializer(recipes, many=True).data,
-            "count": count
+            "count": count,
+            "page": page
         }
         return JsonResponse(output, safe=False, status=200)
 
