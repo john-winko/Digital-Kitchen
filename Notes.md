@@ -34,6 +34,7 @@
 - Add pagination to recipe list
 - refresh token is making 3 calls
 - Move favoriting to top right
+- Add correct number of paginations on recipe listing favorites/browse/search
 - recipe list, option at top to hide current favorites
 - Split recipe card show image left, chips right (limit to 10/15?), move keyword chips to top
 

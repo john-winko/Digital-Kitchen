@@ -40,22 +40,24 @@ def create_or_find(data):
     try:
         recipe = Recipe()
         recipe.name = data['name']
-        recipe.description = data['description']
+        recipe.description = data['description'] if 'description' in data else ""
         recipe.source = Recipe.RecipeSource.TASTY
         recipe.raw = data
-        recipe.image_url = data['thumbnail_url']
-        recipe.source_url = data['inspired_by_url']
-        recipe.video_url = data['original_video_url']
+        recipe.image_url = data['thumbnail_url'] if 'thumbnail_url' in data else ""
+        recipe.source_url = data['inspired_by_url'] if 'inspired_by_url' in data else ""
+        recipe.video_url = data['original_video_url'] if 'original_video_url' in data else ""
         recipe.save()
 
-        step_list = [RecipeStep(step=x['display_text'], recipe=recipe) for x in data['instructions']]
-        RecipeStep.objects.bulk_create(step_list)
+        if 'instructions' in data:
+            step_list = [RecipeStep(step=x['display_text'], recipe=recipe) for x in data['instructions']]
+            RecipeStep.objects.bulk_create(step_list)
 
-        for section in data['sections']:
-            ingredient_list = [RecipeIngredient(ingredient=x['raw_text'], recipe=recipe) for x in section['components']]
-            RecipeIngredient.objects.bulk_create(ingredient_list)
+        if 'sections' in data:
+            for section in data['sections']:
+                ingredient_list = [RecipeIngredient(ingredient=x['raw_text'], recipe=recipe) for x in section['components']]
+                RecipeIngredient.objects.bulk_create(ingredient_list)
 
-        if data['nutrition']:
+        if 'nutrition' in data and data['nutrition']:
             nutrition = Nutrition(
                 fat=data['nutrition']['fat'],
                 protein=data['nutrition']['protein'],
