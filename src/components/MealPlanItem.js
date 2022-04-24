@@ -34,6 +34,5 @@ export default function MealPlanItem({mealPlan, deleteMeal}) {
                 secondary={`${mealPlan.meal_date} - ${mealTypeText(mealPlan.meal_type)}`}
             />
         </ListItem>
-
     )
 }

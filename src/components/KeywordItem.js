@@ -13,7 +13,7 @@ import {
 import {Edit} from "@mui/icons-material";
 import {useState} from "react";
 
-export default function KeywordItem({keyword, setDirty, marks, setEditItem}) {
+export default function KeywordItem({keyword, setDirty, marks}) {
     const backend = useAxios()
     const [dialogOpen, setDialogOpen] = useState(false)
 

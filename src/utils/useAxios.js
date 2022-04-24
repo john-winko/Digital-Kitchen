@@ -5,7 +5,6 @@ import dayjs from 'dayjs'
 import {useContext} from 'react'
 import {AuthContext} from '../context/AuthProvider'
 
-// TODO: parse into .env
 const baseURL = process.env.REACT_APP_URL_PREFIX // 'http://127.0.0.1:8000'
 
 // where the token will be "saved as" in local storage
@@ -41,7 +40,6 @@ const getLoginToken = async (formData) => {
 
 const signup = async (formData) => {
     try {
-        console.log("inside axios")
         const axiosInstance = axios.create({baseURL});
         const response = await axiosInstance.post(signupURL, formData)
         return response.data

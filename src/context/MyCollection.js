@@ -19,7 +19,6 @@ function MyCollectionProvider({children}) {
                 })
 
         } else {
-            // let params = {"name": recipe.name, "recipe": recipe}
             backend.post('/api/v1/user_recipe/', {"recipeID": recipeID})
                 .then((newRecipe) => {// TODO add a toast w/ undo
                     setDirty(true)
@@ -39,7 +38,6 @@ function MyCollectionProvider({children}) {
 
     useEffect(() => {
         if (dirty) {
-            // console.log("dirty")
             backend.get('/api/v1/user_recipe/')
                 .then((response) => {
                     if (response.status === 200) {
@@ -52,10 +50,9 @@ function MyCollectionProvider({children}) {
                         setKeywords(response.data)
                     }
                 })
-            // refreshData().then()
         }
         setDirty(false)
-// adding toggleFavorite dependency is infinite loop
+    // adding toggleFavorite dependency is infinite loop
     }, [dirty, backend])
 
 

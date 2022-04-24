@@ -36,7 +36,6 @@ export default function Keywords() {
             value: 10,
             label: 'Heaven'
         },
-
     ]
 
     useEffect(() => {

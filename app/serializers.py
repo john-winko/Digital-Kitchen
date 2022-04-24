@@ -1,7 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-# TODO explicit imports
-from .models import *
+from .models import Keyword, Recipe, RecipeStep, RecipeIngredient, UserRecipe, Nutrition, Meal
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -75,7 +74,6 @@ class UserRecipeSerializer(serializers.ModelSerializer):
         fields = "__all__"
     user = UserSerializer()
     recipe = RecipeSerializer()
-# TODO create another serializer to just send the name/id to use with a context in app
 
 
 class MealSerializer(serializers.ModelSerializer):

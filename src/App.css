@@ -143,6 +143,9 @@ rgba(169,94,176,0.95) 100%)!important;
     margin-block: 1rem;
     margin-inline: auto;
 }
+.signup button {
+    margin-inline: auto!important;
+}
 
 .errorDetails {
     min-width: 100%;
@@ -151,3 +154,4 @@ rgba(169,94,176,0.95) 100%)!important;
     text-align: center;
     padding: 1rem;
 }
+

@@ -49,7 +49,6 @@ export default function MealListItem({recipe, selDate, addMeal}) {
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    {/*TODO add to context and pull on login*/}
                     <Button onClick={() => addMealClick(1)}>Breakfast</Button>
                     <Button onClick={() => addMealClick(5)}>Brunch</Button>
                     <Button onClick={() => addMealClick(2)}>Lunch</Button>
@@ -66,11 +65,6 @@ export default function MealListItem({recipe, selDate, addMeal}) {
                 </Link>
             </IconButton>
             <ListItemText primary={recipe.recipe.name}/>
-            {/*<ListItemButton onClick={handleClickOpen}>*/}
-            {/*    <ListItemText primary={recipe.recipe.name}/>*/}
-            {/*</ListItemButton>*/}
         </ListItem>
-
-
     )
 }

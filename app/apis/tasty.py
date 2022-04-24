@@ -15,7 +15,7 @@ def tasty_browse(index=1, query=None):
         return pks, output['count'] if 'count' in output else 0
     else:
         url = "https://tasty.p.rapidapi.com/recipes/list"
-        querystring = {"from": (index-1)*20, "size": "20"}
+        querystring = {"from": (index - 1) * 20, "size": "20"}
         if query:
             querystring['q'] = query
         headers = {
@@ -52,7 +52,8 @@ def create_or_find(data):
 
         if 'sections' in data:
             for section in data['sections']:
-                ingredient_list = [RecipeIngredient(ingredient=x['raw_text'], recipe=recipe) for x in section['components']]
+                ingredient_list = [RecipeIngredient(ingredient=x['raw_text'], recipe=recipe) for x in
+                                   section['components']]
                 RecipeIngredient.objects.bulk_create(ingredient_list)
 
         if 'nutrition' in data and data['nutrition']:

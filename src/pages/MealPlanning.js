@@ -17,7 +17,6 @@ export default function MealPlanning() {
     const backend = useAxios()
 
     const addMeal = (mealDate, recipe, mealType) => {
-        // console.log(`adding meal ${mealType} on ${mealDate}`, recipe)
         const params = {
             "user_recipe": recipe.id,
             "meal_type": mealType,
@@ -25,14 +24,12 @@ export default function MealPlanning() {
         }
         backend.post('/api/v1/meal/', params)
             .then((res) => {
-                console.log("res add meal", res)
                 setIsDirty(true)
             })
     }
 
     const deleteMeal = (mealID) => {
         backend.delete(`/api/v1/meal/${mealID}/`).then((res) => {
-            console.log("deleted", res)
             setIsDirty(true)
         })
     }
@@ -41,7 +38,6 @@ export default function MealPlanning() {
         if (isDirty) {
             backend.get('/api/v1/meal/')
                 .then((res) => {
-                    console.log("meal response", res.data)
                     setMeals(res.data)
                 })
         }

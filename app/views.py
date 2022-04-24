@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.http import JsonResponse
 from dotenv import load_dotenv
 from rest_framework.decorators import action
@@ -6,9 +7,9 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
 
 import app.apis.cookbook
-# TODO: explicit imports
 import app.apis.tasty
-from .serializers import *
+from .models import Keyword, Recipe, UserRecipe, Meal
+from .serializers import UserSerializer, KeywordSerializer, RecipeSerializer, UserRecipeSerializer, MealSerializer
 
 load_dotenv()
 
@@ -19,7 +20,7 @@ class UserViewSet(ModelViewSet):
     serializer_class = UserSerializer
 
     @action(methods=['GET'], detail=False)
-    def whoami(self, request, pk=None):
+    def whoami(self, request, pk=None):  # noqa
         return JsonResponse(UserSerializer(request.user).data, status=200)
 
 
@@ -48,7 +49,7 @@ class RecipeViewSet(ModelViewSet):
     serializer_class = RecipeSerializer
 
     @action(methods=['GET'], detail=False)
-    def browse(self, request, pk=None):
+    def browse(self, request, pk=None):  # noqa
         page = int(request.query_params['page']) if 'page' in request.query_params else 1
         query = request.query_params['query'] if 'query' in request.query_params else None
         pks, count = app.apis.tasty.tasty_browse(page, query)
@@ -122,11 +123,10 @@ def signup(request):
         return JsonResponse(UserSerializer(user).data, status=200)
     except Exception as e:
         print(e)
-        return JsonResponse({"error":"error details"}, status=500)
+        return JsonResponse({"error": "error details"}, status=500)
 
-
-@api_view(['POST'])
-# @permission_classes([IsAuthenticated])
-def test(request):
-    print(request.data)
-    return JsonResponse({}, status=200)
+# @api_view(['POST'])
+# # @permission_classes([IsAuthenticated])
+# def test(request):
+#     print(request.data)
+#     return JsonResponse({}, status=200)
