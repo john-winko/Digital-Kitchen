@@ -31,7 +31,7 @@ function AuthProvider({children}) {
         loading && setLoading(false)
     }, [loading])
 
-    const contextData = {signin, signout, token, setToken, /*getUserObj*/};
+    const contextData = {signin, signout, token, setToken};
 
     // only render after initial load (persist token through page refresh)
     return <AuthContext.Provider value={contextData}>{loading ? null : children}</AuthContext.Provider>;

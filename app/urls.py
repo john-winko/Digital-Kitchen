@@ -16,6 +16,7 @@ urlpatterns = [
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('v1/', include(r.urls)),
     path('parseUrl/', parse_url, name='parse_url'),
-    path('test/', test, name='test')
+    path('test/', test, name='test'),
+    path('signup/', signup, name='signup')
 
 ]

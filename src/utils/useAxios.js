@@ -18,6 +18,7 @@ const headerName = 'Bearer'
 // API: token endpoints
 const refreshURL = "/api/token/refresh/"
 const tokenLoginURL = "/api/token/"
+const signupURL = "/api/signup/"
 
 const getLocalToken = () => {
     return localStorage.getItem(tokenName)// ? JSON.parse(localStorage.getItem(tokenName)) : null
@@ -35,6 +36,17 @@ const getLoginToken = async (formData) => {
     } catch (err) {
         console.log("login error", err)
         return null
+    }
+}
+
+const signup = async (formData) => {
+    try {
+        console.log("inside axios")
+        const axiosInstance = axios.create({baseURL});
+        const response = await axiosInstance.post(signupURL, formData)
+        return response.data
+    }catch (err){
+        return err
     }
 }
 
@@ -78,4 +90,4 @@ const useAxios = () => {
     return axiosInstance
 }
 
-export {useAxios, getLocalToken, getLoginToken, clearToken};
+export {useAxios, getLocalToken, getLoginToken, clearToken, signup};

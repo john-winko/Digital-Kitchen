@@ -138,3 +138,16 @@ rgba(169,94,176,0.95) 100%)!important;
     max-height: 100%;
     border-radius: 3rem;
 }
+
+.signup .MuiInput-root {
+    margin-block: 1rem;
+    margin-inline: auto;
+}
+
+.errorDetails {
+    min-width: 100%;
+    border-radius: 1rem;
+    background-color: #ee3c3c;
+    text-align: center;
+    padding: 1rem;
+}

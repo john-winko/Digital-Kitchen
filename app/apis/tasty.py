@@ -1,7 +1,5 @@
-# TODO explicit imports
 import os
-
-from app.models import *
+from app.models import Recipe, RecipeStep, RecipeIngredient, Nutrition
 import json
 import requests
 

@@ -109,6 +109,24 @@ def parse_url(request):
 
 
 @api_view(['POST'])
-@permission_classes([IsAuthenticated])
+def signup(request):
+    try:
+        # TODO add validation
+        user = User()
+        user.username = request.data['username']
+        user.set_password(request.data['password'])
+        user.email = request.data['email']
+        user.first_name = request.data['firstName']
+        user.last_name = request.data['lastName']
+        user.save()
+        return JsonResponse(UserSerializer(user).data, status=200)
+    except Exception as e:
+        print(e)
+        return JsonResponse({"error":"error details"}, status=500)
+
+
+@api_view(['POST'])
+# @permission_classes([IsAuthenticated])
 def test(request):
-    pass
+    print(request.data)
+    return JsonResponse({}, status=200)
