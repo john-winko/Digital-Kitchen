@@ -23,9 +23,7 @@ const ExpandMore = styled((props) => {
 
 export default function RecipeCard({recipe, initialExpand = false}) {
     const [expanded, setExpanded] = useState(false);
-
     const {toggleFavorite, isFavorite} = useContext(MyCollectionContext)
-
     const recipeJSON = JSON.stringify(recipe.raw)
 
     useEffect(() => {
@@ -35,7 +33,7 @@ export default function RecipeCard({recipe, initialExpand = false}) {
     }, [initialExpand])
 
     return (
-        <Card mx={"auto"} sx={{my: "1rem", bgcolor: "#bee8ba", borderRadius: 5, boxShadow: 20}}>
+        <Card>
             <RecipeCardHeader name={recipe.name} isFavorite={isFavorite(recipe.id)}
                               toggleFavorite={() => toggleFavorite(recipe.id)}/>
             <RecipeCardBody

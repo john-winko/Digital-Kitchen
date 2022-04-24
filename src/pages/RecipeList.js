@@ -1,18 +1,14 @@
 import RecipeCard from "../components/RecipeCard/RecipeCard";
 import {useEffect, useState} from "react";
 import {useAxios} from "../utils/useAxios";
-import {Pagination} from "@mui/material";
-import {Search} from "@mui/icons-material";
-import IconButton from "@mui/material/IconButton";
+import {Grid, Pagination} from "@mui/material";
 import {useParams} from "react-router-dom";
 
 export default function RecipeList({favoritesOnly = false}) {
     const {query} = useParams()
     const [recipeList, setRecipeList] = useState([])
     const [page, setPage] = useState(1)
-    // const [query, setQuery] = useState(null)
     const backend = useAxios()
-
 
 
     useEffect(() => {
@@ -35,24 +31,21 @@ export default function RecipeList({favoritesOnly = false}) {
         }
     }, [favoritesOnly, page, query])
 
-
     return (
-        <div>
-            <div style={{display:"flex", flexDirection:"row"}}>
+        <Grid container direction={"column"}>
+
+            <Grid item className={"paginate"}>
                 <Pagination count={10}
-                            onChange={(e,v)=>setPage(v)} sx={{marginInline:"auto"}}
+                            onChange={(e, v) => setPage(v)}
                             size={"large"}
                             color={"secondary"}
                 />
-            </div>
-            <div className={"d-flex flex-column "} style={{marginInline: "auto", maxWidth: "1100px"}}>
-            {/*{console.log("recipe list", recipeList)}*/}
-            {recipeList.map((recipe) =>
-                <RecipeCard key={recipe.id} {...{recipe}} />
-            )}
-        </div>
-        </div>
-
-
+            </Grid>
+            <Grid item>
+                {recipeList.map((recipe) =>
+                    <RecipeCard key={recipe.id} {...{recipe}} />
+                )}
+            </Grid>
+        </Grid>
     )
 }

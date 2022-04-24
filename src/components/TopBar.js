@@ -16,7 +16,7 @@ export default function TopBar() {
                 </Link>
             </Grid>
             <Grid item xs marginLeft={"auto"} marginRight={"auto"}>
-                <RecipeSearch />
+                <RecipeSearch/>
             </Grid>
             <Grid item xs={3}>
                 <div className={"rightGrid"}>

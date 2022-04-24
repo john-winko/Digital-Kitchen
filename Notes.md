@@ -14,29 +14,29 @@
 - Create calendaring for recipes
 - Remove up/down votes
 - Create My Recipes list of what has been saved to favorites
-
-# In progress
 - Start working api calls from backend (send cached json for first result, api calls if there are parameters)
 - Add 2nd Api
 - Add serializer for Url and Tasty apis
 - Refactor parse_url in backend to grab json file instead of api and serialize based on info then send to front end
-
-# Backlog
-- Create logo for navbar
-- Recent favorites not updating to actual latest added (update view queryset)
 - Implement Search in Sidebar
 - Make data models/serializers for the JSON recipes from Tasty API
 - Add ingredients/steps to RecipeCard
+- Create single recipe card route/page
+- Add pagination to recipe list
+- Move favoriting to top right
+- Split recipe card show image left, chips right (limit to 10/15?), move keyword chips to top
+
+# In progress
+- Add wait icon for api loads on front end
+
+# Backlog
+- Create logo for navbar
 - Grab/parse meal types and replace int with strings in todo's
 - Rearrange format of meal planning so meal list takes up long view of page
-- Create single recipe card route/page
 - use overflow auto for recipes to make pagination easier
-- Add pagination to recipe list
 - refresh token is making 3 calls
-- Move favoriting to top right
 - Add correct number of paginations on recipe listing favorites/browse/search
 - recipe list, option at top to hide current favorites
-- Split recipe card show image left, chips right (limit to 10/15?), move keyword chips to top
 
 # Stretch
 - Save tag preferences as well
