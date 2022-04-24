@@ -1,19 +1,14 @@
-import json
-import os
-
-import requests
-from rest_framework.viewsets import ModelViewSet
 from django.http import JsonResponse
+from dotenv import load_dotenv
+from rest_framework.decorators import action
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.viewsets import ModelViewSet
+
+import app.apis.cookbook
 # TODO: explicit imports
 import app.apis.tasty
-import app.apis.cookbook
 from .serializers import *
-from .models import *
-from django.contrib.auth.models import User
-from rest_framework.decorators import action
-from dotenv import load_dotenv
 
 load_dotenv()
 
@@ -25,8 +20,6 @@ class UserViewSet(ModelViewSet):
 
     @action(methods=['GET'], detail=False)
     def whoami(self, request, pk=None):
-        # print("whoami")
-        # print(request.user)
         return JsonResponse(UserSerializer(request.user).data, status=200)
 
 
@@ -40,7 +33,7 @@ class KeywordViewSet(ModelViewSet):
 
     def create(self, request, *args, **kwargs):
         data = request.data
-        data._mutable = True
+        data._mutable = True  # only works if no class instances (only primitives)
         data['user'] = request.user.pk
         serializer = KeywordSerializer(data=data)
         if serializer.is_valid():
@@ -102,30 +95,13 @@ class MealViewSet(ModelViewSet):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def parse_url(request):
-    try:
-        url = "https://mycookbook-io1.p.rapidapi.com/recipes/rapidapi"
-
-        payload = request.data["url"]
-        headers = {
-            "content-type": "text/plain",
-            "X-RapidAPI-Host": "mycookbook-io1.p.rapidapi.com",
-            "X-RapidAPI-Key": os.getenv('COOKBOOK_API_KEY')
-        }
-
-        response = requests.request("POST", url, data=payload, headers=headers)
-        json_text = json.loads(response.text)
-
-        recipe = app.apis.cookbook.parse_url_api(json_text[0])
-        if recipe:
-            return JsonResponse(RecipeSerializer(recipe).data, status=200)
-        return JsonResponse({"error": "error"}, status=554)
-    except Exception as e:
-        print(e)
-        return JsonResponse({"error": "error"}, status=555)
+    recipe = app.apis.cookbook.parse_url_api(request.data["url"])
+    if recipe:
+        return JsonResponse(RecipeSerializer(recipe).data, status=200)
+    return JsonResponse({"error": "error parse url"}, status=500)
 
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def test(request):
     pass
-

@@ -1,8 +1,26 @@
+import json
+import os
+
+import requests
+
 from app.models import Recipe, RecipeStep, RecipeIngredient
 
 
-def parse_url_api(data):
+def parse_url_api(url_lookup):
     try:
+        url = "https://mycookbook-io1.p.rapidapi.com/recipes/rapidapi"
+
+        payload = url_lookup
+        headers = {
+            "content-type": "text/plain",
+            "X-RapidAPI-Host": "mycookbook-io1.p.rapidapi.com",
+            "X-RapidAPI-Key": os.getenv('RAPID_API_KEY')
+        }
+
+        response = requests.request("POST", url, data=payload, headers=headers)
+        json_text = json.loads(response.text)
+        data = json_text[0]
+
         recipe = Recipe(
             source=Recipe.RecipeSource.URLPARSE,
             name=data['name'],

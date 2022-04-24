@@ -1,10 +1,14 @@
 # TODO explicit imports
+import os
+
 from app.models import *
 import json
+import requests
 
 
-def tasty_browse(index=0):
-    if index == 0:
+def tasty_browse(index=1, query=None):
+    # only waste api calls if they are searching past the first set of results
+    if index < 2 and query is None:
         file = open("app/fixtures/recipeList.json").read()
         output = json.loads(file)
         pks = []
@@ -12,8 +16,20 @@ def tasty_browse(index=0):
             pks.append(create_or_find(result))
         return pks
     else:
-        pass
-    # TODO add in API call to tasty for paginated results
+        url = "https://tasty.p.rapidapi.com/recipes/list"
+        querystring = {"from": (index-1)*20, "size": "20"}
+        if query:
+            querystring['q'] = query
+        headers = {
+            "X-RapidAPI-Host": "tasty.p.rapidapi.com",
+            "X-RapidAPI-Key": os.getenv('RAPID_API_KEY')
+        }
+        response = requests.request("GET", url, headers=headers, params=querystring)
+        output = json.loads(response.text)
+        pks = []
+        for result in output['results']:
+            pks.append(create_or_find(result))
+        return pks
 
 
 def create_or_find(data):
