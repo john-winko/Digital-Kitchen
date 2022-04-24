@@ -3,10 +3,14 @@ import {Link} from "react-router-dom";
 import {MyCollectionContext} from "../../context/MyCollection";
 import {Menu, MenuItem, ProSidebar, SidebarContent, SidebarFooter, SidebarHeader, SubMenu} from 'react-pro-sidebar';
 import 'react-pro-sidebar/dist/css/styles.css';
-import AnchorIcon from '@mui/icons-material/Anchor';
 import CollectionsIcon from '@mui/icons-material/Collections';
 import ShopIcon from '@mui/icons-material/Shop';
-
+import DownloadIcon from '@mui/icons-material/Download';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
+import FlatwareIcon from '@mui/icons-material/Flatware';
+import HandymanIcon from '@mui/icons-material/Handyman';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
 
 ///////////////////////////
 // https://codesandbox.io/s/9bbm9?file=/src/Aside.js
@@ -32,11 +36,11 @@ export default function Sidebar() {
                 <Menu iconShape="circle">
                     <SubMenu suffix={<span>({myRecipes.length})</span>}
                              title="My Collection"
-                             icon={<AnchorIcon/>}>
-                        <MenuItem icon={<AnchorIcon/>}>
+                             icon={<FavoriteIcon/>}>
+                        <MenuItem icon={<FlatwareIcon/>}>
                             <Link to={"/recipe_list/favorites"}>View Recipes</Link>
                         </MenuItem>
-                        <SubMenu title="Recent Favorites" icon={<AnchorIcon/>}>
+                        <SubMenu title="Recent Favorites" icon={<FilterAltIcon/>}>
                             {top5.map((element) => {
                                 return (
                                     <MenuItem key={element.id}>
@@ -49,13 +53,13 @@ export default function Sidebar() {
                 </Menu>
 
                 <Menu iconShape={"circle"}>
-                    <MenuItem icon={<AnchorIcon/>}>
+                    <MenuItem icon={<MenuBookIcon/>}>
                         <Link to={"/recipe_list"}>Browse Recipes</Link>
                     </MenuItem>
                 </Menu>
 
                 <Menu iconShape={"circle"}>
-                    <MenuItem icon={<AnchorIcon/>}>
+                    <MenuItem icon={<DownloadIcon/>}>
                         <Link to={"/add_blog_recipe"}>Import from URL</Link>
                     </MenuItem>
                 </Menu>
@@ -67,7 +71,7 @@ export default function Sidebar() {
                 </Menu>
 
                 <Menu iconShape="circle">
-                    <MenuItem icon={<AnchorIcon/>}>
+                    <MenuItem icon={<HandymanIcon/>}>
                         <Link to={"/meal_planning"}>Meal Planning</Link>
                     </MenuItem>
                 </Menu>
