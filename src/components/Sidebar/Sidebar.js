@@ -4,7 +4,6 @@ import {MyCollectionContext} from "../../context/MyCollection";
 import {Menu, MenuItem, ProSidebar, SidebarContent, SidebarFooter, SidebarHeader, SubMenu} from 'react-pro-sidebar';
 import 'react-pro-sidebar/dist/css/styles.css';
 import AnchorIcon from '@mui/icons-material/Anchor';
-import SettingsIcon from '@mui/icons-material/Settings';
 import CollectionsIcon from '@mui/icons-material/Collections';
 import ShopIcon from '@mui/icons-material/Shop';
 
@@ -23,18 +22,20 @@ export default function Sidebar() {
     }, [myRecipes])
 
     return (
-        <ProSidebar  image={backgroundImg}>
+        <ProSidebar image={backgroundImg}>
 
             <SidebarHeader>
                 <div>My Dashboard</div>
             </SidebarHeader>
 
             <SidebarContent>
-
                 <Menu iconShape="circle">
-                    <SubMenu suffix={<span>({myRecipes.length})</span>} title="My Collection" icon={<AnchorIcon/>}>
-                        <MenuItem icon={<AnchorIcon/>}><Link to={"/recipe_list/favorites"}>View
-                            Recipes</Link></MenuItem>
+                    <SubMenu suffix={<span>({myRecipes.length})</span>}
+                             title="My Collection"
+                             icon={<AnchorIcon/>}>
+                        <MenuItem icon={<AnchorIcon/>}>
+                            <Link to={"/recipe_list/favorites"}>View Recipes</Link>
+                        </MenuItem>
                         <SubMenu title="Recent Favorites" icon={<AnchorIcon/>}>
                             {top5.map((element) => {
                                 return (
@@ -46,23 +47,25 @@ export default function Sidebar() {
                         </SubMenu>
                     </SubMenu>
                 </Menu>
-                <Menu iconShape={"circle"}>
-                    <MenuItem icon={<AnchorIcon/>}><Link to={"/recipe_list"}>Browse Recipes</Link></MenuItem>
-                </Menu>
-                <Menu iconShape={"circle"}>
-                    <SubMenu title="Add Recipe" icon={<SettingsIcon/>}>
-                        <MenuItem icon={<AnchorIcon/>}><Link to={"/coming_soon"}>Manual</Link></MenuItem>
-                        <MenuItem icon={<AnchorIcon/>}><Link to={"/add_blog_recipe"}>From blog/website</Link></MenuItem>
-                    </SubMenu>
 
+                <Menu iconShape={"circle"}>
+                    <MenuItem icon={<AnchorIcon/>}>
+                        <Link to={"/recipe_list"}>Browse Recipes</Link>
+                    </MenuItem>
                 </Menu>
+
+                <Menu iconShape={"circle"}>
+                    <MenuItem icon={<AnchorIcon/>}>
+                        <Link to={"/add_blog_recipe"}>Import from URL</Link>
+                    </MenuItem>
+                </Menu>
+
                 <Menu iconShape="circle">
-                    <SubMenu title="Preferences" icon={<SettingsIcon/>}>
-                        <MenuItem icon={<CollectionsIcon/>}>
-                            <Link to={"/keywords"}>Keyword settings</Link>
-                        </MenuItem>
-                    </SubMenu>
+                    <MenuItem icon={<CollectionsIcon/>}>
+                        <Link to={"/keywords"}>Keyword settings</Link>
+                    </MenuItem>
                 </Menu>
+
                 <Menu iconShape="circle">
                     <MenuItem icon={<AnchorIcon/>}>
                         <Link to={"/meal_planning"}>Meal Planning</Link>
@@ -73,7 +76,6 @@ export default function Sidebar() {
                     <MenuItem icon={<ShopIcon/>}>
                         <Link to={"/coming_soon"}>Shopping List</Link>
                     </MenuItem>
-
                 </Menu>
             </SidebarContent>
 

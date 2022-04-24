@@ -115,3 +115,11 @@ rgba(169,94,176,0.95) 100%)!important;
     border: 4px solid #b46f83;
 }
 
+.keywords form {
+    background-color: rgba(93, 231, 116, 0.9) !important;
+    height: 100%!important;
+    padding: 2rem;
+    border-radius: 2rem;
+    margin: 2rem;
+    text-align: center;
+}

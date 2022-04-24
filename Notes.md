@@ -25,24 +25,24 @@
 - Add pagination to recipe list
 - Move favoriting to top right
 - Split recipe card show image left, chips right (limit to 10/15?), move keyword chips to top
+- Rearrange format of meal planning so meal list takes up long view of page
 
 # In progress
 - Add wait icon for api loads on front end
+- Grab/parse meal types and replace int with strings in todo's
 
 # Backlog
 - Create logo for navbar
-- Grab/parse meal types and replace int with strings in todo's
-- Rearrange format of meal planning so meal list takes up long view of page
-- use overflow auto for recipes to make pagination easier
 - refresh token is making 3 calls
 - Add correct number of paginations on recipe listing favorites/browse/search
-- recipe list, option at top to hide current favorites
 
 # Stretch
 - Save tag preferences as well
+- recipe list, option at top to hide current favorites
 - Custom serialization of different recipe apis into one model on our backend
 - Implement signup
 - Implement footer
+- Add custom coloring for keyword preferences (allow user to set for their profile)
 - Make search areas smaller (in sidebar)
 - Security, retrieve keys from backend (don't store in React->.env instead use django to pull .env and serve to react app in useContext)
 - Try to wrap a context inside the Routes (how to?)
