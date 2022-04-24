@@ -2,15 +2,15 @@ import React from 'react';
 import ReactDOMClient from 'react-dom/client'
 import './index.css';
 import App from './App';
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter} from "react-router-dom";
 
 const rootElement = document.getElementById("root")
 const root = ReactDOMClient.createRoot(rootElement)
 root.render(
   // <React.StrictMode>
-      <BrowserRouter>
+      <HashRouter>
           <App />
-      </BrowserRouter>
+      </HashRouter>
 
   // </React.StrictMode>
 );

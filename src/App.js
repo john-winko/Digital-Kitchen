@@ -26,7 +26,6 @@ function App() {
                         <Route path={"/signup"} element={<Signup />}/>
                         <Route path={"/coming_soon"} element={<ComingSoon />} />
                         <Route element={<RequireAuth />}>
-
                             <Route path={"/add_blog_recipe"} element={<AddBlogRecipe />}/>
                             <Route path={"/recipe/:id"} element={<SingleRecipe />}/>
                             <Route path={"/recipe_list/favorites"} element={<RecipeList favoritesOnly />}/>

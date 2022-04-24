@@ -21,9 +21,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-def send_the_homepage(request):
-    react_app = open('build/index.html').read()
-    return HttpResponse(react_app)
+# def send_the_homepage(request):
+#     react_app = open('build/index.html').read()
+#     return HttpResponse(react_app)
 
 
 class UserViewSet(ModelViewSet):

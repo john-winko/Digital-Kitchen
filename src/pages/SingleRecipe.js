@@ -11,7 +11,7 @@ export default function SingleRecipe(){
     useEffect(()=>{
             backend.get(`/api/v1/user_recipe/${params.id}`).then((res)=>{
                 setRecipe(res.data.recipe)
-                console.log("params", res.data.recipe)
+                console.log("params", res)
             })
     },[params])
 

@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 
-DEBUG = (os.getenv('DEBUG') == "true")
+DEBUG = True# (os.getenv('DEBUG') == "true")
 
 ALLOWED_HOSTS = ['*']
 
@@ -75,10 +75,15 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'proj.urls'
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "build/static"),  # your static/ files folder
+    os.path.join(BASE_DIR, "build"),  # your static/ files folder
+]
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'build'),os.path.join(BASE_DIR, "build/static")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -123,9 +128,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "build\\static"),  # your static/ files folder
-]
 
 STATIC_URL = 'static/'
 
