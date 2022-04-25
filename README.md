@@ -1,21 +1,12 @@
 # Personal Project - Recipe and meal planner
 
+## Live DEMO can be found at [https://digitalkitchen.johnwinko.net](https://digitalkitchen.johnwinko.net)
 
 ## Setup
 
 ### Clone repo (take note of ending dot if you don't want to make another subfolder)
 ~~~
-git clone https://github.com/john-winko/template2.git .
-~~~
-
-### Switch to JWT branch
-~~~
-git checkout jwt
-~~~
-
-### (Optional) open up vs code
-~~~
-code .
+git clone https://github.com/john-winko/DigitalKitchen.git .
 ~~~
 
 ~~~
@@ -35,14 +26,22 @@ source venv/bin/activate
 ~~~
 pip install -r requirements.txt
 ~~~
+Make .env file (from template)
+~~~
+cp .env.sample .env
+~~~
+
+### Update .env file
+- Add django secret key
+- Set DEBUG=True for local development
+- Set REACT_APP_URL_PREFIX=http://localhost:8000 (or wherever you would run the django server)
+- Add RapidAPI key
+  - Must subscribe to the Tasty and MyCookbook.io API's for full functionality
 
 ~~~
 python manage.py migrate
 ~~~
 
-~~~
-python manage.py loaddata data.json
-~~~
 
 ~~~
 npm install
@@ -56,7 +55,7 @@ python manage.py runserver
 npm run start
 ~~~
 
-
-There are 3 sample users (admin, Joe and Bill)
-
-Password is same as their name for login
+(Optional) if you want to serve the app from django
+~~~
+npm run build
+~~~
