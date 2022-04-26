@@ -22,7 +22,7 @@ export default function Sidebar() {
     const [top5, setTop5] = useState([])
 
     useEffect(() => {
-        setTop5(myRecipes.slice(0, 5))
+        setTop5(myRecipes.slice(-5))
     }, [myRecipes])
 
     return (
