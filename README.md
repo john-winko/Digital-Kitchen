@@ -1,6 +1,6 @@
 # Personal Project - Recipe and meal planner
 
-## Live DEMO can be found at [https://digitalkitchen.johnwinko.net](https://digitalkitchen.johnwinko.net)
+## Live DEMO can be found at [https://digitalkitchen.johnwinko.com](https://digitalkitchen.johnwinko.com)
 
 ## Setup
 
